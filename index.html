@@ -8,6 +8,8 @@
 <meta property="og:title" content="KaveloLab — Jasa Pembuatan Website Profesional">
 <meta property="og:description" content="Website profesional untuk bisnis dan personal brand. Pilih paket Starter, Business, atau Pro sesuai kebutuhan.">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="id_ID">
+<meta name="robots" content="index, follow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314120F'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='34' font-weight='600' fill='%23C49D5A' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -219,6 +221,69 @@
     .price-grid{ display: grid; grid-template-columns: repeat(3, 1fr); }
     .value-grid{ display: grid; grid-template-columns: repeat(2, 1fr); }
   }
+
+  /* ---------- chatbot ---------- */
+  .chat-fab{
+    position: fixed; right: 18px; bottom: 18px; z-index: 200;
+    width: 54px; height: 54px; border-radius: 50%; background: var(--brass); color: #14120F;
+    border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  }
+  .chat-fab svg{ width: 24px; height: 24px; }
+  .chat-fab .ic-close{ display: none; }
+  .chat-fab.open .ic-chat{ display: none; }
+  .chat-fab.open .ic-close{ display: block; }
+
+  .chat-panel{
+    position: fixed; right: 18px; bottom: 84px; z-index: 199;
+    width: min(340px, calc(100vw - 36px)); max-height: min(520px, calc(100vh - 140px));
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    display: none; flex-direction: column; overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  }
+  .chat-panel.open{ display: flex; }
+  .chat-head{
+    background: var(--surface-2); border-bottom: 1px solid var(--line);
+    padding: 14px 16px; display: flex; align-items: center; gap: 10px;
+  }
+  .chat-head .dot{ width: 8px; height: 8px; border-radius: 50%; background: #5FBE7A; flex-shrink: 0; }
+  .chat-head .ti{ flex: 1; min-width: 0; }
+  .chat-head .ti strong{ display: block; font-size: 13.5px; font-weight: 700; }
+  .chat-head .ti span{ display: block; font-size: 10.5px; color: var(--ink-faint); margin-top: 1px; }
+
+  .chat-body{ flex: 1; overflow-y: auto; padding: 14px 14px 8px; display: flex; flex-direction: column; gap: 10px; }
+  .chat-msg{ max-width: 86%; font-size: 12.5px; line-height: 1.6; padding: 9px 12px; border-radius: 8px; }
+  .chat-msg.bot{ background: var(--surface-2); border: 1px solid var(--line); color: var(--ink-soft); align-self: flex-start; border-bottom-left-radius: 2px; }
+  .chat-msg.user{ background: var(--brass); color: #14120F; align-self: flex-end; border-bottom-right-radius: 2px; font-weight: 600; }
+  .chat-msg a{ color: var(--brass); text-decoration: underline; }
+  .chat-msg.bot a{ color: var(--brass); }
+
+  .chat-suggest{ display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 14px 12px; }
+  .chat-suggest button{
+    background: none; border: 1px solid var(--line); color: var(--ink-soft);
+    font-size: 11px; padding: 7px 10px; border-radius: 20px; cursor: pointer; font-family: 'Manrope', sans-serif;
+  }
+  .chat-suggest button:hover{ border-color: var(--brass); color: var(--ink); }
+
+  .chat-input-row{
+    border-top: 1px solid var(--line); padding: 10px; display: flex; gap: 8px; flex-shrink: 0;
+  }
+  .chat-input-row input{
+    flex: 1; min-width: 0; background: var(--bg); border: 1px solid var(--line); border-radius: 20px;
+    padding: 10px 14px; color: var(--ink); font-size: 12.5px; font-family: 'Manrope', sans-serif;
+  }
+  .chat-input-row input:focus{ outline: none; border-color: var(--brass); }
+  .chat-input-row button{
+    width: 38px; height: 38px; border-radius: 50%; background: var(--brass); border: none;
+    display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0;
+  }
+  .chat-input-row button svg{ width: 16px; height: 16px; color: #14120F; }
+  .chat-disclaimer{ font-size: 9.5px; color: var(--ink-faint); text-align: center; padding: 0 14px 10px; }
+
+  @media(min-width: 480px){
+    .chat-panel{ right: 24px; bottom: 90px; }
+    .chat-fab{ right: 24px; bottom: 24px; }
+  }
 </style>
 </head>
 <body>
@@ -227,6 +292,7 @@
   <div class="wrap nav-inner">
     <a href="#top" class="nav-logo">Kavelo<span>Lab</span></a>
     <div class="nav-links">
+      <a href="#layanan">Layanan</a>
       <a href="#showcase">Demo</a>
       <a href="#harga">Harga</a>
       <a href="#proses">Proses</a>
@@ -236,6 +302,7 @@
     <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
   <div class="nav-mobile">
+    <a href="#layanan">Layanan</a>
     <a href="#showcase">Demo</a>
     <a href="#harga">Harga</a>
     <a href="#proses">Proses</a>
@@ -285,6 +352,39 @@
     <div class="solution-block col" style="margin:0 auto;">
       <p><strong>KaveloLab bikinin website yang jadi rumah digital bisnis kamu</strong> — tempat calon customer bisa lihat siapa kamu, apa yang kamu jual, dan langsung diarahkan untuk chat lewat WhatsApp.</p>
       <p>Bukan sekadar "punya website" — tapi website yang benar-benar dipakai untuk mengarahkan orang jadi customer, bukan cuma dipajang.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<hr class="rule">
+
+<!-- ================= LAYANAN ================= -->
+<section id="layanan">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Layanan</p>
+      <h2>Satu jasa, dikerjakan sampai tuntas.</h2>
+      <p>KaveloLab fokus di satu hal: bikin website yang rapi, cepat dipakai, dan langsung mengarahkan orang untuk menghubungi kamu.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-item">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></span>
+        <p><strong style="color:var(--ink);">Website 1 halaman</strong> — landing page ringkas untuk usaha kecil yang baru mulai online.</p>
+      </div>
+      <div class="value-item">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16M4 12h16M4 19h10"/></svg></span>
+        <p><strong style="color:var(--ink);">Website multi-halaman</strong> — struktur lengkap: beranda, tentang, layanan, portfolio, kontak.</p>
+      </div>
+      <div class="value-item">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+        <p><strong style="color:var(--ink);">Desain custom</strong> — visual identity disesuaikan karakter bisnis, bukan template generik.</p>
+      </div>
+      <div class="value-item">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 18h6"/></svg></span>
+        <p><strong style="color:var(--ink);">Deploy & serah terima</strong> — website di-deploy dan siap dipakai, tanpa ribet teknis di sisi kamu.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -483,11 +583,35 @@
 
 <hr class="rule">
 
+<!-- ================= CARA KAMI KERJA (AI WORKFLOW) ================= -->
+<section id="workflow">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Cara Kami Kerja</p>
+      <h2>AI mempercepat proses build — tapi tetap direview manusia.</h2>
+      <p>Website ini sendiri, dan tiga demo di atas, dibangun dengan alur ini. Kami transparan soal ini karena percaya hasilnya harus tetap bisa dipertanggungjawabkan.</p>
+    </div>
+    <div class="process-list col" style="margin:0 auto;">
+      <div class="process-item"><span class="num">01</span><div><h3>Ide</h3><p>Menentukan tujuan dan karakter website yang mau dibangun.</p></div></div>
+      <div class="process-item"><span class="num">02</span><div><h3>Brief</h3><p>Kebutuhan halaman, konten, dan referensi visual disusun jadi brief kerja.</p></div></div>
+      <div class="process-item"><span class="num">03</span><div><h3>Build dengan Claude</h3><p>Kode HTML/CSS/JS dibangun dengan bantuan Claude (AI) berdasarkan brief tersebut.</p></div></div>
+      <div class="process-item"><span class="num">04</span><div><h3>Review Manusia</h3><p>Hasil build dicek satu-satu — struktur, visual, fungsi — sebelum dianggap layak lanjut.</p></div></div>
+      <div class="process-item"><span class="num">05</span><div><h3>Revisi</h3><p>Bagian yang belum pas diperbaiki langsung sampai sesuai brief.</p></div></div>
+      <div class="process-item"><span class="num">06</span><div><h3>Live</h3><p>Website di-deploy dan siap dipakai.</p></div></div>
+    </div>
+    <div class="solution-block col" style="margin:24px auto 0;">
+      <p>AI adalah alat bantu di proses build — bukan pengganti quality control. Setiap website tetap melalui pengecekan dan revisi manusia sebelum dinyatakan selesai.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
 <!-- ================= PROSES ================= -->
 <section id="proses">
   <div class="wrap">
     <div class="section-head">
-      <p class="eyebrow">Cara Kerja</p>
+      <p class="eyebrow">Cara Order</p>
       <h2>Lima langkah, dari chat sampai website siap pakai.</h2>
     </div>
     <div class="process-list col" style="margin:0 auto;">
@@ -546,6 +670,11 @@
         <div class="faq-a"><p>Cocok untuk UMKM, bisnis kecil, personal brand, dan jasa lokal. Kalau kebutuhannya di luar itu, diskusikan dulu lewat WhatsApp untuk lihat kecocokannya.</p></div>
       </div>
 
+      <div class="faq-item">
+        <button class="faq-q">Apakah website dibuat menggunakan AI?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Ya, sebagian proses build menggunakan bantuan AI (Claude) untuk mempercepat penulisan kode. Tapi setiap hasil tetap melalui review dan revisi manusia sebelum dinyatakan selesai — bukan langsung pakai output mentah.</p></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -570,6 +699,7 @@
       <div class="foot-tag">Jasa Pembuatan Website Profesional</div>
     </div>
     <div class="foot-links">
+      <a href="#layanan">Layanan</a>
       <a href="#showcase">Demo</a>
       <a href="#harga">Harga</a>
       <a href="#proses">Proses</a>
@@ -581,6 +711,32 @@
     </div>
   </div>
 </footer>
+
+<!-- ================= CHATBOT ================= -->
+<div class="chat-panel" id="chatPanel" role="dialog" aria-label="KaveloLab Assistant" aria-hidden="true">
+  <div class="chat-head">
+    <span class="dot"></span>
+    <div class="ti"><strong>KaveloLab Assistant</strong><span>Jawab otomatis · balas cepat</span></div>
+  </div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-suggest" id="chatSuggest">
+    <button type="button" data-q="harga">Harga paket?</button>
+    <button type="button" data-q="proses">Berapa lama proses?</button>
+    <button type="button" data-q="revisi">Kena revisi?</button>
+    <button type="button" data-q="domain">Domain & hosting?</button>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" id="chatInput" placeholder="Tulis pertanyaan..." autocomplete="off">
+    <button type="button" id="chatSend" aria-label="Kirim">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg>
+    </button>
+  </div>
+  <p class="chat-disclaimer">Asisten otomatis berbasis aturan sederhana, bukan AI generatif — untuk pertanyaan detail, lanjut ke WhatsApp.</p>
+</div>
+<button class="chat-fab" id="chatFab" aria-label="Buka chat asisten" aria-expanded="false">
+  <svg class="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+</button>
 
 <script>
   const WHATSAPP_NUMBER = "6282121759018";
@@ -626,6 +782,125 @@
           btn.setAttribute('aria-expanded', 'true');
         }
       });
+    });
+
+    // ---------- Chatbot (rule-based, front-end only, no external API) ----------
+    var waHref = function (msg) {
+      return 'https://wa.me/' + WHATSAPP_NUMBER + (msg ? '?text=' + encodeURIComponent(msg) : '');
+    };
+
+    var CHAT_RULES = [
+      {
+        keys: ['harga', 'paket', 'price', 'biaya', 'mahal', 'murah'],
+        answer: 'Ada 4 paket: <strong>Starter Rp499K</strong> (1 halaman), <strong>Business Rp999K</strong> (maks 5 halaman, paling direkomendasikan), <strong>Pro Rp1.499K</strong> (maks 8 halaman), dan <strong>Custom mulai Rp2.499K</strong> untuk kebutuhan di luar paket. Detail lengkap ada di bagian <a href="#harga">Harga</a>.'
+      },
+      {
+        keys: ['proses', 'lama', 'berapa hari', 'estimasi', 'waktu'],
+        answer: 'Estimasi pengerjaan: Starter 3 hari, Business 5 hari, Pro 7 hari — tergantung kelengkapan konten (teks, foto, logo) yang kamu siapkan.'
+      },
+      {
+        keys: ['revisi', 'ubah', 'ganti desain'],
+        answer: 'Jatah revisi: Starter 1×, Business 2×, Pro 3×. Revisi mencakup perubahan minor teks, warna, gambar, atau layout — di luar redesign total atau tambah halaman baru.'
+      },
+      {
+        keys: ['domain', 'hosting', 'subdomain'],
+        answer: 'Deploy default ke subdomain gratis (GitHub Pages / Cloudflare Pages). Custom domain & hosting tersedia sebagai layanan tambahan (add-on), tidak termasuk harga paket utama.'
+      },
+      {
+        keys: ['seo'],
+        answer: 'Semua paket sudah termasuk basic on-page SEO: title, meta description, heading structure, alt text, dan struktur halaman yang search-engine-friendly. Bukan jaminan ranking, traffic, atau hasil pencarian tertentu.'
+      },
+      {
+        keys: ['demo', 'contoh', 'portfolio', 'lihat hasil'],
+        answer: 'Ada 3 demo live yang bisa kamu buka langsung: Senja Coffee (Starter), BENTANG (Business), dan ARUNA (Pro). Cek di bagian <a href="#showcase">Demo</a>.'
+      },
+      {
+        keys: ['ai', 'claude', 'chatbot', 'pakai ai'],
+        answer: 'Ya, sebagian proses build menggunakan bantuan AI (Claude) untuk mempercepat penulisan kode — tapi tetap direview dan direvisi manusia sebelum selesai. Chatbot ini sendiri berbasis aturan sederhana, bukan AI generatif.'
+      },
+      {
+        keys: ['mulai', 'order', 'pesan', 'cara'],
+        answer: 'Gampang — langsung chat via WhatsApp, ceritakan kebutuhan bisnis kamu, nanti diarahkan pilih paket yang paling cocok.'
+      },
+      {
+        keys: ['responsive', 'hp', 'mobile'],
+        answer: 'Ya, semua paket dibuat responsive — tampil rapi di HP, tablet, dan desktop.'
+      },
+      {
+        keys: ['halo', 'hai', 'hi', 'hello', 'pagi', 'siang', 'malam'],
+        answer: 'Halo! Mau tanya soal harga, proses pengerjaan, revisi, atau demo? Tinggal ketik atau pilih tombol cepat di bawah.'
+      }
+    ];
+
+    var FALLBACK = 'Untuk pertanyaan ini aku belum punya jawaban pastinya — supaya nggak salah info, langsung tanya via WhatsApp aja ya, dibalas cepat kok.';
+
+    function findAnswer(text) {
+      var t = text.toLowerCase();
+      for (var i = 0; i < CHAT_RULES.length; i++) {
+        var rule = CHAT_RULES[i];
+        for (var j = 0; j < rule.keys.length; j++) {
+          if (t.indexOf(rule.keys[j]) !== -1) return rule.answer;
+        }
+      }
+      return null;
+    }
+
+    var chatFab = document.getElementById('chatFab');
+    var chatPanel = document.getElementById('chatPanel');
+    var chatBody = document.getElementById('chatBody');
+    var chatInput = document.getElementById('chatInput');
+    var chatSend = document.getElementById('chatSend');
+    var chatSuggest = document.getElementById('chatSuggest');
+    var chatOpened = false;
+
+    function addMsg(text, who) {
+      var div = document.createElement('div');
+      div.className = 'chat-msg ' + who;
+      div.innerHTML = text;
+      chatBody.appendChild(div);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    function botReply(userText) {
+      var found = findAnswer(userText);
+      setTimeout(function () {
+        if (found) {
+          addMsg(found, 'bot');
+        } else {
+          addMsg(FALLBACK + ' <a href="' + waHref('Halo KaveloLab, saya mau tanya: ' + userText) + '" target="_blank" rel="noopener noreferrer">Chat WhatsApp →</a>', 'bot');
+        }
+      }, 350);
+    }
+
+    function handleSend(text) {
+      text = (text || '').trim();
+      if (!text) return;
+      addMsg(text, 'user');
+      chatInput.value = '';
+      botReply(text);
+    }
+
+    if (chatFab && chatPanel) {
+      chatFab.addEventListener('click', function () {
+        var isOpen = chatPanel.classList.toggle('open');
+        chatFab.classList.toggle('open', isOpen);
+        chatFab.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        chatPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+        if (isOpen && !chatOpened) {
+          chatOpened = true;
+          addMsg('Halo! 👋 Aku asisten otomatis KaveloLab. Aku bisa bantu jawab soal harga, proses, revisi, domain/hosting, atau demo. Untuk hal di luar itu, aku arahkan ke WhatsApp.', 'bot');
+        }
+        if (isOpen) chatInput.focus();
+      });
+    }
+
+    if (chatSend) chatSend.addEventListener('click', function () { handleSend(chatInput.value); });
+    if (chatInput) chatInput.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') handleSend(chatInput.value);
+    });
+    if (chatSuggest) chatSuggest.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[data-q]');
+      if (btn) handleSend(btn.getAttribute('data-q'));
     });
   });
 </script>
