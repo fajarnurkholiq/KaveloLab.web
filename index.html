@@ -1,215 +1,1573 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>KaveloLab — AI & Technology Lab</title>
-<meta name="description" content="KaveloLab adalah AI & Technology Lab. Bikin website, eksperimen AI, dan project teknologi untuk bisnis dan personal brand." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E0C0A'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-weight='700' fill='%23D4AF37' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0E0C0A;--surface:#171410;--surface-2:#1D1A15;--border:#2C2822;--text:#F2EDE6;--text-soft:#B5AD9E;--text-faint:#7A7263;--gold:#D4AF37;--serif:'Fraunces',Georgia,serif;--sans:'Manrope',-apple-system,sans-serif;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-8:32px;--space-10:40px;--space-12:48px;--space-16:64px;--radius:12px;--radius-sm:6px}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
-.container{max-width:1120px;margin:0 auto;padding:0 var(--space-6)}
-a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2;letter-spacing:-0.01em}
-.eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--gold);margin-bottom:var(--space-3)}
-.eyebrow::before{content:"";width:18px;height:1.5px;background:var(--gold);flex-shrink:0}
-.section-title{font-size:clamp(26px,4.5vw,40px);font-weight:600;line-height:1.15}
-.section-title em{font-style:italic;color:var(--gold)}
-.section-desc{font-size:15px;color:var(--text-soft);max-width:540px;line-height:1.7;margin-top:var(--space-3)}
-.text-center{text-align:center}
-.text-center .section-desc{margin-left:auto;margin-right:auto}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-2);padding:14px 28px;font-family:var(--sans);font-size:13.5px;font-weight:700;line-height:1;border-radius:var(--radius-sm);border:1px solid transparent;transition:all .2s;cursor:pointer}
-.btn-primary{background:var(--gold);color:#0E0C0A}
-.btn-primary:hover{background:#e0c04a;transform:scale(.97)}
-.btn-outline{background:transparent;color:var(--text);border-color:var(--border)}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.btn-sm{padding:10px 18px;font-size:12px}
-.btn-block{width:100%;justify-content:center}
-nav{position:sticky;top:0;z-index:100;background:rgba(14,12,10,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px var(--space-6);max-width:1120px;margin:0 auto}
-.nav-logo{font-family:var(--serif);font-size:20px;font-weight:700}
-.nav-logo span{color:var(--gold)}
-.nav-links{display:none;gap:32px;font-size:13px;font-weight:500;color:var(--text-soft)}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{display:none}
-.nav-toggle{width:24px;height:16px;display:flex;flex-direction:column;justify-content:space-between;background:0;border:0;cursor:pointer;padding:0}
-.nav-toggle span{display:block;height:1.5px;width:100%;background:var(--text);border-radius:2px}
-@media(min-width:820px){.nav-links{display:flex}.nav-cta{display:inline-flex}.nav-toggle{display:none}}
-.nav-mobile{display:none;flex-direction:column;padding:var(--space-4) var(--space-6) var(--space-6);border-top:1px solid var(--border)}
-.nav-mobile.open{display:flex}
-.nav-mobile a{padding:var(--space-3) 0;font-size:14px;color:var(--text-soft);border-bottom:1px solid var(--border)}
-.nav-mobile a:last-child{border-bottom:0}
-.nav-mobile .btn{margin-top:var(--space-3);justify-content:center}
-.hero{padding:var(--space-12) var(--space-6) var(--space-10);text-align:center;position:relative}
-.hero::after{content:"";position:absolute;top:10%;left:50%;transform:translateX(-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(212,175,55,.04),transparent 70%);pointer-events:none;z-index:0}
-.hero *{position:relative;z-index:1}
-.hero h1{font-size:clamp(34px,7vw,56px);font-weight:600;line-height:1.1;max-width:700px;margin:0 auto var(--space-4)}
-.hero h1 em{font-style:italic;color:var(--gold)}
-.hero .lead{font-size:clamp(15px,1.8vw,18px);color:var(--text-soft);max-width:520px;margin:0 auto var(--space-8);line-height:1.8}
-.hero-ctas{display:flex;gap:var(--space-3);justify-content:center;flex-wrap:wrap;margin-bottom:var(--space-4)}
-.hero-note{font-size:12px;color:var(--text-faint)}
-section{padding:var(--space-12) var(--space-6)}
-.section-head{margin-bottom:var(--space-8)}
-.ps-grid{display:grid;gap:var(--space-3)}
-.ps-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-5) var(--space-6);display:flex;gap:var(--space-4);align-items:flex-start}
-.ps-item .mark{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:18px;flex-shrink:0;line-height:1.4}
-.ps-item p{font-size:14px;color:var(--text-soft);line-height:1.7}
-.solution-block{background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-8) var(--space-6);margin-top:var(--space-6)}
-.solution-block p{font-size:15px;color:var(--text-soft);line-height:1.8}
-.solution-block p+p{margin-top:var(--space-3)}
-.solution-block strong{color:var(--text);font-weight:700}
-.value-grid{display:grid;gap:var(--space-3)}
-.value-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-5) var(--space-6);display:flex;gap:var(--space-4);align-items:flex-start}
-.value-item .ic{color:var(--gold);font-size:20px;font-weight:700;flex-shrink:0;line-height:1.4}
-.value-item p{font-size:14px;color:var(--text-soft);line-height:1.7}
-.value-item strong{color:var(--text);font-weight:700}
-.project-grid{display:grid;gap:var(--space-4)}
-.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
-.project-card:hover{border-color:rgba(212,175,55,.25)}
-.project-visual{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.project-visual.fajar{background:radial-gradient(circle at 20% 30%,rgba(212,175,55,.15),transparent 40%),linear-gradient(145deg,#181510,#261f18)}
-.project-visual.crypto{background:radial-gradient(circle at 80% 25%,rgba(212,175,55,.12),transparent 35%),linear-gradient(145deg,#13110e,#221d16)}
-.project-screen{width:76%;height:92px;background:rgba(14,12,10,.75);border:1px solid rgba(212,175,55,.25);border-radius:var(--radius-sm);padding:var(--space-3) var(--space-4);box-shadow:0 12px 40px rgba(0,0,0,.4);display:flex;flex-direction:column;justify-content:center}
-.project-screen .bar{height:5px;width:30%;background:var(--gold);opacity:.7;border-radius:3px;margin-bottom:var(--space-3)}
-.project-screen .line{height:4px;background:#3d372e;border-radius:3px;margin-bottom:6px}
-.project-screen .line.short{width:50%}
-.project-screen .line.mid{width:70%}
-.project-screen .line.long{width:90%}
-.project-body{padding:var(--space-5) var(--space-6) var(--space-6)}
-.project-type{font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:700;margin-bottom:4px}
-.project-name{font-family:var(--serif);font-size:22px;font-weight:600;margin-bottom:2px}
-.project-status{font-size:12px;color:var(--text-faint);margin-bottom:var(--space-3)}
-.project-desc{font-size:13.5px;color:var(--text-soft);line-height:1.7;margin-bottom:var(--space-4)}
-.project-tags{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-bottom:var(--space-5)}
-.project-tags span{font-size:10.5px;color:var(--text-faint);border:1px solid var(--border);border-radius:3px;padding:4px 10px}
-.project-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-3)}
-.showcase-grid{display:grid;gap:var(--space-4)}
-.showcase-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .2s}
-.showcase-card:hover{border-color:rgba(212,175,55,.2)}
-.showcase-swatch{height:88px;display:flex}
-.showcase-swatch span{flex:1}
-.showcase-body{padding:var(--space-5) var(--space-6) var(--space-6)}
-.showcase-pkg{font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:700;margin-bottom:4px}
-.showcase-name{font-family:var(--serif);font-size:20px;font-weight:600;margin-bottom:2px}
-.showcase-pos{font-size:12.5px;color:var(--text-faint);margin-bottom:var(--space-3)}
-.showcase-desc{font-size:13px;color:var(--text-soft);line-height:1.7;margin-bottom:var(--space-5)}
-.showcase-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-3)}
-.price-grid{display:grid;gap:var(--space-4)}
-.price-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-8) var(--space-6);position:relative;transition:border-color .2s}
-.price-card.reco{border-color:var(--gold);background:var(--surface-2)}
-.price-card.reco .price-badge{position:absolute;top:-13px;left:var(--space-6);background:var(--gold);color:#0E0C0A;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:4px 14px;border-radius:20px}
-.price-name{font-family:var(--serif);font-size:20px;font-weight:600}
-.price-card.reco .price-name{color:var(--gold)}
-.price-pos{font-size:12.5px;color:var(--text-faint);margin:2px 0 var(--space-4)}
-.price-amount{font-family:var(--serif);font-size:30px;font-weight:700;margin-bottom:var(--space-5)}
-.price-amount sup{font-size:14px;font-weight:600;opacity:.6;margin-right:1px}
-.price-feat{display:flex;flex-direction:column;gap:var(--space-2);margin-bottom:var(--space-6)}
-.price-feat span{font-size:13px;color:var(--text-soft);padding-left:var(--space-4);position:relative}
-.price-feat span::before{content:"—";position:absolute;left:0;color:var(--gold);font-weight:700}
-.custom-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-5) var(--space-6);margin-top:var(--space-4);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4)}
-.custom-left .price-name{font-size:18px}
-.custom-left p{font-size:12.5px;color:var(--text-soft);margin-top:2px;max-width:360px;line-height:1.6}
-.custom-right{display:flex;align-items:center;gap:var(--space-4);flex-wrap:wrap}
-.custom-price{font-family:var(--serif);font-size:22px;font-weight:700;white-space:nowrap}
-.custom-price small{display:block;font-size:10px;font-weight:600;color:var(--text-faint);text-transform:uppercase;letter-spacing:.08em}
-.terms-note{border-top:1px solid var(--border);margin-top:var(--space-6);padding-top:var(--space-6)}
-.terms-note ul{display:flex;flex-direction:column;gap:var(--space-2)}
-.terms-note li{font-size:12.5px;color:var(--text-faint);line-height:1.7;padding-left:var(--space-4);position:relative}
-.terms-note li::before{content:"·";position:absolute;left:0}
-.process-list{display:flex;flex-direction:column}
-.process-item{display:flex;gap:var(--space-5);padding:var(--space-5) 0;border-top:1px solid var(--border)}
-.process-item:last-child{border-bottom:1px solid var(--border)}
-.process-item .num{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--gold);min-width:44px}
-.process-item h3{font-size:16px;font-weight:700;margin-bottom:2px}
-.process-item p{font-size:13px;color:var(--text-soft);line-height:1.7}
-.faq-list{display:flex;flex-direction:column;gap:var(--space-3)}
-.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden}
-.faq-q{width:100%;text-align:left;background:0;border:0;color:var(--text);padding:var(--space-5) var(--space-6);font-family:var(--sans);font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);cursor:pointer}
-.faq-q .plus{font-size:20px;color:var(--gold);flex-shrink:0;transition:transform .25s}
-.faq-item.open .faq-q .plus{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s}
-.faq-a p{padding:0 var(--space-6) var(--space-5);font-size:13px;color:var(--text-soft);line-height:1.7}
-.final-cta{text-align:center;padding:var(--space-16) var(--space-6)}
-.final-cta h2{font-size:clamp(30px,5vw,44px);font-weight:600;line-height:1.15;margin-bottom:var(--space-4)}
-.final-cta h2 em{font-style:italic;color:var(--gold)}
-.final-cta p{font-size:15px;color:var(--text-soft);max-width:420px;margin:0 auto var(--space-8);line-height:1.8}
-footer{border-top:1px solid var(--border);padding:var(--space-10) var(--space-6) var(--space-8)}
-.foot-top{margin-bottom:var(--space-6)}
-.foot-logo{font-family:var(--serif);font-size:20px;font-weight:700;margin-bottom:4px}
-.foot-logo span{color:var(--gold)}
-.foot-tag{font-size:12.5px;color:var(--text-soft)}
-.foot-links{display:flex;flex-wrap:wrap;gap:var(--space-4) var(--space-6);font-size:13px;color:var(--text-soft);margin-bottom:var(--space-6)}
-.foot-links a:hover{color:var(--gold)}
-.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--space-2);font-size:11px;color:var(--text-faint)}
-.chat-fab{position:fixed;right:20px;bottom:20px;z-index:200;width:56px;height:56px;border-radius:50%;background:var(--gold);color:#0E0C0A;border:0;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,.5);transition:transform .2s}
-.chat-fab:hover{transform:scale(.95)}
-.chat-fab .ic-close{display:none}
-.chat-fab.open .ic-chat{display:none}
-.chat-fab.open .ic-close{display:block}
-.chat-panel{position:fixed;right:20px;bottom:88px;z-index:199;width:min(360px,calc(100vw - 40px));max-height:min(520px,calc(100vh - 140px));background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:none;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.6)}
-.chat-panel.open{display:flex}
-.chat-head{background:var(--surface-2);border-bottom:1px solid var(--border);padding:var(--space-4) var(--space-5);display:flex;align-items:center;gap:var(--space-3)}
-.chat-head .dot{width:8px;height:8px;border-radius:50%;background:#4CAF50;flex-shrink:0}
-.chat-head .ti{flex:1;min-width:0}
-.chat-head .ti strong{display:block;font-size:14px;font-weight:700}
-.chat-head .ti span{display:block;font-size:10.5px;color:var(--text-faint);margin-top:1px}
-.chat-body{flex:1;overflow-y:auto;padding:var(--space-4) var(--space-4) var(--space-2);display:flex;flex-direction:column;gap:var(--space-3);min-height:140px;max-height:300px}
-.chat-msg{max-width:88%;font-size:12.5px;line-height:1.6;padding:10px 14px;border-radius:var(--radius-sm)}
-.chat-msg.bot{background:var(--surface-2);border:1px solid var(--border);color:var(--text-soft);align-self:flex-start;border-bottom-left-radius:2px}
-.chat-msg.user{background:var(--gold);color:#0E0C0A;align-self:flex-end;border-bottom-right-radius:2px;font-weight:600}
-.chat-msg a{color:var(--gold);text-decoration:underline}
-.chat-msg.user a{color:#0E0C0A}
-.chat-suggest{display:flex;flex-wrap:wrap;gap:var(--space-2);padding:var(--space-2) var(--space-4) var(--space-3)}
-.chat-suggest button{background:0;border:1px solid var(--border);color:var(--text-soft);font-size:11px;padding:6px 14px;border-radius:20px;cursor:pointer;font-family:var(--sans);transition:.15s}
-.chat-suggest button:hover{border-color:var(--gold);color:var(--text)}
-.chat-input-row{border-top:1px solid var(--border);padding:var(--space-3);display:flex;gap:var(--space-2);flex-shrink:0}
-.chat-input-row input{flex:1;min-width:0;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:10px 16px;color:var(--text);font-size:12.5px;font-family:var(--sans)}
-.chat-input-row input:focus{outline:0;border-color:var(--gold)}
-.chat-input-row button{width:40px;height:40px;border-radius:50%;background:var(--gold);border:0;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0}
-.chat-input-row button svg{width:18px;height:18px;color:#0E0C0A}
-.chat-disclaimer{font-size:9.5px;color:var(--text-faint);text-align:center;padding:0 var(--space-4) var(--space-3)}
-@media(min-width:600px){.ps-grid,.value-grid{grid-template-columns:repeat(2,1fr)}.project-grid,.showcase-grid,.price-grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:820px){.project-grid,.showcase-grid{grid-template-columns:repeat(3,1fr)}.price-grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:599px){
-.hero{padding:var(--space-8) var(--space-4) var(--space-8)}
-section{padding:var(--space-8) var(--space-4)}
-.container{padding:0 var(--space-4)}
-.nav-inner{padding:12px var(--space-4)}
-.nav-mobile{padding:var(--space-3) var(--space-4) var(--space-5)}
-.project-visual{height:130px}
-.project-screen{height:78px;padding:var(--space-2) var(--space-3)}
-.price-card{padding:var(--space-6) var(--space-4)}
-.custom-card{flex-direction:column;align-items:stretch}
-.custom-right{justify-content:flex-start}
-.chat-panel{right:12px;bottom:80px;width:calc(100vw - 24px);max-height:calc(100vh - 130px)}
-.chat-fab{right:12px;bottom:12px;width:50px;height:50px}
-.process-list,.solution-block{max-width:100%!important}
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KaveloLab — bikin website, eksperimen AI, gas aja</title>
+  <meta name="description" content="KaveloLab bantuin bisnis dan personal brand punya website sendiri. Plus eksperimen AI dan project teknologi. Nggak ribet." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2314120F'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='34' font-weight='600' fill='%23C49D5A' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== dasar ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --bg: #14120F;
+      --surface: #1C1A15;
+      --surface-2: #211D15;
+      --ink: #F3EEE4;
+      --ink-soft: #B4AB99;
+      --ink-faint: #7A7263;
+      --line: #2E2A22;
+      --brass: #C49D5A;
+      --brass-soft: rgba(196, 157, 90, 0.12);
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Manrope', sans-serif;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+    }
+    .wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+    img,
+    svg {
+      max-width: 100%;
+      display: block;
+    }
+    ul {
+      list-style: none;
+    }
+    h1,
+    h2,
+    h3 {
+      font-family: 'Fraunces', serif;
+      letter-spacing: -0.005em;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--brass);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 16px;
+      height: 1px;
+      background: var(--brass);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 15px 26px;
+      border-radius: 3px;
+      font-size: 13.5px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--brass);
+      color: #14120F;
+    }
+    .btn-primary:hover {
+      background: #d4ae6a;
+      transform: scale(0.97);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line);
+    }
+    .btn-outline:hover {
+      border-color: var(--brass);
+      transform: scale(0.97);
+    }
+    .btn-sm {
+      padding: 11px 18px;
+      font-size: 12.5px;
+    }
+    hr.rule {
+      border: none;
+      border-top: 1px solid var(--line);
+      margin: 0 24px;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      background: rgba(20, 18, 15, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+    }
+    .nav-logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 19px;
+    }
+    .nav-logo span {
+      color: var(--brass);
+    }
+    .nav-links {
+      display: none;
+      gap: 26px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+    .nav-cta {
+      display: none;
+    }
+    .nav-toggle {
+      width: 22px;
+      height: 14px;
+      position: relative;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+    }
+    .nav-toggle span {
+      display: block;
+      height: 1.5px;
+      width: 100%;
+      background: var(--ink);
+    }
+    @media (min-width: 860px) {
+      .nav-links {
+        display: flex;
+      }
+      .nav-cta {
+        display: inline-flex;
+      }
+      .nav-toggle {
+        display: none;
+      }
+    }
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      border-top: 1px solid var(--line);
+      padding: 8px 24px 18px;
+    }
+    .nav-mobile.open {
+      display: flex;
+    }
+    .nav-mobile a {
+      padding: 12px 0;
+      font-size: 14px;
+      color: var(--ink-soft);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-mobile a:last-child {
+      border-bottom: none;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 1.2;
+      max-width: 640px;
+      margin: 0 auto 16px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--brass);
+    }
+    .hero .lead {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      max-width: 500px;
+      margin: 0 auto 30px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .hero-note {
+      font-size: 11.5px;
+      color: var(--ink-faint);
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      padding: 60px 24px;
+    }
+    .section-head {
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .section-head .eyebrow {
+      justify-content: center;
+    }
+    .section-head h2 {
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 1.25;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .section-head p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      max-width: 480px;
+      margin: 14px auto 0;
+      line-height: 1.7;
+    }
+
+    /* ===== PROBLEM ===== */
+    .ps-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .ps-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .ps-item .mark {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      color: var(--brass);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .ps-item p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ===== SOLUTION ===== */
+    .solution-block {
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 28px 24px;
+      margin-top: 30px;
+    }
+    .solution-block p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+    }
+    .solution-block p+p {
+      margin-top: 12px;
+    }
+    .solution-block strong {
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* ===== VALUE / LAYANAN ===== */
+    .value-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .value-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .value-item .ic {
+      color: var(--brass);
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .value-item p {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+    .value-item strong {
+      color: var(--ink);
+    }
+
+    /* ===== PROJECTS ===== */
+    .project-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .project-visual {
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-visual.fajar {
+      background: radial-gradient(circle at 25% 35%, rgba(196, 157, 90, 0.2), transparent 30%), linear-gradient(135deg, #171510, #292318);
+    }
+    .project-visual.crypto {
+      background: radial-gradient(circle at 75% 30%, rgba(196, 157, 90, 0.18), transparent 32%), linear-gradient(135deg, #11100E, #252018);
+    }
+    .project-screen {
+      width: 78%;
+      height: 88px;
+      border: 1px solid rgba(196, 157, 90, 0.35);
+      background: #14120F;
+      border-radius: 6px;
+      padding: 10px;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .project-screen .bar {
+      height: 5px;
+      width: 34%;
+      background: var(--brass);
+      opacity: 0.75;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+    .project-screen .line {
+      height: 4px;
+      background: #3A352C;
+      border-radius: 3px;
+      margin-bottom: 7px;
+    }
+    .project-screen .line.short {
+      width: 58%;
+    }
+    .project-screen .line.mid {
+      width: 76%;
+    }
+    .project-screen .line.long {
+      width: 92%;
+    }
+
+    .project-body {
+      padding: 22px 22px 24px;
+    }
+    .project-type {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--brass);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .project-name {
+      font-family: 'Fraunces', serif;
+      font-size: 23px;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .project-status {
+      font-size: 11.5px;
+      color: var(--ink-faint);
+      margin-bottom: 13px;
+    }
+    .project-desc {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .project-tags span {
+      font-size: 10px;
+      color: var(--ink-faint);
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      padding: 5px 8px;
+    }
+    .project-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== SHOWCASE ===== */
+    .showcase-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .showcase-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .showcase-swatch {
+      height: 96px;
+      display: flex;
+    }
+    .showcase-swatch span {
+      flex: 1;
+    }
+    .showcase-body {
+      padding: 22px 22px 24px;
+    }
+    .showcase-pkg {
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--brass);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .showcase-name {
+      font-family: 'Fraunces', serif;
+      font-size: 21px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .showcase-pos {
+      font-size: 12.5px;
+      color: var(--ink-faint);
+      margin-bottom: 12px;
+    }
+    .showcase-desc {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+    .showcase-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== PRICING ===== */
+    .price-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 26px 22px;
+      position: relative;
+    }
+    .price-card.reco {
+      background: var(--surface-2);
+      border: 1.5px solid var(--brass);
+    }
+    .price-badge {
+      position: absolute;
+      top: -13px;
+      left: 22px;
+      background: var(--brass);
+      color: #14120F;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 5px 11px;
+      border-radius: 3px;
+    }
+    .price-name {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .price-card.reco .price-name {
+      color: var(--brass);
+    }
+    .price-pos {
+      font-size: 12px;
+      color: var(--ink-faint);
+      margin: 4px 0 14px;
+    }
+    .price-amount {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 27px;
+      margin-bottom: 16px;
+    }
+    .price-amount sup {
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0.7;
+      margin-right: 1px;
+    }
+    .price-feat {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .price-feat span {
+      font-size: 13px;
+      color: var(--ink-soft);
+      padding-left: 17px;
+      position: relative;
+    }
+    .price-feat span::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--brass);
+      font-weight: 700;
+    }
+    .price-card .btn {
+      width: 100%;
+    }
+
+    .custom-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .custom-left .price-name {
+      font-size: 18px;
+    }
+    .custom-left p {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      margin-top: 4px;
+      max-width: 380px;
+      line-height: 1.6;
+    }
+    .custom-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .custom-price {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 20px;
+      white-space: nowrap;
+    }
+    .custom-price small {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .terms-note {
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+      padding-top: 22px;
+    }
+    .terms-note ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .terms-note li {
+      font-size: 12.5px;
+      color: var(--ink-faint);
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+    }
+    .terms-note li::before {
+      content: "·";
+      position: absolute;
+      left: 0;
+    }
+
+    /* ===== PROCESS ===== */
+    .process-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .process-item {
+      display: flex;
+      gap: 18px;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+    }
+    .process-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+    .process-item .num {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--brass);
+      min-width: 40px;
+    }
+    .process-item h3 {
+      font-size: 15.5px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .process-item p {
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    /* ===== FAQ ===== */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--ink);
+      padding: 18px 20px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .faq-q .plus {
+      font-size: 18px;
+      color: var(--brass);
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+    .faq-item.open .faq-q .plus {
+      transform: rotate(45deg);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .faq-a p {
+      padding: 0 20px 18px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta {
+      text-align: center;
+      padding: 70px 24px;
+    }
+    .final-cta h2 {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+    .final-cta h2 em {
+      font-style: italic;
+      color: var(--brass);
+    }
+    .final-cta p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      max-width: 400px;
+      margin: 0 auto 28px;
+      line-height: 1.7;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 44px 24px 26px;
+    }
+    .foot-top {
+      margin-bottom: 30px;
+    }
+    .foot-logo {
+      font-family: 'Fraunces', serif;
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    .foot-logo span {
+      color: var(--brass);
+    }
+    .foot-tag {
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+    .foot-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 20px;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      margin-bottom: 26px;
+    }
+    .foot-links a:hover {
+      color: var(--brass);
+    }
+    .foot-bottom {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 10.5px;
+      color: var(--ink-faint);
+    }
+
+    /* ===== CHATBOT ===== */
+    .chat-fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 200;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--brass);
+      color: #14120F;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+    .chat-fab .ic-close {
+      display: none;
+    }
+    .chat-fab.open .ic-chat {
+      display: none;
+    }
+    .chat-fab.open .ic-close {
+      display: block;
+    }
+    .chat-panel {
+      position: fixed;
+      right: 18px;
+      bottom: 84px;
+      z-index: 199;
+      width: min(340px, calc(100vw - 36px));
+      max-height: min(520px, calc(100vh - 140px));
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+    .chat-panel.open {
+      display: flex;
+    }
+    .chat-head {
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .chat-head .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #5FBE7A;
+      flex-shrink: 0;
+    }
+    .chat-head .ti {
+      flex: 1;
+      min-width: 0;
+    }
+    .chat-head .ti strong {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+    .chat-head .ti span {
+      display: block;
+      font-size: 10.5px;
+      color: var(--ink-faint);
+      margin-top: 1px;
+    }
+    .chat-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 14px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .chat-msg {
+      max-width: 86%;
+      font-size: 12.5px;
+      line-height: 1.6;
+      padding: 9px 12px;
+      border-radius: 8px;
+    }
+    .chat-msg.bot {
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      align-self: flex-start;
+      border-bottom-left-radius: 2px;
+    }
+    .chat-msg.user {
+      background: var(--brass);
+      color: #14120F;
+      align-self: flex-end;
+      border-bottom-right-radius: 2px;
+      font-weight: 600;
+    }
+    .chat-msg a {
+      color: var(--brass);
+      text-decoration: underline;
+    }
+    .chat-suggest {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 4px 14px 12px;
+    }
+    .chat-suggest button {
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 11px;
+      padding: 7px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: 'Manrope', sans-serif;
+    }
+    .chat-suggest button:hover {
+      border-color: var(--brass);
+      color: var(--ink);
+    }
+    .chat-input-row {
+      border-top: 1px solid var(--line);
+      padding: 10px;
+      display: flex;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .chat-input-row input {
+      flex: 1;
+      min-width: 0;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 10px 14px;
+      color: var(--ink);
+      font-size: 12.5px;
+      font-family: 'Manrope', sans-serif;
+    }
+    .chat-input-row input:focus {
+      outline: none;
+      border-color: var(--brass);
+    }
+    .chat-input-row button {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--brass);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .chat-input-row button svg {
+      width: 16px;
+      height: 16px;
+      color: #14120F;
+    }
+    .chat-disclaimer {
+      font-size: 9.5px;
+      color: var(--ink-faint);
+      text-align: center;
+      padding: 0 14px 10px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 720px) {
+      .hero h1 {
+        font-size: 46px;
+      }
+      .ps-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: stretch;
+      }
+      .showcase-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: stretch;
+      }
+      .price-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .value-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (min-width: 480px) {
+      .chat-panel {
+        right: 24px;
+        bottom: 90px;
+      }
+      .chat-fab {
+        right: 24px;
+        bottom: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-<nav><div class="nav-inner"><a href="#top" class="nav-logo">Kavelo<span>Lab</span></a><div class="nav-links"><a href="#layanan">Layanan</a><a href="#projects">Projects</a><a href="#showcase">Demo</a><a href="#harga">Harga</a><a href="#proses">Proses</a><a href="#faq">FAQ</a></div><a class="btn btn-primary btn-sm nav-cta wa-link" href="#" data-msg="Halo KaveloLab, saya mau konsultasi soal website." target="_blank" rel="noopener">Konsultasi</a><button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button></div><div class="nav-mobile"><a href="#layanan">Layanan</a><a href="#projects">Projects</a><a href="#showcase">Demo</a><a href="#harga">Harga</a><a href="#proses">Proses</a><a href="#faq">FAQ</a><a class="btn btn-primary btn-sm wa-link" href="#" data-msg="Halo KaveloLab, saya mau konsultasi soal website." target="_blank" rel="noopener">Konsultasi via WhatsApp</a></div></nav>
-<div class="hero" id="top"><div class="container"><p class="eyebrow" style="justify-content:center;">AI &amp; Technology Lab</p><h1>Bangun <em>presence digital</em> dengan pendekatan teknologi.</h1><p class="lead">KaveloLab bantu bisnis dan personal brand punya website yang profesional. Plus eksperimen AI dan project teknologi sebagai bagian dari proses belajar.</p><div class="hero-ctas"><a class="btn btn-primary wa-link" href="#" data-msg="Halo KaveloLab, saya mau konsultasi soal website." target="_blank" rel="noopener">Mulai Konsultasi</a><a class="btn btn-outline" href="#projects">Lihat Projects</a></div><p class="hero-note">Website · AI Experiments · Technology Projects</p></div></div>
-<section><div class="container"><div class="section-head text-center"><p class="eyebrow">Masalah</p><h2 class="section-title">Bisnis bagus, tapi <em>nggak punya</em> tempat online sendiri.</h2><p class="section-desc">Calon customer susah nemuin kamu, dan kelihatan kurang profesional dibanding kompetitor.</p></div><div class="ps-grid"><div class="ps-item"><span class="mark">—</span><p>Belum punya website — customer cuma bisa hubungi lewat DM atau chat satu-satu.</p></div><div class="ps-item"><span class="mark">—</span><p>Cuma andelin IG atau WA yang gampang tenggelam di antara notifikasi lain.</p></div><div class="ps-item"><span class="mark">—</span><p>Kelihatan kurang profesional dibanding kompetitor yang sudah punya website.</p></div><div class="ps-item"><span class="mark">—</span><p>Nggak punya ruang digital yang bisa diatur dan dikembangin sendiri.</p></div></div></div></section>
-<section style="padding-top:0;"><div class="container"><div class="solution-block"><p><strong>KaveloLab bangun website yang jadi rumah digital bisnis kamu</strong> — tempat calon customer lihat siapa kamu, apa yang kamu tawarkan, dan langsung diarahkan untuk chat via WhatsApp.</p><p>Bukan sekadar "punya website" — tapi website yang beneran dipakai untuk bantu bisnis tampil lebih profesional dan memudahkan customer mengambil tindakan.</p></div></div></section>
-<section id="layanan"><div class="container"><div class="section-head text-center"><p class="eyebrow">Layanan</p><h2 class="section-title">Fokus ke satu hal: <em>bikin website</em> yang mantap.</h2><p class="section-desc">Dari nol sampai deploy — tanpa nebeng jasa lain.</p></div><div class="value-grid"><div class="value-item"><span class="ic">✦</span><p><strong>1 halaman</strong> — landing page simpel buat usaha kecil yang baru mulai online.</p></div><div class="value-item"><span class="ic">✦</span><p><strong>Multi halaman</strong> — struktur lengkap: beranda, tentang, layanan, portfolio, kontak.</p></div><div class="value-item"><span class="ic">✦</span><p><strong>Desain sesuai brief</strong> — layout, warna, tipografi disesuaikan dengan karakter bisnis kamu.</p></div><div class="value-item"><span class="ic">✦</span><p><strong>Deploy &amp; serah terima</strong> — website langsung online, kamu tinggal pakai.</p></div></div></div></section>
-<section id="projects" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);"><div class="container"><div class="section-head text-center"><p class="eyebrow">Projects &amp; Experiments</p><h2 class="section-title">Eksplorasi teknologi di luar <em>website biasa</em>.</h2><p class="section-desc">Beberapa project yang sedang dan pernah dikerjakan sebagai bagian dari eksperimen KaveloLab di AI dan teknologi.</p></div><div class="project-grid"><div class="project-card"><div class="project-visual fajar"><div class="project-screen"><div class="bar"></div><div class="line long"></div><div class="line mid"></div><div class="line short"></div><div class="line long"></div></div></div><div class="project-body"><div class="project-type">AI Workspace</div><div class="project-name">Fajar OS</div><div class="project-status">Prototype · In Development</div><p class="project-desc">Eksperimen AI Workspace pribadi yang menggabungkan percakapan, memory, dan berbagai kemampuan AI dalam satu ruang kerja.</p><div class="project-tags"><span>AI</span><span>Workspace</span><span>Prototype</span></div><div class="project-foot"><a class="btn btn-primary btn-sm" href="https://fajar-os.vercel.app" target="_blank" rel="noopener">Buka Fajar OS →</a></div></div></div><div class="project-card"><div class="project-visual crypto"><div class="project-screen"><div class="bar"></div><div class="line short"></div><div class="line long"></div><div class="line mid"></div><div class="line long"></div></div></div><div class="project-body"><div class="project-type">AI Agent</div><div class="project-name">Crypto Agent</div><div class="project-status">Experimental Project</div><p class="project-desc">Eksperimen AI agent untuk membantu olah dan analisis informasi crypto dalam antarmuka khusus.</p><div class="project-tags"><span>AI</span><span>Crypto</span><span>Experiment</span></div><div class="project-foot"><a class="btn btn-primary btn-sm" href="https://kavelo-crypto-agent.vercel.app" target="_blank" rel="noopener">Buka Crypto Agent →</a></div></div></div></div><div class="solution-block" style="margin-top:var(--space-6);"><p><strong>Status project bisa berubah.</strong> Yang di atas masih eksperimen — bisa berkembang, berubah, atau menjadi produk jadi. Tujuannya bukan sekadar demo, tapi belajar membuat sesuatu yang benar-benar terpakai.</p></div></div></section>
-<section id="showcase"><div class="container"><div class="section-head text-center"><p class="eyebrow">Demo Website</p><h2 class="section-title">Tiga paket, <em>tiga level</em> kematangan.</h2><p class="section-desc">Demo live yang bisa kamu buka langsung — bukan mockup. Masing-masing menunjukkan range KaveloLab.</p></div><div class="showcase-grid"><div class="showcase-card"><div class="showcase-swatch" style="background:#3A2418;"><span style="background:#F3C77D;"></span><span style="background:#D98C4A;"></span><span style="background:#7A4430;"></span></div><div class="showcase-body"><div class="showcase-pkg">Starter</div><div class="showcase-name">Senja Coffee</div><div class="showcase-pos">Kebutuhan simpel</div><p class="showcase-desc">One-page website hangat &amp; minimalis untuk usaha kecil — profil, menu, dan CTA WhatsApp.</p><div class="showcase-foot"><a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/Senja-Coffee-demo-started/" target="_blank" rel="noopener">Lihat Demo</a></div></div></div><div class="showcase-card"><div class="showcase-swatch" style="background:#EDEBE6;"><span style="background:#FAFAF8;"></span><span style="background:#2F4A3E;"></span><span style="background:#14171A;"></span></div><div class="showcase-body"><div class="showcase-pkg">Business</div><div class="showcase-name">BENTANG</div><div class="showcase-pos">Tampil lebih profesional</div><p class="showcase-desc">Website multi-halaman dengan navigasi lengkap untuk bisnis yang butuh presentasi matang.</p><div class="showcase-foot"><a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/BENTANG-DEMO-BUSINESS/" target="_blank" rel="noopener">Lihat Demo</a></div></div></div><div class="showcase-card"><div class="showcase-swatch" style="background:#0D0C10;"><span style="background:#0D0C10;"></span><span style="background:#6C5CE0;"></span><span style="background:#F4F1EA;"></span></div><div class="showcase-body"><div class="showcase-pkg">Pro</div><div class="showcase-name">ARUNA</div><div class="showcase-pos">Pengalaman premium</div><p class="showcase-desc">Website editorial dengan art direction kuat, navigasi custom, dan presentasi karya yang ekspresif.</p><div class="showcase-foot"><a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/aruna-demo-pro/" target="_blank" rel="noopener">Lihat Demo</a></div></div></div></div></div></section>
-<section id="harga" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);"><div class="container"><div class="section-head text-center"><p class="eyebrow">Investasi</p><h2 class="section-title">Pilih paket yang <em>cocok</em>.</h2><p class="section-desc">Makin lengkap kebutuhannya, makin besar paketnya. Belum yakin? Konsultasi dulu, gratis.</p></div><div class="price-grid"><div class="price-card"><div class="price-name">Starter</div><div class="price-pos">Kebutuhan simpel</div><div class="price-amount"><sup>Rp</sup>499K</div><div class="price-feat"><span>1 halaman</span><span>Responsive mobile</span><span>WhatsApp CTA</span><span>Gallery / Portfolio</span><span>Basic on-page SEO</span><span>1× revisi</span><span>Deploy website</span><span>Estimasi 3 hari</span></div><a class="btn btn-outline btn-block wa-link" href="#" data-msg="Halo KaveloLab, saya tertarik paket Starter." target="_blank" rel="noopener">Pilih Starter</a></div><div class="price-card reco"><span class="price-badge">Paling rame</span><div class="price-name">Business</div><div class="price-pos">Tampil lebih profesional</div><div class="price-amount"><sup>Rp</sup>999K</div><div class="price-feat"><span>Maks. 5 halaman</span><span>Responsive mobile</span><span>WhatsApp CTA</span><span>Form kontak</span><span>Gallery / Portfolio</span><span>Basic on-page SEO</span><span>2× revisi</span><span>Deploy website</span><span>Estimasi 5 hari</span></div><a class="btn btn-primary btn-block wa-link" href="#" data-msg="Halo KaveloLab, saya tertarik paket Business." target="_blank" rel="noopener">Pilih Business</a></div><div class="price-card"><div class="price-name">Pro</div><div class="price-pos">Pengalaman premium</div><div class="price-amount"><sup>Rp</sup>1.499K</div><div class="price-feat"><span>Maks. 8 halaman</span><span>Responsive mobile</span><span>WhatsApp CTA</span><span>Form kontak</span><span>Gallery / Portfolio</span><span>Basic on-page SEO</span><span>Layout lebih custom</span><span>3× revisi</span><span>Deploy website</span><span>Estimasi 7 hari</span></div><a class="btn btn-outline btn-block wa-link" href="#" data-msg="Halo KaveloLab, saya tertarik paket Pro." target="_blank" rel="noopener">Pilih Pro</a></div></div><div class="custom-card"><div class="custom-left"><div class="price-name">Custom</div><p>Kebutuhan di luar paket — halaman, fitur, scope &amp; harga disesuaikan berdasarkan kompleksitas.</p></div><div class="custom-right"><div class="custom-price"><small>Mulai</small>Rp2.499K</div><a class="btn btn-outline btn-sm wa-link" href="#" data-msg="Halo KaveloLab, saya mau tanya soal paket Custom." target="_blank" rel="noopener">Tanya Custom</a></div></div><div class="terms-note"><p class="eyebrow">Ketentuan</p><ul><li>Revisi = perubahan minor teks, warna, gambar, atau layout — tidak termasuk redesign total atau halaman baru.</li><li>Konten teks, foto &amp; logo disiapkan klien; halaman tambahan di luar paket kena biaya.</li><li>Deploy default ke subdomain gratis (GitHub Pages / Cloudflare Pages). Custom domain &amp; hosting tersedia sebagai add-on.</li><li>Basic on-page SEO = setup title, meta description, heading structure, alt text — tidak menjamin ranking atau traffic tertentu.</li><li>Estimasi pengerjaan: Starter 3 hari, Business 5 hari, Pro 7 hari — tergantung kelengkapan konten klien.</li></ul></div></div></section>
-<section id="proses"><div class="container"><div class="section-head text-center"><p class="eyebrow">Cara Order</p><h2 class="section-title">Lima langkah, dari chat <em>sampai website</em> siap.</h2></div><div class="process-list" style="max-width:680px;margin:0 auto;"><div class="process-item"><span class="num">01</span><div><h3>Konsultasi</h3><p>Ceritakan kebutuhan bisnis kamu lewat WhatsApp.</p></div></div><div class="process-item"><span class="num">02</span><div><h3>Pilih Paket &amp; Kebutuhan</h3><p>Tentukan paket yang cocok dan detail halaman yang dibutuhkan.</p></div></div><div class="process-item"><span class="num">03</span><div><h3>Pengerjaan</h3><p>Website dikerjakan sesuai brief dan estimasi waktu paket.</p></div></div><div class="process-item"><span class="num">04</span><div><h3>Review &amp; Revisi</h3><p>Kamu cek hasilnya, revisi sesuai jatah paket yang dipilih.</p></div></div><div class="process-item"><span class="num">05</span><div><h3>Website Siap</h3><p>Website di-deploy dan siap dipakai untuk bisnis kamu.</p></div></div></div><div class="solution-block" style="margin-top:var(--space-6);max-width:680px;margin-left:auto;margin-right:auto;"><p><strong>AI digunakan sebagai alat bantu</strong> di proses build untuk mempercepat development. Tapi setiap hasil tetap melalui review &amp; revisi manusia sebelum dinyatakan selesai.</p></div></div></section>
-<section id="faq" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);"><div class="container"><div class="section-head text-center"><p class="eyebrow">Pertanyaan Umum</p><h2 class="section-title">Yang sering <em>ditanyakan</em>.</h2></div><div class="faq-list" style="max-width:720px;margin:0 auto;"><div class="faq-item"><button class="faq-q">Bisa request desain sendiri? <span class="plus">+</span></button><div class="faq-a"><p>Bisa. Desain disusun berdasarkan brief awal kamu dan bisa disesuaikan dalam batas revisi paket.</p></div></div><div class="faq-item"><button class="faq-q">Website-nya responsif? <span class="plus">+</span></button><div class="faq-a"><p>Ya, semua paket dibuat responsive — rapi di HP, tablet, dan desktop.</p></div></div><div class="faq-item"><button class="faq-q">Berapa lama pengerjaan? <span class="plus">+</span></button><div class="faq-a"><p>Starter 3 hari, Business 5 hari, Pro 7 hari — tergantung kelengkapan konten kamu.</p></div></div><div class="faq-item"><button class="faq-q">Bisa revisi? <span class="plus">+</span></button><div class="faq-a"><p>Bisa, sesuai jatah: Starter 1×, Business 2×, Pro 3×.</p></div></div><div class="faq-item"><button class="faq-q">Domain &amp; hosting termasuk? <span class="plus">+</span></button><div class="faq-a"><p>Deploy default ke subdomain gratis. Custom domain &amp; hosting tersedia sebagai add-on.</p></div></div><div class="faq-item"><button class="faq-q">Gimana cara order? <span class="plus">+</span></button><div class="faq-a"><p>Langsung chat WhatsApp, ceritakan kebutuhan bisnis kamu, nanti diarahkan ke paket yang cocok.</p></div></div><div class="faq-item"><button class="faq-q">Website dibuat pakai AI? <span class="plus">+</span></button><div class="faq-a"><p>Sebagian proses build menggunakan bantuan AI untuk percepatan, tapi setiap hasil tetap melalui review manusia.</p></div></div><div class="faq-item"><button class="faq-q">Fajar OS sudah selesai? <span class="plus">+</span></button><div class="faq-a"><p>Belum — Fajar OS masih prototype yang terus dikembangkan sebagai eksperimen AI Workspace.</p></div></div><div class="faq-item"><button class="faq-q">Crypto Agent jadi produk final? <span class="plus">+</span></button><div class="faq-a"><p>Belum tentu — ini experimental project untuk menunjukkan eksplorasi KaveloLab di AI agent.</p></div></div></div></div></section>
-<div class="final-cta"><div class="container"><p class="eyebrow" style="justify-content:center;">Mulai Sekarang</p><h2>Siap punya website <em>sendiri?</em></h2><p>Chat dulu, ceritakan kebutuhan bisnis kamu — gratis, tanpa komitmen.</p><a class="btn btn-primary wa-link" href="#" data-msg="Halo KaveloLab, saya mau mulai bikin website." target="_blank" rel="noopener">Konsultasi Gratis via WhatsApp</a></div></div>
-<footer><div class="container"><div class="foot-top"><div class="foot-logo">Kavelo<span>Lab</span></div><div class="foot-tag">AI &amp; Technology Lab — Website · AI · Technology Projects</div></div><div class="foot-links"><a href="#layanan">Layanan</a><a href="#projects">Projects</a><a href="#showcase">Demo</a><a href="#harga">Harga</a><a href="#proses">Proses</a><a href="#faq">FAQ</a></div><div class="foot-bottom"><span>&copy; KaveloLab</span><span>WhatsApp: +62 821-2175-9018</span></div></div></footer>
-<div class="chat-panel" id="chatPanel" role="dialog" aria-label="KaveloLab Assistant" aria-hidden="true"><div class="chat-head"><span class="dot"></span><div class="ti"><strong>KaveloLab Assistant</strong><span>Otomatis · balas cepat</span></div></div><div class="chat-body" id="chatBody"></div><div class="chat-suggest" id="chatSuggest"><button type="button" data-q="harga">Harga paket?</button><button type="button" data-q="proses">Berapa lama?</button><button type="button" data-q="revisi">Bisa revisi?</button><button type="button" data-q="domain">Domain &amp; hosting?</button><button type="button" data-q="project">Ada project AI?</button></div><div class="chat-input-row"><input type="text" id="chatInput" placeholder="Tulis pertanyaan..." autocomplete="off" /><button type="button" id="chatSend" aria-label="Kirim"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg></button></div><p class="chat-disclaimer">Asisten otomatis dengan aturan sederhana — untuk pertanyaan detail, lanjut ke WhatsApp.</p></div>
-<button class="chat-fab" id="chatFab" aria-label="Buka chat asisten" aria-expanded="false"><svg class="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-<script>
-(function(){var W="6282121759018";document.querySelectorAll('.wa-link').forEach(function(e){var t=e.getAttribute('data-msg')||'';e.setAttribute('href','https://wa.me/'+W+(t?'?text='+encodeURIComponent(t):''))});var o=document.querySelector('.nav-toggle'),m=document.querySelector('.nav-mobile');if(o&&m){o.addEventListener('click',function(){var e=m.classList.toggle('open');o.setAttribute('aria-expanded',e?'true':'false')});m.querySelectorAll('a').forEach(function(e){e.addEventListener('click',function(){m.classList.remove('open');o.setAttribute('aria-expanded','false')})})}document.querySelectorAll('.faq-q').forEach(function(b,i){var e=b.closest('.faq-item'),a=e.querySelector('.faq-a'),id='faq-a-'+i;a.id=id;b.setAttribute('aria-controls',id);b.setAttribute('aria-expanded','false');b.addEventListener('click',function(){var o=e.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(function(t){if(t!==e){t.classList.remove('open');t.querySelector('.faq-a').style.maxHeight=null;t.querySelector('.faq-q').setAttribute('aria-expanded','false')}});if(!o){e.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';b.setAttribute('aria-expanded','true')}else{e.classList.remove('open');a.style.maxHeight=null;b.setAttribute('aria-expanded','false')}})});function wl(t){return'https://wa.me/'+W+(t?'?text='+encodeURIComponent(t):'')}var RULES=[{keys:['harga','paket','price','biaya','mahal','murah'],answer:'Ada 4 paket: <strong>Starter Rp499K</strong> (1 halaman), <strong>Business Rp999K</strong> (maks 5 halaman), <strong>Pro Rp1.499K</strong> (maks 8 halaman), dan <strong>Custom mulai Rp2.499K</strong>. Detail lengkap di <a href="#harga">Harga</a>.'},{keys:['proses','lama','berapa hari','estimasi','waktu'],answer:'Estimasi: Starter 3 hari, Business 5 hari, Pro 7 hari — tergantung kelengkapan konten kamu.'},{keys:['revisi','ubah','ganti'],answer:'Jatah revisi: Starter 1×, Business 2×, Pro 3×. Revisi = perubahan minor teks, warna, gambar, atau layout.'},{keys:['domain','hosting','subdomain'],answer:'Deploy default ke subdomain gratis (GitHub Pages / Cloudflare Pages). Custom domain & hosting tersedia sebagai add-on.'},{keys:['seo'],answer:'Semua paket sudah termasuk basic on-page SEO: title, meta description, heading structure, alt text. Tidak menjamin ranking tertentu.'},{keys:['demo','contoh','portfolio','lihat'],answer:'Ada 3 demo: Senja Coffee (Starter), BENTANG (Business), dan ARUNA (Pro). Cek di <a href="#showcase">Demo</a>.'},{keys:['project','projects','fajar os','fajar','crypto agent','ai agent'],answer:'KaveloLab juga punya technology projects. <a href="#projects">Fajar OS</a> (prototype AI Workspace) dan <a href="#projects">Crypto Agent</a> (experimental AI project).'},{keys:['fajar os','fajaros'],answer:'Fajar OS adalah prototype AI Workspace yang sedang dikembangkan. <a href="https://fajar-os.vercel.app" target="_blank">Buka Fajar OS →</a>'},{keys:['crypto agent','crypto'],answer:'Crypto Agent adalah experimental project KaveloLab di bidang AI agent & crypto. <a href="https://kavelo-crypto-agent.vercel.app" target="_blank">Buka Crypto Agent →</a>'},{keys:['ai','claude','pakai ai'],answer:'Sebagian proses development menggunakan bantuan AI untuk mempercepat build. Hasil tetap direview & direvisi manusia.'},{keys:['mulai','order','pesan','cara'],answer:'Gampang — langsung chat WhatsApp, ceritakan kebutuhan bisnis kamu, nanti diarahkan ke paket yang cocok.'},{keys:['responsive','hp','mobile'],answer:'Ya, semua paket dibuat responsive — rapi di HP, tablet, dan desktop.'},{keys:['cafe','kopi','coffee','umkm','bisnis','toko','jasa','personal brand'],answer:'KaveloLab cocok untuk UMKM, bisnis kecil, cafe, toko, personal brand, dan jasa lokal. Konsultasi gratis via WhatsApp.'},{keys:['halo','hai','hi','hello','pagi','siang','malam'],answer:'Halo! 👋 Mau tanya soal harga, proses, revisi, demo website, atau project AI? Ketik pertanyaan kamu.'}];function findAnswer(t){var a=t.toLowerCase();for(var i=0;i<RULES.length;i++){var r=RULES[i];for(var j=0;j<r.keys.length;j++){if(a.indexOf(r.keys[j])!==-1)return r.answer}}return null}var FALLBACK='Untuk pertanyaan ini aku belum punya jawaban pastinya — biar nggak salah info, langsung tanya via WhatsApp ya.';var fab=document.getElementById('chatFab'),panel=document.getElementById('chatPanel'),body=document.getElementById('chatBody'),inp=document.getElementById('chatInput'),sendBtn=document.getElementById('chatSend'),suggest=document.getElementById('chatSuggest'),opened=!1;function addMsg(t,e){var d=document.createElement('div');d.className='chat-msg '+e;d.innerHTML=t;body.appendChild(d);body.scrollTop=body.scrollHeight}function botReply(t){var a=findAnswer(t);setTimeout(function(){if(a){addMsg(a,'bot')}else{addMsg(FALLBACK+' <a href="'+wl('Halo KaveloLab, saya mau tanya: '+t)+'" target="_blank" rel="noopener">Chat WhatsApp →</a>','bot')}},350)}function handleSend(t){t=(t||'').trim();if(!t)return;addMsg(t,'user');inp.value='';botReply(t)}if(fab&&panel){fab.addEventListener('click',function(){var e=panel.classList.toggle('open');fab.classList.toggle('open',e);fab.setAttribute('aria-expanded',e?'true':'false');panel.setAttribute('aria-hidden',e?'false':'true');if(e&&!opened){opened=!0;addMsg('Halo! 👋 Aku asisten KaveloLab. Bisa bantu soal harga, proses, revisi, demo, dan project AI.','bot')}if(e)inp.focus()})}if(sendBtn)sendBtn.addEventListener('click',function(){handleSend(inp.value)});if(inp)inp.addEventListener('keydown',function(e){if(e.key==='Enter')handleSend(inp.value)});if(suggest)suggest.addEventListener('click',function(e){var b=e.target.closest('button[data-q]');if(b)handleSend(b.getAttribute('data-q'))})})();
-</script>
+
+  <!-- ===== NAV ===== -->
+  <nav>
+    <div class="wrap nav-inner">
+      <a href="#top" class="nav-logo">Kavelo<span>Lab</span></a>
+      <div class="nav-links">
+        <a href="#layanan">Layanan</a>
+        <a href="#projects">Projects</a>
+        <a href="#showcase">Demo</a>
+        <a href="#harga">Harga</a>
+        <a href="#proses">Proses</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="btn btn-primary btn-sm nav-cta wa-link" href="#" data-msg="Halo KaveloLab, saya mau tanya soal jasa pembuatan website." target="_blank" rel="noopener">Konsultasi Gratis</a>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="nav-mobile">
+      <a href="#layanan">Layanan</a>
+      <a href="#projects">Projects</a>
+      <a href="#showcase">Demo</a>
+      <a href="#harga">Harga</a>
+      <a href="#proses">Proses</a>
+      <a href="#faq">FAQ</a>
+      <a class="wa-link" href="#" data-msg="Halo KaveloLab, saya mau tanya soal jasa pembuatan website." target="_blank" rel="noopener">Konsultasi Gratis — WhatsApp</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <div class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow" style="justify-content:center;">Website • AI • Technology</p>
+      <h1>Bikin sesuatu yang <em>berarti</em> pake teknologi.</h1>
+      <p class="lead">KaveloLab bantuin bisnis punya website yang beneran dipake, plus eksperimen AI dan project-project nyeleneh.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary wa-link" href="#" data-msg="Halo KaveloLab, saya mau tanya soal jasa pembuatan website." target="_blank" rel="noopener">Konsultasi Gratis</a>
+        <a class="btn btn-outline" href="#projects">Lihat Projects</a>
+      </div>
+      <p class="hero-note">Website, AI experiments, dan project teknologi.</p>
+    </div>
+  </div>
+  <hr class="rule">
+
+  <!-- ===== MASALAH ===== -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Masalahnya</p>
+        <h2>Banyak bisnis bagus, tapi nggak punya tempat online sendiri.</h2>
+      </div>
+      <div class="ps-grid col" style="margin:0 auto;">
+        <div class="ps-item"><span class="mark">—</span><p>Belum punya website, jadi calon customer cuma bisa hubungin lewat DM atau chat satu-satu.</p></div>
+        <div class="ps-item"><span class="mark">—</span><p>Cuma andelin IG atau WA yang gampang tenggelam di antara story dan chat lain.</p></div>
+        <div class="ps-item"><span class="mark">—</span><p>Kelihatan kurang profesional dibanding kompetitor yang udah punya website.</p></div>
+        <div class="ps-item"><span class="mark">—</span><p>Belum punya website sendiri yang bisa diatur dan dikembangin sesuai kebutuhan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOLUSI ===== -->
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="solution-block col" style="margin:0 auto;">
+        <p><strong>KaveloLab bikinin website yang jadi rumah digital bisnis kamu</strong> — tempat calon customer bisa liat siapa kamu, apa yang kamu jual, dan langsung diarahin buat chat lewat WhatsApp.</p>
+        <p>Bukan cuma "punya website" — tapi website yang beneran dipake buat bantu bisnis tampil lebih profesional dan mempermudah calon customer buat ngambil tindakan.</p>
+      </div>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <!-- ===== LAYANAN ===== -->
+  <section id="layanan">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Layanan</p>
+        <h2>Fokus ke satu hal: bikin website yang mantap.</h2>
+        <p>Nggak nebeng jasa lain. KaveloLab cuma ngerjain website — dari nol sampe deploy.</p>
+      </div>
+      <div class="value-grid">
+        <div class="value-item"><span class="ic">✦</span><p><strong style="color:var(--ink);">1 halaman</strong> — landing page simpel buat usaha kecil yang baru mulai online.</p></div>
+        <div class="value-item"><span class="ic">✦</span><p><strong style="color:var(--ink);">Multi halaman</strong> — struktur lengkap: beranda, tentang, layanan, portfolio, kontak.</p></div>
+        <div class="value-item"><span class="ic">✦</span><p><strong style="color:var(--ink);">Desain sesuai brief</strong> — layout, warna, tipografi disesuaikan sama karakter bisnis kamu.</p></div>
+        <div class="value-item"><span class="ic">✦</span><p><strong style="color:var(--ink);">Deploy & serah terima</strong> — website langsung online, kamu tinggal pakai.</p></div>
+      </div>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Projects & Experiments</p>
+        <h2>Bukan cuma bikin website. Kami juga ngeksplor teknologi.</h2>
+        <p>Beberapa project yang lagi dan pernah dikerjain sebagai bagian dari eksperimen KaveloLab di AI dan teknologi.</p>
+      </div>
+      <div class="project-grid">
+        <!-- Fajar OS -->
+        <div class="project-card">
+          <div class="project-visual fajar">
+            <div class="project-screen">
+              <div class="bar"></div>
+              <div class="line long"></div>
+              <div class="line mid"></div>
+              <div class="line short"></div>
+              <div class="line long"></div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-type">AI Workspace</div>
+            <div class="project-name">Fajar OS</div>
+            <div class="project-status">Prototype • In Development</div>
+            <p class="project-desc">Eksperimen bikin AI Workspace pribadi yang gabungin percakapan, memory, dan berbagai kemampuan AI dalam satu ruang kerja.</p>
+            <div class="project-tags"><span>AI</span><span>AI Workspace</span><span>Prototype</span><span>Web App</span></div>
+            <div class="project-foot"><a class="btn btn-primary btn-sm" href="https://fajar-os.vercel.app" target="_blank" rel="noopener">Open Fajar OS →</a></div>
+          </div>
+        </div>
+        <!-- Crypto Agent -->
+        <div class="project-card">
+          <div class="project-visual crypto">
+            <div class="project-screen">
+              <div class="bar"></div>
+              <div class="line short"></div>
+              <div class="line long"></div>
+              <div class="line mid"></div>
+              <div class="line long"></div>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-type">AI Agent</div>
+            <div class="project-name">Crypto Agent</div>
+            <div class="project-status">Experimental Project</div>
+            <p class="project-desc">Eksperimen bikin AI agent yang bantu olah dan analisis info crypto dalam interface khusus.</p>
+            <div class="project-tags"><span>AI</span><span>Crypto</span><span>AI Agent</span><span>Experiment</span></div>
+            <div class="project-foot"><a class="btn btn-primary btn-sm" href="https://kavelo-crypto-agent.vercel.app" target="_blank" rel="noopener">Open Crypto Agent →</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="solution-block col" style="margin:24px auto 0;">
+        <p><strong>Status project bisa berubah.</strong> Yang di atas masih eksperimen, bisa berkembang, berubah, atau jadi produk beneran.</p>
+        <p>Tujuannya bukan cuma demo — tapi belajar bikin sesuatu yang beneran kepake.</p>
+      </div>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <!-- ===== SHOWCASE ===== -->
+  <section id="showcase">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Demo Website</p>
+        <h2>Tiga paket, tiga level kematangan.</h2>
+        <p>Ini demo live yang bisa kamu buka langsung — bukan mockup. Masing-masing punya vibe beda buat nunjukin range KaveloLab.</p>
+      </div>
+      <div class="showcase-grid">
+        <!-- Starter -->
+        <div class="showcase-card">
+          <div class="showcase-swatch" style="background:#3A2418;"><span style="background:#F3C77D;"></span><span style="background:#D98C4A;"></span><span style="background:#7A4430;"></span></div>
+          <div class="showcase-body">
+            <div class="showcase-pkg">Starter</div>
+            <div class="showcase-name">Senja Coffee</div>
+            <div class="showcase-pos">Buat kebutuhan simpel</div>
+            <p class="showcase-desc">One-page website hangat & minimalis buat usaha kecil yang butuh landing page ringkas — profil, menu, dan CTA WhatsApp.</p>
+            <div class="showcase-foot"><a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/Senja-Coffee-demo-started//" target="_blank" rel="noopener">Lihat Demo Live</a></div>
+          </div>
+        </div>
+        <!-- Business -->
+        <div class="showcase-card">
+          <div class="showcase-swatch" style="background:#EDEBE6;"><span style="background:#FAFAF8;"></span><span style="background:#2F4A3E;"></span><span style="background:#14171A;"></span></div>
+          <div class="showcase-body">
+            <div class="showcase-pkg">Business</div>
+            <div class="showcase-name">BENTANG</div>
+            <div class="showcase-pos">Buat bisnis yang mau tampil lebih profesional</div>
+            <p class="showcase-desc">Website multi-halaman dengan navigasi lengkap buat bisnis yang butuh presentasi lebih matang.</p>
+            <div class="showcase-foot"><a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/BENTANG-DEMO-BUSINESS//" target="_blank" rel="noopener">Lihat Demo Live</a></div>
+          </div>
+        </div>
+        <!-- Pro -->
+        <div class="showcase-card">
+          <div class="showcase-swatch" style="background:#0D0C10;"><span style="background:#0D0C10;"></span><span style="background:#6C5CE0;"></span><span style="background:#F4F1EA;"></span></div>
+          <div class="showcase-body">
+            <div class="showcase-pkg">Pro</div>
+            <div class="showcase-name">ARUNA</div>
+            <div class="showcase-pos">Buat brand yang butuh pengalaman lebih premium</div>
+            <p class="showcase-desc">Website editorial dengan art direction kuat, navigasi custom, dan presentasi karya yang lebih ekspresif.</p>
+            <div class="showcase-foot"><a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/aruna-demo-pro/" target="_blank" rel="noopener">Lihat Demo Live</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <!-- ===== HARGA ===== -->
+  <section id="harga">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Investasi</p>
+        <h2>Pilih paket yang cocok.</h2>
+        <p>Makin lengkap kebutuhannya, makin besar paketnya. Belum yakin? Konsultasi dulu, gratis.</p>
+      </div>
+      <div class="price-grid">
+        <!-- Starter -->
+        <div class="price-card">
+          <div class="price-name">Starter</div>
+          <div class="price-pos">Buat kebutuhan simpel</div>
+          <div class="price-amount"><sup>Rp</sup>499K</div>
+          <div class="price-feat">
+            <span>1 halaman</span><span>Responsive mobile</span><span>WhatsApp CTA</span><span>Gallery / Portfolio</span><span>Basic on-page SEO</span><span>1× revisi</span><span>Deploy website</span><span>Estimasi 3 hari</span>
+          </div>
+          <a class="btn btn-outline wa-link" href="#" data-msg="Halo KaveloLab, saya tertarik paket Starter." target="_blank" rel="noopener">Pilih Starter</a>
+        </div>
+        <!-- Business -->
+        <div class="price-card reco">
+          <span class="price-badge">Paling rame dipilih</span>
+          <div class="price-name">Business</div>
+          <div class="price-pos">Buat bisnis yang mau tampil lebih profesional</div>
+          <div class="price-amount"><sup>Rp</sup>999K</div>
+          <div class="price-feat">
+            <span>Maks. 5 halaman</span><span>Responsive mobile</span><span>WhatsApp CTA</span><span>Form kontak</span><span>Gallery / Portfolio</span><span>Basic on-page SEO</span><span>2× revisi</span><span>Deploy website</span><span>Estimasi 5 hari</span>
+          </div>
+          <a class="btn btn-primary wa-link" href="#" data-msg="Halo KaveloLab, saya tertarik paket Business." target="_blank" rel="noopener">Pilih Business</a>
+        </div>
+        <!-- Pro -->
+        <div class="price-card">
+          <div class="price-name">Pro</div>
+          <div class="price-pos">Buat brand yang butuh pengalaman lebih premium</div>
+          <div class="price-amount"><sup>Rp</sup>1.499K</div>
+          <div class="price-feat">
+            <span>Maks. 8 halaman</span><span>Responsive mobile</span><span>WhatsApp CTA</span><span>Form kontak</span><span>Gallery / Portfolio</span><span>Basic on-page SEO</span><span>Struktur & layout lebih custom</span><span>3× revisi</span><span>Deploy website</span><span>Estimasi 7 hari</span>
+          </div>
+          <a class="btn btn-outline wa-link" href="#" data-msg="Halo KaveloLab, saya tertarik paket Pro." target="_blank" rel="noopener">Pilih Pro</a>
+        </div>
+      </div>
+      <div class="custom-card">
+        <div class="custom-left">
+          <div class="price-name">Custom</div>
+          <p>Buat kebutuhan di luar paket — halaman, fitur, scope & harga disesuaikan berdasarkan kompleksitas.</p>
+        </div>
+        <div class="custom-right">
+          <div class="custom-price"><small>Mulai</small>Rp2.499K</div>
+          <a class="btn btn-outline btn-sm wa-link" href="#" data-msg="Halo KaveloLab, saya mau tanya soal paket Custom." target="_blank" rel="noopener">Tanya Custom</a>
+        </div>
+      </div>
+      <div class="terms-note">
+        <p class="eyebrow">Ketentuan</p>
+        <ul>
+          <li>Revisi = perubahan minor teks, warna, gambar, atau layout — nggak termasuk redesign total / halaman baru.</li>
+          <li>Konten teks, foto & logo disiapkan klien; halaman tambahan di luar paket kena biaya tambahan.</li>
+          <li>Deploy default ke subdomain gratis (GitHub Pages / Cloudflare Pages). Custom domain & hosting tersedia sebagai layanan tambahan.</li>
+          <li>Basic on-page SEO = setup title, meta description, heading structure, alt text, dan struktur halaman yang search-engine-friendly — nggak menjanjikan ranking, traffic, atau hasil pencarian tertentu.</li>
+          <li>Estimasi pengerjaan: Starter 3 hari, Business 5 hari, Pro 7 hari — tergantung kelengkapan konten yang disiapkan klien.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <!-- ===== KENAPA ===== -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Kenapa KaveloLab</p>
+        <h2>Fokus ke hal yang beneran berpengaruh.</h2>
+      </div>
+      <div class="value-grid">
+        <div class="value-item"><span class="ic">✓</span><p>Desain disesuaikan sama kebutuhan bisnis kamu, bukan template yang dipaksakan.</p></div>
+        <div class="value-item"><span class="ic">✓</span><p>Responsive — tampil rapi di HP, tablet, desktop.</p></div>
+        <div class="value-item"><span class="ic">✓</span><p>Struktur halaman jelas dan profesional, gampang dinavigasi calon customer.</p></div>
+        <div class="value-item"><span class="ic">✓</span><p>CTA ke WhatsApp yang jelas, biar calon customer gampang hubungin kamu.</p></div>
+        <div class="value-item"><span class="ic">✓</span><p>Proses order simpel — cukup mulai dari chat WhatsApp.</p></div>
+        <div class="value-item"><span class="ic">✓</span><p>Website bisa dikembangin lagi ke depannya sesuai kebutuhan yang berubah.</p></div>
+      </div>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <!-- ===== AI WORKFLOW ===== -->
+  <section id="workflow">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Cara Kami Kerja</p>
+        <h2>AI bantu cepatin build — tapi tetap direview manusia.</h2>
+        <p>Website ini dan tiga demo di atas dibangun dengan alur ini. Kami transparan soal pemakaian AI karena hasil akhirnya harus bisa dipertanggungjawabkan.</p>
+      </div>
+      <div class="process-list col" style="margin:0 auto;">
+        <div class="process-item"><span class="num">01</span><div><h3>Ide</h3><p>Nentuin tujuan dan karakter website yang mau dibangun.</p></div></div>
+        <div class="process-item"><span class="num">02</span><div><h3>Brief</h3><p>Kebutuhan halaman, konten, dan referensi visual disusun jadi brief kerja.</p></div></div>
+        <div class="process-item"><span class="num">03</span><div><h3>AI-Assisted Build</h3><p>Kode HTML/CSS/JS dibangun dengan bantuan AI buat mempercepat proses development berdasarkan brief.</p></div></div>
+        <div class="process-item"><span class="num">04</span><div><h3>Review Manusia</h3><p>Hasil build dicek satu per satu — struktur, visual, fungsi, dan kesesuaian dengan brief.</p></div></div>
+        <div class="process-item"><span class="num">05</span><div><h3>Revisi</h3><p>Bagian yang belum sesuai diperbaiki sampai memenuhi brief dan standar yang ditetapkan.</p></div></div>
+        <div class="process-item"><span class="num">06</span><div><h3>Live</h3><p>Website di-deploy dan siap digunakan.</p></div></div>
+      </div>
+      <div class="solution-block col" style="margin:24px auto 0;">
+        <p>AI adalah alat bantu di proses build — bukan pengganti quality control.</p>
+      </div>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <!-- ===== PROSES ORDER ===== -->
+  <section id="proses">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Cara Order</p>
+        <h2>Lima langkah, dari chat sampe website siap.</h2>
+      </div>
+      <div class="process-list col" style="margin:0 auto;">
+        <div class="process-item"><span class="num">01</span><div><h3>Konsultasi</h3><p>Ceritain kebutuhan bisnis kamu lewat WhatsApp.</p></div></div>
+        <div class="process-item"><span class="num">02</span><div><h3>Pilih Paket & Kebutuhan</h3><p>Nentuin paket yang cocok dan detail kebutuhan halaman.</p></div></div>
+        <div class="process-item"><span class="num">03</span><div><h3>Pengerjaan</h3><p>Website dikerjain sesuai brief dan estimasi waktu paket.</p></div></div>
+        <div class="process-item"><span class="num">04</span><div><h3>Review & Revisi</h3><p>Kamu cek hasilnya dan revisi sesuai jatah paket yang dipilih.</p></div></div>
+        <div class="process-item"><span class="num">05</span><div><h3>Website Siap</h3><p>Website di-deploy dan siap dipake buat bisnis kamu.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <hr class="rule">
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Pertanyaan Umum</p>
+        <h2>Yang sering ditanyain.</h2>
+      </div>
+      <div class="faq-list col" style="margin:0 auto;">
+        <div class="faq-item">
+          <button class="faq-q">Bisa request desain sendiri? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Bisa. Desain disusun berdasarkan brief awal kamu dan bisa disesuaikan dalam batas revisi paket.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Website-nya responsif nggak? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Ya, semua paket dibuat responsive — rapi di HP, tablet, dan desktop.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Berapa lama pengerjaannya? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Starter 3 hari, Business 5 hari, Pro 7 hari — tergantung kelengkapan konten kamu.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Bisa revisi? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Bisa, sesuai jatah: Starter 1×, Business 2×, Pro 3×.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Domain & hosting termasuk? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Deploy default ke subdomain gratis (GitHub Pages / Cloudflare Pages). Custom domain & hosting ada sebagai add-on.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Gimana cara order? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Langsung chat WhatsApp, ceritain kebutuhan bisnis kamu, nanti diarahkan ke paket yang cocok.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Bisa dibuat untuk bisnis tertentu? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Cocok buat UMKM, bisnis kecil, personal brand, dan jasa lokal. Kalau kebutuhannya di luar itu, diskusikan dulu lewat WhatsApp.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Website-nya dibuat pake AI? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Sebagian proses build pake bantuan AI buat percepat development. Tapi setiap hasil tetap melalui review dan revisi manusia sebelum dinyatakan selesai.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Fajar OS udah selesai? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Belum. Fajar OS masih prototype yang terus dikembangkan. Ini eksperimen buat bikin AI Workspace.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Crypto Agent udah jadi produk final? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Belum tentu. Ini experimental project buat nunjukkin eksplorasi KaveloLab di AI agent.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FINAL CTA ===== -->
+  <div class="final-cta">
+    <div class="wrap">
+      <p class="eyebrow" style="justify-content:center;">Mulai Sekarang</p>
+      <h2>Siap punya website<br><em>sendiri?</em></h2>
+      <p>Chat dulu, ceritain kebutuhan bisnis kamu — gratis, tanpa komitmen.</p>
+      <a class="btn btn-primary wa-link" href="#" data-msg="Halo KaveloLab, saya mau mulai bikin website." target="_blank" rel="noopener">Konsultasi Gratis via WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-logo">Kavelo<span>Lab</span></div>
+        <div class="foot-tag">Website • AI • Technology Projects</div>
+      </div>
+      <div class="foot-links">
+        <a href="#layanan">Layanan</a>
+        <a href="#projects">Projects</a>
+        <a href="#showcase">Demo</a>
+        <a href="#harga">Harga</a>
+        <a href="#proses">Proses</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="foot-bottom">
+        <span>&copy; KaveloLab</span>
+        <span>WhatsApp: +62 821-2175-9018</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== CHATBOT ===== -->
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="KaveloLab Assistant" aria-hidden="true">
+    <div class="chat-head"><span class="dot"></span><div class="ti"><strong>KaveloLab Assistant</strong><span>Otomatis · balas cepet</span></div></div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-suggest" id="chatSuggest">
+      <button type="button" data-q="harga">Harga paket?</button>
+      <button type="button" data-q="proses">Berapa lama?</button>
+      <button type="button" data-q="revisi">Bisa revisi?</button>
+      <button type="button" data-q="domain">Domain & hosting?</button>
+      <button type="button" data-q="project">Ada project AI?</button>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Tulis pertanyaan..." autocomplete="off" />
+      <button type="button" id="chatSend" aria-label="Kirim"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg></button>
+    </div>
+    <p class="chat-disclaimer">Asisten otomatis pake aturan sederhana — buat pertanyaan detail, lanjut ke WhatsApp.</p>
+  </div>
+  <button class="chat-fab" id="chatFab" aria-label="Buka chat asisten" aria-expanded="false">
+    <svg class="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+
+  <script>
+    const WHATSAPP_NUMBER = "6282121759018";
+    document.addEventListener('DOMContentLoaded', function() {
+      // WhatsApp links
+      document.querySelectorAll('.wa-link').forEach(function(el) {
+        var msg = el.getAttribute('data-msg') || '';
+        el.setAttribute('href', 'https://wa.me/' + WHATSAPP_NUMBER + (msg ? '?text=' + encodeURIComponent(msg) : ''));
+      });
+
+      // Mobile menu
+      var toggle = document.querySelector('.nav-toggle');
+      var mobileMenu = document.querySelector('.nav-mobile');
+      if (toggle && mobileMenu) {
+        toggle.addEventListener('click', function() {
+          var isOpen = mobileMenu.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        mobileMenu.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            mobileMenu.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // FAQ
+      document.querySelectorAll('.faq-q').forEach(function(btn, i) {
+        var item = btn.closest('.faq-item');
+        var answer = item.querySelector('.faq-a');
+        var answerId = 'faq-answer-' + i;
+        answer.id = answerId;
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-controls', answerId);
+        btn.addEventListener('click', function() {
+          var isOpen = item.classList.contains('open');
+          document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+            openItem.classList.remove('open');
+            openItem.querySelector('.faq-a').style.maxHeight = null;
+            openItem.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // Chatbot
+      var waHref = function(msg) { return 'https://wa.me/' + WHATSAPP_NUMBER + (msg ? '?text=' + encodeURIComponent(msg) : ''); };
+      var CHAT_RULES = [
+        { keys: ['harga', 'paket', 'price', 'biaya', 'mahal', 'murah'], answer: 'Ada 4 paket: <strong>Starter Rp499K</strong> (1 halaman), <strong>Business Rp999K</strong> (maks 5 halaman), <strong>Pro Rp1.499K</strong> (maks 8 halaman), dan <strong>Custom mulai Rp2.499K</strong>. Detail lengkap di <a href="#harga">Harga</a>.' },
+        { keys: ['proses', 'lama', 'berapa hari', 'estimasi', 'waktu'], answer: 'Estimasi: Starter 3 hari, Business 5 hari, Pro 7 hari — tergantung kelengkapan konten kamu.' },
+        { keys: ['revisi', 'ubah', 'ganti desain'], answer: 'Jatah revisi: Starter 1×, Business 2×, Pro 3×. Revisi = perubahan minor teks, warna, gambar, atau layout.' },
+        { keys: ['domain', 'hosting', 'subdomain'], answer: 'Deploy default ke subdomain gratis (GitHub Pages / Cloudflare Pages). Custom domain & hosting ada sebagai add-on.' },
+        { keys: ['seo'], answer: 'Semua paket udah termasuk basic on-page SEO: title, meta description, heading structure, alt text, dan struktur halaman yang search-engine-friendly. Nggak menjamin ranking tertentu.' },
+        { keys: ['demo', 'contoh', 'portfolio', 'lihat hasil'], answer: 'Ada 3 demo: Senja Coffee (Starter), BENTANG (Business), dan ARUNA (Pro). Cek di <a href="#showcase">Demo</a>.' },
+        { keys: ['project', 'projects', 'fajar os', 'fajar', 'crypto agent', 'ai agent', 'ai project'], answer: 'KaveloLab juga punya beberapa technology projects. <a href="#projects">Fajar OS</a> (prototype AI Workspace) dan <a href="#projects">Crypto Agent</a> (experimental AI project).' },
+        { keys: ['fajar os', 'fajaros'], answer: 'Fajar OS adalah prototype AI Workspace yang sedang dikembangin. Lihat versi jalan di <a href="https://fajar-os.vercel.app" target="_blank">Fajar OS →</a>.' },
+        { keys: ['crypto agent', 'crypto'], answer: 'Crypto Agent adalah experimental project KaveloLab buat ngeksplor AI agent di bidang crypto. <a href="https://kavelo-crypto-agent.vercel.app" target="_blank">Open Crypto Agent →</a>' },
+        { keys: ['ai', 'claude', 'pakai ai'], answer: 'Ya, sebagian proses development pake bantuan AI buat mempercepat build. Tapi hasil tetap direview & direvisi manusia.' },
+        { keys: ['mulai', 'order', 'pesan', 'cara'], answer: 'Gampang — langsung chat WhatsApp, ceritain kebutuhan bisnis kamu, nanti diarahkan ke paket yang cocok.' },
+        { keys: ['responsive', 'hp', 'mobile'], answer: 'Ya, semua paket dibuat responsive — rapi di HP, tablet, dan desktop.' },
+        { keys: ['cafe', 'kopi', 'coffee', 'umkm', 'bisnis', 'toko', 'jasa', 'personal brand'], answer: 'KaveloLab cocok buat UMKM, bisnis kecil, cafe, toko, personal brand, dan jasa lokal. Kalau belum yakin paket mana, langsung chat WhatsApp buat konsultasi.' },
+        { keys: ['halo', 'hai', 'hi', 'hello', 'pagi', 'siang', 'malam'], answer: 'Halo! 👋 Mau tanya soal harga, proses, revisi, demo website, atau project AI? Tinggal ketik pertanyaan kamu.' }
+      ];
+      var FALLBACK = 'Untuk pertanyaan ini aku belum punya jawaban pastinya — biar nggak salah info, langsung tanya via WhatsApp aja ya.';
+
+      function findAnswer(text) {
+        var t = text.toLowerCase();
+        for (var i = 0; i < CHAT_RULES.length; i++) {
+          var rule = CHAT_RULES[i];
+          for (var j = 0; j < rule.keys.length; j++) {
+            if (t.indexOf(rule.keys[j]) !== -1) return rule.answer;
+          }
+        }
+        return null;
+      }
+
+      var chatFab = document.getElementById('chatFab');
+      var chatPanel = document.getElementById('chatPanel');
+      var chatBody = document.getElementById('chatBody');
+      var chatInput = document.getElementById('chatInput');
+      var chatSend = document.getElementById('chatSend');
+      var chatSuggest = document.getElementById('chatSuggest');
+      var chatOpened = false;
+
+      function addMsg(text, who) {
+        var div = document.createElement('div');
+        div.className = 'chat-msg ' + who;
+        div.innerHTML = text;
+        chatBody.appendChild(div);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }
+
+      function botReply(userText) {
+        var found = findAnswer(userText);
+        setTimeout(function() {
+          if (found) {
+            addMsg(found, 'bot');
+          } else {
+            addMsg(FALLBACK + ' <a href="' + waHref('Halo KaveloLab, saya mau tanya: ' + userText) + '" target="_blank" rel="noopener">Chat WhatsApp →</a>', 'bot');
+          }
+        }, 350);
+      }
+
+      function handleSend(text) {
+        text = (text || '').trim();
+        if (!text) return;
+        addMsg(text, 'user');
+        chatInput.value = '';
+        botReply(text);
+      }
+
+      if (chatFab && chatPanel) {
+        chatFab.addEventListener('click', function() {
+          var isOpen = chatPanel.classList.toggle('open');
+          chatFab.classList.toggle('open', isOpen);
+          chatFab.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          chatPanel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+          if (isOpen && !chatOpened) {
+            chatOpened = true;
+            addMsg('Halo! 👋 Aku asisten otomatis KaveloLab. Bisa bantu jawab soal harga, proses, revisi, domain/hosting, demo website, dan project AI.', 'bot');
+          }
+          if (isOpen) chatInput.focus();
+        });
+      }
+      if (chatSend) chatSend.addEventListener('click', function() { handleSend(chatInput.value); });
+      if (chatInput) chatInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleSend(chatInput.value); });
+      if (chatSuggest) chatSuggest.addEventListener('click', function(e) { var btn = e.target.closest('button[data-q]'); if (btn) handleSend(btn.getAttribute('data-q')); });
+    });
+  </script>
 </body>
 </html>
