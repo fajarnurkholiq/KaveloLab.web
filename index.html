@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     /* ============================================================
-       DESIGN SYSTEM
+       DESIGN SYSTEM dengan spacing yang jelas
        ============================================================ */
     * {
       margin: 0;
@@ -20,6 +20,7 @@
     }
 
     :root {
+      /* Warna */
       --bg: #0E0C0A;
       --bg-surface: #171410;
       --bg-surface-2: #1D1A15;
@@ -30,12 +31,30 @@
       --gold: #D4AF37;
       --gold-soft: rgba(212, 175, 55, 0.12);
       --gold-glow: rgba(212, 175, 55, 0.06);
+
+      /* Typography */
       --font-serif: 'Fraunces', Georgia, serif;
       --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Spacing (8px system) - PASTI ADA */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
+
+      /* Radius */
       --radius: 12px;
       --radius-sm: 6px;
+
+      /* Shadow */
       --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.30);
-      --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.04);
     }
 
     html {
@@ -62,7 +81,8 @@
       text-decoration: none;
     }
 
-    img, svg {
+    img,
+    svg {
       display: block;
       max-width: 100%;
     }
@@ -71,7 +91,9 @@
       list-style: none;
     }
 
-    h1, h2, h3 {
+    h1,
+    h2,
+    h3 {
       font-family: var(--font-serif);
       font-weight: 600;
       line-height: 1.2;
