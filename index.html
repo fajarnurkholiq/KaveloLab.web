@@ -20,7 +20,6 @@
     }
 
     :root {
-      /* Colors */
       --bg: #0E0C0A;
       --bg-surface: #171410;
       --bg-surface-2: #1D1A15;
@@ -31,36 +30,14 @@
       --gold: #D4AF37;
       --gold-soft: rgba(212, 175, 55, 0.12);
       --gold-glow: rgba(212, 175, 55, 0.06);
-
-      /* Typography */
       --font-serif: 'Fraunces', Georgia, serif;
       --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
-
-      /* Spacing (8px system) */
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 20px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --space-10: 40px;
-      --space-12: 48px;
-      --space-16: 64px;
-      --space-20: 80px;
-
-      /* Radius */
       --radius: 12px;
       --radius-sm: 6px;
-
-      /* Shadow */
       --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.30);
       --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.04);
     }
 
-    /* ============================================================
-       BASE
-       ============================================================ */
     html {
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
@@ -85,8 +62,7 @@
       text-decoration: none;
     }
 
-    img,
-    svg {
+    img, svg {
       display: block;
       max-width: 100%;
     }
@@ -95,12 +71,7 @@
       list-style: none;
     }
 
-    /* ============================================================
-       TYPOGRAPHY
-       ============================================================ */
-    h1,
-    h2,
-    h3 {
+    h1, h2, h3 {
       font-family: var(--font-serif);
       font-weight: 600;
       line-height: 1.2;
@@ -152,9 +123,6 @@
       margin-right: auto;
     }
 
-    /* ============================================================
-       BUTTONS
-       ============================================================ */
     .btn {
       display: inline-flex;
       align-items: center;
@@ -200,9 +168,7 @@
       justify-content: center;
     }
 
-    /* ============================================================
-       NAV
-       ============================================================ */
+    /* ===== NAV ===== */
     nav {
       position: sticky;
       top: 0;
@@ -300,9 +266,7 @@
       justify-content: center;
     }
 
-    /* ============================================================
-       HERO
-       ============================================================ */
+    /* ===== HERO ===== */
     .hero {
       padding: var(--space-12) var(--space-6) var(--space-10);
       text-align: center;
@@ -358,9 +322,7 @@
       color: var(--text-faint);
     }
 
-    /* ============================================================
-       SECTION
-       ============================================================ */
+    /* ===== SECTION ===== */
     section {
       padding: var(--space-12) var(--space-6);
     }
@@ -373,9 +335,7 @@
       margin-right: auto;
     }
 
-    /* ============================================================
-       PROBLEM / SOLUTION
-       ============================================================ */
+    /* ===== PROBLEM / SOLUTION ===== */
     .ps-grid {
       display: grid;
       gap: var(--space-3);
@@ -423,9 +383,7 @@
       font-weight: 700;
     }
 
-    /* ============================================================
-       VALUE / LAYANAN
-       ============================================================ */
+    /* ===== VALUE / LAYANAN ===== */
     .value-grid {
       display: grid;
       gap: var(--space-3);
@@ -456,9 +414,7 @@
       font-weight: 700;
     }
 
-    /* ============================================================
-       PROJECTS
-       ============================================================ */
+    /* ===== PROJECTS ===== */
     .project-grid {
       display: grid;
       gap: var(--space-4);
@@ -576,9 +532,7 @@
       gap: var(--space-3);
     }
 
-    /* ============================================================
-       SHOWCASE
-       ============================================================ */
+    /* ===== SHOWCASE ===== */
     .showcase-grid {
       display: grid;
       gap: var(--space-4);
@@ -637,9 +591,7 @@
       gap: var(--space-3);
     }
 
-    /* ============================================================
-       PRICING
-       ============================================================ */
+    /* ===== PRICING ===== */
     .price-grid {
       display: grid;
       gap: var(--space-4);
@@ -782,9 +734,7 @@
       left: 0;
     }
 
-    /* ============================================================
-       PROCESS
-       ============================================================ */
+    /* ===== PROCESS ===== */
     .process-list {
       display: flex;
       flex-direction: column;
@@ -816,9 +766,7 @@
       line-height: 1.7;
     }
 
-    /* ============================================================
-       FAQ
-       ============================================================ */
+    /* ===== FAQ ===== */
     .faq-list {
       display: flex;
       flex-direction: column;
@@ -867,9 +815,7 @@
       line-height: 1.7;
     }
 
-    /* ============================================================
-       FINAL CTA
-       ============================================================ */
+    /* ===== FINAL CTA ===== */
     .final-cta {
       text-align: center;
       padding: var(--space-16) var(--space-6);
@@ -892,9 +838,7 @@
       line-height: 1.8;
     }
 
-    /* ============================================================
-       FOOTER
-       ============================================================ */
+    /* ===== FOOTER ===== */
     footer {
       border-top: 1px solid var(--border);
       padding: var(--space-10) var(--space-6) var(--space-8);
@@ -935,9 +879,7 @@
       color: var(--text-faint);
     }
 
-    /* ============================================================
-       CHATBOT
-       ============================================================ */
+    /* ===== CHATBOT ===== */
     .chat-fab {
       position: fixed;
       right: 20px;
@@ -1127,9 +1069,7 @@
       padding: 0 var(--space-4) var(--space-3);
     }
 
-    /* ============================================================
-       RESPONSIVE
-       ============================================================ */
+    /* ===== RESPONSIVE ===== */
     @media (min-width: 600px) {
       .ps-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1204,9 +1144,7 @@
 </head>
 <body>
 
-  <!-- ============================================================
-  NAV
-  ============================================================ -->
+  <!-- ===== NAV ===== -->
   <nav>
     <div class="nav-inner">
       <a href="#top" class="nav-logo">Kavelo<span>Lab</span></a>
@@ -1217,8 +1155,9 @@
         <a href="#harga">Harga</a>
         <a href="#proses">Proses</a>
         <a href="#faq">FAQ</a>
+        <a href="lead-agent.html" style="color:var(--gold);">Order</a>
       </div>
-      <a class="btn btn-primary btn-sm nav-cta wa-link" href="#" data-msg="Halo KaveloLab, saya mau konsultasi soal website." target="_blank" rel="noopener">Konsultasi</a>
+      <a class="btn btn-primary btn-sm nav-cta" href="lead-agent.html">Pesan Website</a>
       <button class="nav-toggle" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -1230,29 +1169,26 @@
       <a href="#harga">Harga</a>
       <a href="#proses">Proses</a>
       <a href="#faq">FAQ</a>
-      <a class="btn btn-primary btn-sm wa-link" href="#" data-msg="Halo KaveloLab, saya mau konsultasi soal website." target="_blank" rel="noopener">Konsultasi via WhatsApp</a>
+      <a href="lead-agent.html" style="color:var(--gold);">Order</a>
+      <a class="btn btn-primary btn-sm" href="lead-agent.html">Pesan Website</a>
     </div>
   </nav>
 
-  <!-- ============================================================
-  HERO
-  ============================================================ -->
+  <!-- ===== HERO ===== -->
   <div class="hero" id="top">
     <div class="container">
       <p class="eyebrow" style="justify-content:center;">AI &amp; Technology Lab</p>
       <h1>Bangun <em>presence digital</em> dengan pendekatan teknologi.</h1>
       <p class="lead">KaveloLab bantu bisnis dan personal brand punya website yang profesional. Plus eksperimen AI dan project teknologi sebagai bagian dari proses belajar.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary wa-link" href="#" data-msg="Halo KaveloLab, saya mau konsultasi soal website." target="_blank" rel="noopener">Mulai Konsultasi</a>
+        <a class="btn btn-primary" href="lead-agent.html">Pesan Website</a>
         <a class="btn btn-outline" href="#projects">Lihat Projects</a>
       </div>
       <p class="hero-note">Website · AI Experiments · Technology Projects</p>
     </div>
   </div>
 
-  <!-- ============================================================
-  PROBLEM
-  ============================================================ -->
+  <!-- ===== PROBLEM ===== -->
   <section>
     <div class="container">
       <div class="section-head text-center">
@@ -1269,9 +1205,7 @@
     </div>
   </section>
 
-  <!-- ============================================================
-  SOLUTION
-  ============================================================ -->
+  <!-- ===== SOLUTION ===== -->
   <section style="padding-top:0;">
     <div class="container">
       <div class="solution-block">
@@ -1281,9 +1215,7 @@
     </div>
   </section>
 
-  <!-- ============================================================
-  LAYANAN
-  ============================================================ -->
+  <!-- ===== LAYANAN ===== -->
   <section id="layanan">
     <div class="container">
       <div class="section-head text-center">
@@ -1300,9 +1232,7 @@
     </div>
   </section>
 
-  <!-- ============================================================
-  PROJECTS
-  ============================================================ -->
+  <!-- ===== PROJECTS ===== -->
   <section id="projects" style="background:var(--bg-surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
     <div class="container">
       <div class="section-head text-center">
@@ -1362,9 +1292,7 @@
     </div>
   </section>
 
-  <!-- ============================================================
-  SHOWCASE
-  ============================================================ -->
+  <!-- ===== SHOWCASE ===== -->
   <section id="showcase">
     <div class="container">
       <div class="section-head text-center">
@@ -1416,9 +1344,7 @@
     </div>
   </section>
 
-  <!-- ============================================================
-  HARGA
-  ============================================================ -->
+  <!-- ===== HARGA ===== -->
   <section id="harga" style="background:var(--bg-surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
     <div class="container">
       <div class="section-head text-center">
@@ -1442,7 +1368,7 @@
             <span>Deploy website</span>
             <span>Estimasi 3 hari</span>
           </div>
-          <a class="btn btn-outline btn-block wa-link" href="#" data-msg="Halo KaveloLab, saya tertarik paket Starter." target="_blank" rel="noopener">Pilih Starter</a>
+          <a class="btn btn-outline btn-block" href="lead-agent.html">Pilih Starter</a>
         </div>
         <!-- Business -->
         <div class="price-card reco">
@@ -1461,7 +1387,7 @@
             <span>Deploy website</span>
             <span>Estimasi 5 hari</span>
           </div>
-          <a class="btn btn-primary btn-block wa-link" href="#" data-msg="Halo KaveloLab, saya tertarik paket Business." target="_blank" rel="noopener">Pilih Business</a>
+          <a class="btn btn-primary btn-block" href="lead-agent.html">Pilih Business</a>
         </div>
         <!-- Pro -->
         <div class="price-card">
@@ -1480,7 +1406,7 @@
             <span>Deploy website</span>
             <span>Estimasi 7 hari</span>
           </div>
-          <a class="btn btn-outline btn-block wa-link" href="#" data-msg="Halo KaveloLab, saya tertarik paket Pro." target="_blank" rel="noopener">Pilih Pro</a>
+          <a class="btn btn-outline btn-block" href="lead-agent.html">Pilih Pro</a>
         </div>
       </div>
       <div class="custom-card">
@@ -1490,7 +1416,7 @@
         </div>
         <div class="custom-right">
           <div class="custom-price"><small>Mulai</small>Rp2.499K</div>
-          <a class="btn btn-outline btn-sm wa-link" href="#" data-msg="Halo KaveloLab, saya mau tanya soal paket Custom." target="_blank" rel="noopener">Tanya Custom</a>
+          <a class="btn btn-outline btn-sm" href="lead-agent.html">Tanya Custom</a>
         </div>
       </div>
       <div class="terms-note">
@@ -1506,9 +1432,7 @@
     </div>
   </section>
 
-  <!-- ============================================================
-  PROSES
-  ============================================================ -->
+  <!-- ===== PROSES ===== -->
   <section id="proses">
     <div class="container">
       <div class="section-head text-center">
@@ -1528,9 +1452,7 @@
     </div>
   </section>
 
-  <!-- ============================================================
-  FAQ
-  ============================================================ -->
+  <!-- ===== FAQ ===== -->
   <section id="faq" style="background:var(--bg-surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
     <div class="container">
       <div class="section-head text-center">
@@ -1578,21 +1500,17 @@
     </div>
   </section>
 
-  <!-- ============================================================
-  FINAL CTA
-  ============================================================ -->
+  <!-- ===== FINAL CTA ===== -->
   <div class="final-cta">
     <div class="container">
       <p class="eyebrow" style="justify-content:center;">Mulai Sekarang</p>
       <h2>Siap punya website <em>sendiri?</em></h2>
       <p>Chat dulu, ceritakan kebutuhan bisnis kamu — gratis, tanpa komitmen.</p>
-      <a class="btn btn-primary wa-link" href="#" data-msg="Halo KaveloLab, saya mau mulai bikin website." target="_blank" rel="noopener">Konsultasi Gratis via WhatsApp</a>
+      <a class="btn btn-primary" href="lead-agent.html">Pesan Sekarang</a>
     </div>
   </div>
 
-  <!-- ============================================================
-  FOOTER
-  ============================================================ -->
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="container">
       <div class="foot-top">
@@ -1606,6 +1524,7 @@
         <a href="#harga">Harga</a>
         <a href="#proses">Proses</a>
         <a href="#faq">FAQ</a>
+        <a href="lead-agent.html" style="color:var(--gold);">Order</a>
       </div>
       <div class="foot-bottom">
         <span>&copy; KaveloLab</span>
@@ -1614,9 +1533,7 @@
     </div>
   </footer>
 
-  <!-- ============================================================
-  CHATBOT
-  ============================================================ -->
+  <!-- ===== CHATBOT ===== -->
   <div class="chat-panel" id="chatPanel" role="dialog" aria-label="KaveloLab Assistant" aria-hidden="true">
     <div class="chat-head">
       <span class="dot"></span>
@@ -1648,14 +1565,6 @@
 
   <script>
     (function() {
-      const WHATSAPP = "6282121759018";
-
-      // ---- WhatsApp links ----
-      document.querySelectorAll('.wa-link').forEach(function(el) {
-        var msg = el.getAttribute('data-msg') || '';
-        el.setAttribute('href', 'https://wa.me/' + WHATSAPP + (msg ? '?text=' + encodeURIComponent(msg) : ''));
-      });
-
       // ---- Mobile nav ----
       var toggle = document.querySelector('.nav-toggle');
       var mobile = document.querySelector('.nav-mobile');
@@ -1703,6 +1612,7 @@
       });
 
       // ---- Chatbot ----
+      const WHATSAPP = "6282121759018";
       function waLink(msg) {
         return 'https://wa.me/' + WHATSAPP + (msg ? '?text=' + encodeURIComponent(msg) : '');
       }
