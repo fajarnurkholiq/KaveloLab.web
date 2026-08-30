@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Order Website — KaveloLab</title>
-  <meta name="description" content="Isi brief untuk memesan website di KaveloLab. Data akan langsung dikirim ke WhatsApp owner dan dicadangkan ke Google Sheets." />
+  <meta name="description" content="Isi brief untuk memesan website di KaveloLab. Data akan langsung dikirim ke WhatsApp owner." />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E0C0A'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-weight='700' fill='%23D4AF37' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -58,13 +58,6 @@
       border-radius: var(--radius);
       padding: 32px 24px;
       box-shadow: var(--shadow-card);
-    }
-
-    /* ---- Responsive padding container ---- */
-    @media (max-width: 480px) {
-      .container {
-        padding: 24px 16px;
-      }
     }
 
     /* ---- Header ---- */
@@ -259,32 +252,6 @@
       border-top: 1px solid var(--border);
       padding-top: 18px;
     }
-
-    /* ---- Toast notifikasi (untuk error sheets) ---- */
-    .toast {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #1a1410;
-      border: 1px solid #3a2e26;
-      color: #e0d6c8;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 13px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.5);
-      z-index: 999;
-      display: none;
-      max-width: 90%;
-      text-align: center;
-    }
-    .toast.show {
-      display: block;
-    }
-    .toast.error {
-      border-color: #a94442;
-      color: #f0c0b0;
-    }
   </style>
 </head>
 <body>
@@ -299,7 +266,7 @@
   <!-- Form Section -->
   <div id="formSection">
     <h1>Pesan Website</h1>
-    <p class="subhead">Isi brief singkat. Data akan langsung dikirim ke WhatsApp owner dan dicadangkan ke Google Sheets.<br/>Kolom dengan <span style="color:var(--gold);">*</span> wajib diisi.</p>
+    <p class="subhead">Isi brief singkat. Data akan langsung dikirim ke WhatsApp owner KaveloLab. <br/>Kolom dengan <span style="color:var(--gold);">*</span> wajib diisi.</p>
 
     <form id="leadForm" novalidate>
       <!-- Nama -->
@@ -400,24 +367,16 @@
   </div>
 
   <div class="footnote">
-    Data tidak disimpan di server. Semua informasi dikirim langsung ke WhatsApp owner dan dicadangkan ke Google Sheets.
+    Data tidak disimpan di server. Semua informasi dikirim langsung ke WhatsApp owner.
   </div>
 </div>
-
-<!-- Toast notifikasi -->
-<div id="toast" class="toast"></div>
 
 <script>
   (function() {
     // ============================================================
-    // KONFIGURASI - GANTI DENGAN DATA ANDA
+    // KONFIGURASI – NOMOR WHATSAPP OWNER (sudah diisi)
     // ============================================================
-    // --- NOMOR WHATSAPP OWNER (dengan kode negara, tanpa +) ---
     const OWNER_WHATSAPP = "6282121759018";
-
-    // --- URL Google Apps Script (GANTI DENGAN URL DEPLOY ANDA) ---
-    // Jika belum punya, biarkan seperti ini, nanti ganti setelah deploy.
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz.../exec";
 
     // ============================================================
     // DOM refs
@@ -427,8 +386,8 @@
     const formSection = document.getElementById('formSection');
     const successBox = document.getElementById('successBox');
     const whatsappLink = document.getElementById('whatsappLink');
-    const toast = document.getElementById('toast');
 
+    // Field elements
     const nama = document.getElementById('nama');
     const bisnis = document.getElementById('bisnis');
     const jenis = document.getElementById('jenis');
@@ -441,6 +400,7 @@
     const referensi = document.getElementById('referensi');
     const catatan = document.getElementById('catatan');
 
+    // Error elements
     const errors = {
       nama: document.getElementById('namaError'),
       bisnis: document.getElementById('bisnisError'),
@@ -454,7 +414,7 @@
     };
 
     // ============================================================
-    // Helper
+    // Helper: get value, trim, or fallback
     // ============================================================
     function getVal(el) {
       return el.value ? el.value.trim() : '';
@@ -491,15 +451,31 @@
       const waVal = getVal(wa);
       const emailVal = getVal(email);
 
+      // Nama
       valid = validateField(nama, errors.nama, namaVal.length > 0, 'Nama wajib diisi.') && valid;
+
+      // Bisnis
       valid = validateField(bisnis, errors.bisnis, bisnisVal.length > 0, 'Nama bisnis wajib diisi.') && valid;
+
+      // Jenis
       valid = validateField(jenis, errors.jenis, jenisVal.length > 0, 'Jenis bisnis wajib diisi.') && valid;
+
+      // Kebutuhan
       valid = validateField(kebutuhan, errors.kebutuhan, kebutuhanVal.length > 0, 'Kebutuhan website wajib diisi.') && valid;
+
+      // Paket
       valid = validateField(paket, errors.paket, paketVal !== 'Pilih paket...', 'Silakan pilih paket.') && valid;
+
+      // Budget
       valid = validateField(budget, errors.budget, budgetVal.length > 0, 'Budget wajib diisi.') && valid;
+
+      // Target
       valid = validateField(target, errors.target, targetVal.length > 0, 'Target selesai wajib diisi.') && valid;
+
+      // WA
       valid = validateField(wa, errors.wa, waVal.length > 0, 'Nomor WhatsApp wajib diisi.') && valid;
 
+      // Email (format sederhana)
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       valid = validateField(email, errors.email, emailVal.length > 0 && emailRegex.test(emailVal), 'Email wajib diisi dengan format yang benar.') && valid;
 
@@ -507,87 +483,42 @@
     }
 
     // ============================================================
-    // Kumpulkan data
+    // Build WhatsApp message
     // ============================================================
-    function collectFormData() {
-      return {
-        nama: getVal(nama) || 'Tidak diisi',
-        bisnis: getVal(bisnis) || 'Tidak diisi',
-        jenis: getVal(jenis) || 'Tidak diisi',
-        kebutuhan: getVal(kebutuhan) || 'Tidak diisi',
-        paket: getSelectVal(paket),
-        budget: getVal(budget) || 'Tidak diisi',
-        target: getVal(target) || 'Tidak diisi',
-        wa: getVal(wa) || 'Tidak diisi',
-        email: getVal(email) || 'Tidak diisi',
-        referensi: getVal(referensi) || 'Tidak ada',
-        catatan: getVal(catatan) || 'Tidak ada'
+    function buildMessage() {
+      const fields = {
+        'Nama': getVal(nama) || 'Tidak diisi',
+        'Nama Bisnis': getVal(bisnis) || 'Tidak diisi',
+        'Jenis Bisnis': getVal(jenis) || 'Tidak diisi',
+        'Kebutuhan': getVal(kebutuhan) || 'Tidak diisi',
+        'Paket': getSelectVal(paket),
+        'Budget': getVal(budget) || 'Tidak diisi',
+        'Target Selesai': getVal(target) || 'Tidak diisi',
+        'WhatsApp Client': getVal(wa) || 'Tidak diisi',
+        'Email': getVal(email) || 'Tidak diisi',
+        'Referensi': getVal(referensi) || 'Tidak ada',
+        'Catatan': getVal(catatan) || 'Tidak ada'
       };
-    }
 
-    // ============================================================
-    // Build pesan WhatsApp
-    // ============================================================
-    function buildMessage(data) {
       let msg = 'Halo KaveloLab, saya tertarik membuat website.%0A%0A';
-      msg += `Nama: ${data.nama}%0A`;
-      msg += `Nama Bisnis: ${data.bisnis}%0A`;
-      msg += `Jenis Bisnis: ${data.jenis}%0A`;
-      msg += `Kebutuhan: ${data.kebutuhan}%0A`;
-      msg += `Paket: ${data.paket}%0A`;
-      msg += `Budget: ${data.budget}%0A`;
-      msg += `Target Selesai: ${data.target}%0A`;
-      msg += `WhatsApp Client: ${data.wa}%0A`;
-      msg += `Email: ${data.email}%0A`;
-      msg += `Referensi: ${data.referensi}%0A`;
-      msg += `Catatan: ${data.catatan}%0A`;
+      for (const [key, value] of Object.entries(fields)) {
+        msg += `${key}: ${value}%0A`;
+      }
       msg += '%0A-- Dikirim dari lead-agent KaveloLab';
       return msg;
     }
 
     // ============================================================
-    // Kirim ke Google Sheets (mode no-cors, tidak blokir)
-    // ============================================================
-    function sendToSheets(data) {
-      // Jika SCRIPT_URL masih default, lewati dengan aman
-      if (SCRIPT_URL === "https://script.google.com/macros/s/AKfycbz.../exec") {
-        console.warn('SCRIPT_URL belum diisi. Lewati pengiriman ke Google Sheets.');
-        return;
-      }
-
-      fetch(SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-      }).catch(function(err) {
-        showToast('Gagal menyimpan ke Google Sheets (data tetap terkirim via WhatsApp).', 'error');
-        console.warn('Error mengirim ke Google Sheets:', err);
-      });
-    }
-
-    // ============================================================
-    // Toast
-    // ============================================================
-    function showToast(message, type) {
-      toast.textContent = message;
-      toast.className = 'toast show' + (type === 'error' ? ' error' : '');
-      setTimeout(function() {
-        toast.classList.remove('show');
-      }, 5000);
-    }
-
-    // ============================================================
-    // Submit
+    // Submit handler
     // ============================================================
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
+      // Reset errors
       document.querySelectorAll('.form-error').forEach(el => el.classList.remove('show'));
 
       if (!validateForm()) {
+        // Focus first error field
         const firstError = document.querySelector('.form-error.show');
         if (firstError) {
           const fieldId = firstError.id.replace('Error', '');
@@ -597,56 +528,24 @@
         return;
       }
 
-      const data = collectFormData();
-
-      // --- Kirim ke Google Sheets (paralel, tidak menunggu) ---
-      sendToSheets(data);
-
-      // --- Buka WhatsApp ---
-      const message = buildMessage(data);
+      // Build message
+      const message = buildMessage();
       const url = `https://wa.me/${OWNER_WHATSAPP}?text=${message}`;
+
+      // Set the manual link
       whatsappLink.href = url;
+
+      // Open WhatsApp (attempt)
       window.open(url, '_blank');
 
-      // --- Tampilkan sukses ---
+      // Show success, hide form
       formSection.style.display = 'none';
       successBox.classList.add('show');
+
+      // Disable button to prevent double submit
       submitBtn.disabled = true;
     });
-
   })();
 </script>
-
-<!-- ============================================================
-     PANDUAN SETUP GOOGLE SHEETS (HANYA 3 LANGKAH)
-     ============================================================
-     1. Buka Google Sheets, klik Ekstensi → Apps Script.
-     2. Copy-paste kode di bawah ini ke editor, lalu Deploy sebagai Web App
-        (Execute as: Me, Who has access: Anyone).
-     3. Copy URL yang dihasilkan, lalu ganti nilai SCRIPT_URL di atas
-        (sekitar baris 360) dengan URL tersebut.
-
-     --- KODE APPS SCRIPT (copy-paste) ---
-     function doPost(e) {
-       var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-       var data = JSON.parse(e.postData.contents);
-       sheet.appendRow([
-         new Date(),
-         data.nama || '',
-         data.bisnis || '',
-         data.jenis || '',
-         data.kebutuhan || '',
-         data.paket || '',
-         data.budget || '',
-         data.target || '',
-         data.wa || '',
-         data.email || '',
-         data.referensi || '',
-         data.catatan || ''
-       ]);
-       return ContentService.createTextOutput(JSON.stringify({ status: 'ok' }))
-         .setMimeType(ContentService.MimeType.JSON);
-     }
-     ============================================================ -->
 </body>
 </html>
