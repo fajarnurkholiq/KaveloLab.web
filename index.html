@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KaveloLab — AI & Technology Lab</title>
   <meta name="description" content="KaveloLab adalah AI & Technology Lab. Bikin website, eksperimen AI, dan project teknologi untuk bisnis dan personal brand." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23132322'/%3E%3Ctext x='32' y='44' font-family='Inter, sans-serif' font-size='36' font-weight='700' fill='%233ddc91' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E0C0A'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-weight='700' fill='%23D4AF37' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     /* ============================================================
-       SAUCE LABS — Design System (strict adherence)
+       DESIGN SYSTEM dengan spacing yang jelas
        ============================================================ */
     * {
       margin: 0;
@@ -20,76 +20,41 @@
     }
 
     :root {
-      /* Colors — exact match */
-      --color-obsidian-shell: #132322;
-      --color-pure-white: #ffffff;
-      --color-mint-frost: #edf7f5;
-      --color-deep-abyss: #0e1a19;
-      --color-charcoal: #070f0f;
-      --color-fog-border: #d0d3d3;
-      --color-stone-border: #b2b6b4;
-      --color-slate-text: #828786;
-      --color-graphite-fill: #424f4f;
-      --color-pure-black: #000000;
-      --color-neon-pulse: #3ddc91;
-      --color-mint-whisper: #97ddbc;
-      --color-signal-yellow: #ffcd48;
+      /* Warna */
+      --bg: #0E0C0A;
+      --bg-surface: #171410;
+      --bg-surface-2: #1D1A15;
+      --border: #2C2822;
+      --text: #F2EDE6;
+      --text-soft: #B5AD9E;
+      --text-faint: #7A7263;
+      --gold: #D4AF37;
+      --gold-soft: rgba(212, 175, 55, 0.12);
+      --gold-glow: rgba(212, 175, 55, 0.06);
 
-      /* Typography — Inter as Aeonik substitute */
-      --font-aeonik: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-aeonikfono: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      /* Typography */
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
 
-      /* Type scale — exact */
-      --text-body-sm: 14px;
-      --leading-body-sm: 1.45;
-      --text-body: 16px;
-      --leading-body: 1.5;
-      --tracking-body: -0.08px;
-      --text-body-lg: 18px;
-      --leading-body-lg: 1.45;
-      --text-subheading: 24px;
-      --leading-subheading: 1.4;
-      --tracking-subheading: 0.96px;
-      --text-heading-sm: 32px;
-      --leading-heading-sm: 1.22;
-      --text-heading: 40px;
-      --leading-heading: 1.2;
-      --text-heading-lg: 48px;
-      --leading-heading-lg: 1.12;
-      --text-display: 64px;
-      --leading-display: 1.1;
+      /* Spacing (8px system) - PASTI ADA */
+      --space-1: 4px;
+      --space-2: 8px;
+      --space-3: 12px;
+      --space-4: 16px;
+      --space-5: 20px;
+      --space-6: 24px;
+      --space-8: 32px;
+      --space-10: 40px;
+      --space-12: 48px;
+      --space-16: 64px;
+      --space-20: 80px;
 
-      --font-weight-regular: 400;
-      --font-weight-medium: 500;
+      /* Radius */
+      --radius: 12px;
+      --radius-sm: 6px;
 
-      /* Spacing — base 8px */
-      --spacing-8: 8px;
-      --spacing-16: 16px;
-      --spacing-24: 24px;
-      --spacing-32: 32px;
-      --spacing-40: 40px;
-      --spacing-48: 48px;
-      --spacing-56: 56px;
-      --spacing-64: 64px;
-      --spacing-72: 72px;
-      --spacing-80: 80px;
-      --spacing-96: 96px;
-
-      /* Border Radius — exact */
-      --radius-tabs: 56px;
-      --radius-cards: 20px;
-      --radius-buttons: 56px;
-      --radius-largecards: 60px;
-      --radius-smallelements: 10px;
-
-      /* Shadow — exact */
-      --shadow-md: rgba(0, 0, 0, 0.04) 1px 0px 9px 2px;
-
-      /* Layout */
-      --page-max-width: 1200px;
-      --section-gap: 80px;
-      --card-padding: 24px;
-      --element-gap: 24px;
+      /* Shadow */
+      --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.30);
     }
 
     html {
@@ -98,83 +63,80 @@
     }
 
     body {
-      background: var(--color-obsidian-shell);
-      color: var(--color-pure-white);
-      font-family: var(--font-aeonik);
-      font-size: var(--text-body);
-      line-height: var(--leading-body);
-      letter-spacing: var(--tracking-body);
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
     .container {
-      max-width: var(--page-max-width);
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 0 var(--spacing-24);
+      padding: 0 var(--space-6);
     }
 
     a {
       color: inherit;
       text-decoration: none;
     }
-    img, svg { display: block; max-width: 100%; }
-    ul { list-style: none; }
 
-    h1, h2, h3 {
-      font-family: var(--font-aeonikfono);
-      font-weight: var(--font-weight-medium);
-      line-height: 1.2;
-      letter-spacing: -0.02em;
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
     }
 
-    /* ---- Eyebrow — exact ---- */
+    ul {
+      list-style: none;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
     .eyebrow {
-      font-family: var(--font-aeonikfono);
-      font-size: 9px;
-      font-weight: var(--font-weight-regular);
-      letter-spacing: 0.45px;
-      text-transform: uppercase;
-      color: var(--color-neon-pulse);
-      margin-bottom: var(--spacing-16);
       display: inline-flex;
       align-items: center;
-      gap: var(--spacing-8);
+      gap: var(--space-2);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--gold);
+      margin-bottom: var(--space-3);
     }
     .eyebrow::before {
       content: "";
       width: 18px;
       height: 1.5px;
-      background: var(--color-neon-pulse);
+      background: var(--gold);
       flex-shrink: 0;
     }
-    .eyebrow.light {
-      color: var(--color-obsidian-shell);
-    }
-    .eyebrow.light::before {
-      background: var(--color-obsidian-shell);
-    }
 
-    /* ---- Section titles ---- */
     .section-title {
-      font-size: var(--text-heading);
-      line-height: var(--leading-heading);
-      font-weight: var(--font-weight-medium);
+      font-size: clamp(26px, 4.5vw, 40px);
+      font-weight: 600;
+      line-height: 1.15;
     }
     .section-title em {
       font-style: italic;
-      color: var(--color-neon-pulse);
-    }
-    .section-title.light em {
-      color: var(--color-obsidian-shell);
+      color: var(--gold);
     }
 
     .section-desc {
-      font-size: var(--text-body);
-      color: var(--color-slate-text);
+      font-size: 15px;
+      color: var(--text-soft);
       max-width: 540px;
-      line-height: var(--leading-body);
-      margin-top: var(--spacing-16);
+      line-height: 1.7;
+      margin-top: var(--space-3);
     }
+
     .text-center {
       text-align: center;
     }
@@ -183,145 +145,94 @@
       margin-right: auto;
     }
 
-    /* ---- Buttons — exact variants ---- */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: var(--spacing-8);
+      gap: var(--space-2);
       padding: 14px 28px;
-      font-family: var(--font-aeonik);
-      font-size: var(--text-body);
-      font-weight: var(--font-weight-regular);
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      font-weight: 700;
       line-height: 1;
-      border-radius: var(--radius-buttons);
-      border: none;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
       cursor: pointer;
-      transition: all 0.15s ease;
-      text-decoration: none;
-      letter-spacing: var(--tracking-body);
     }
-    /* Primary CTA — Neon Pulse filled */
+
     .btn-primary {
-      background: var(--color-neon-pulse);
-      color: var(--color-obsidian-shell);
+      background: var(--gold);
+      color: #0E0C0A;
     }
     .btn-primary:hover {
-      filter: brightness(1.08);
+      background: #e0c04a;
+      transform: scale(0.97);
     }
-    /* Ghost CTA — white border */
-    .btn-ghost {
+
+    .btn-outline {
       background: transparent;
-      color: var(--color-pure-white);
-      border: 1.5px solid var(--color-pure-white);
+      color: var(--text);
+      border-color: var(--border);
     }
-    .btn-ghost:hover {
-      background: rgba(255,255,255,0.05);
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
     }
-    /* Dark Text Button — no bg, no border */
-    .btn-dark {
-      background: transparent;
-      color: var(--color-pure-white);
-      font-size: 15px;
-      padding: 14px 20px;
-      border: none;
-    }
-    .btn-dark:hover {
-      color: var(--color-neon-pulse);
-    }
+
     .btn-sm {
-      padding: 10px 20px;
-      font-size: var(--text-body-sm);
+      padding: 10px 18px;
+      font-size: 12px;
     }
+
     .btn-block {
       width: 100%;
       justify-content: center;
     }
 
-    /* ---- Cards ---- */
-    .card-light {
-      background: var(--color-mint-frost);
-      border-radius: var(--radius-largecards);
-      padding: var(--spacing-48);
-      box-shadow: var(--shadow-md);
-      color: var(--color-obsidian-shell);
-    }
-    .card-light .eyebrow {
-      color: var(--color-obsidian-shell);
-    }
-    .card-light .eyebrow::before {
-      background: var(--color-obsidian-shell);
-    }
-    .card-dark {
-      background: var(--color-deep-abyss);
-      border-radius: var(--radius-largecards);
-      padding: var(--spacing-48);
-    }
-
-    /* ---- Sections ---- */
-    section {
-      padding: var(--spacing-80) 0;
-    }
-    .section-dark {
-      background: var(--color-obsidian-shell);
-    }
-    .section-light {
-      background: var(--color-mint-frost);
-      color: var(--color-obsidian-shell);
-    }
-    .section-light .section-desc {
-      color: var(--color-slate-text);
-    }
-    .section-light .eyebrow {
-      color: var(--color-obsidian-shell);
-    }
-    .section-light .eyebrow::before {
-      background: var(--color-obsidian-shell);
-    }
-    .section-head {
-      margin-bottom: var(--spacing-48);
-    }
-
-    /* ============================================================
-       NAVIGATION — full-width dark bar
-       ============================================================ */
+    /* ===== NAV ===== */
     nav {
-      background: var(--color-obsidian-shell);
       position: sticky;
       top: 0;
       z-index: 100;
+      background: rgba(14, 12, 10, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
+
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px var(--spacing-24);
-      max-width: var(--page-max-width);
+      padding: 14px var(--space-6);
+      max-width: 1120px;
       margin: 0 auto;
     }
+
     .nav-logo {
-      font-family: var(--font-aeonikfono);
+      font-family: var(--font-serif);
       font-size: 20px;
-      font-weight: var(--font-weight-medium);
-      letter-spacing: -0.02em;
+      font-weight: 700;
     }
     .nav-logo span {
-      color: var(--color-neon-pulse);
+      color: var(--gold);
     }
+
     .nav-links {
       display: none;
-      gap: var(--spacing-32);
-      font-size: 15px;
-      font-weight: var(--font-weight-regular);
-      color: var(--color-pure-white);
-      letter-spacing: var(--tracking-body);
+      gap: var(--space-8);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-soft);
     }
     .nav-links a:hover {
-      color: var(--color-neon-pulse);
+      color: var(--text);
     }
+
     .nav-cta {
       display: none;
     }
+
     .nav-toggle {
       width: 24px;
       height: 16px;
@@ -337,243 +248,212 @@
       display: block;
       height: 1.5px;
       width: 100%;
-      background: var(--color-pure-white);
+      background: var(--text);
       border-radius: 2px;
       transition: 0.2s;
     }
+
     @media (min-width: 820px) {
-      .nav-links { display: flex; }
-      .nav-cta { display: inline-flex; }
-      .nav-toggle { display: none; }
+      .nav-links {
+        display: flex;
+      }
+      .nav-cta {
+        display: inline-flex;
+      }
+      .nav-toggle {
+        display: none;
+      }
     }
+
     .nav-mobile {
       display: none;
       flex-direction: column;
-      padding: var(--spacing-16) var(--spacing-24) var(--spacing-24);
-      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: var(--space-4) var(--space-6) var(--space-6);
+      border-top: 1px solid var(--border);
     }
-    .nav-mobile.open { display: flex; }
+    .nav-mobile.open {
+      display: flex;
+    }
     .nav-mobile a {
-      padding: var(--spacing-12) 0;
-      font-size: 15px;
-      color: var(--color-pure-white);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      letter-spacing: var(--tracking-body);
+      padding: var(--space-3) 0;
+      font-size: 14px;
+      color: var(--text-soft);
+      border-bottom: 1px solid var(--border);
     }
-    .nav-mobile a:last-child { border-bottom: none; }
-    .nav-mobile .btn { margin-top: var(--spacing-16); justify-content: center; }
-
-    /* ============================================================
-       HERO — split 50/50 with isometric illustration feel
-       ============================================================ */
-    .hero {
-      padding: var(--spacing-80) 0 var(--spacing-64);
-      background: var(--color-obsidian-shell);
+    .nav-mobile a:last-child {
+      border-bottom: none;
     }
-    .hero .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--spacing-48);
-      align-items: center;
-    }
-    .hero-content {
-      display: flex;
-      flex-direction: column;
-    }
-    .hero-content h1 {
-      font-size: var(--text-display);
-      line-height: var(--leading-display);
-      font-weight: var(--font-weight-medium);
-      margin-bottom: var(--spacing-24);
-    }
-    .hero-content h1 em {
-      font-style: italic;
-      color: var(--color-neon-pulse);
-    }
-    .hero-content .lead {
-      font-size: var(--text-body-lg);
-      color: var(--color-slate-text);
-      max-width: 480px;
-      margin-bottom: var(--spacing-40);
-      line-height: var(--leading-body-lg);
-    }
-    .hero-ctas {
-      display: flex;
-      gap: var(--spacing-16);
-      flex-wrap: wrap;
-      margin-bottom: var(--spacing-16);
-    }
-    .hero-note {
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 0.45px;
-      color: var(--color-slate-text);
-      font-weight: var(--font-weight-regular);
-    }
-
-    /* Isometric illustration mockup */
-    .hero-visual {
-      display: flex;
-      align-items: center;
+    .nav-mobile .btn {
+      margin-top: var(--space-3);
       justify-content: center;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: var(--space-12) var(--space-6) var(--space-10);
+      text-align: center;
       position: relative;
     }
-    .iso-phone {
-      width: 100%;
-      max-width: 360px;
-      aspect-ratio: 3/5;
-      background: var(--color-deep-abyss);
-      border-radius: 24px;
-      padding: 16px;
-      transform: rotate(6deg) perspective(600px) rotateY(-12deg);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255,255,255,0.06);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(212, 175, 55, 0.04), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
     }
-    .iso-phone .notch {
-      width: 60px;
-      height: 6px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 4px;
-      margin: 0 auto 12px;
-    }
-    .iso-phone .row {
-      display: flex;
-      gap: 8px;
-    }
-    .iso-phone .row .block {
-      flex: 1;
-      height: 40px;
-      border-radius: var(--radius-smallelements);
-    }
-    .iso-phone .row .block.green { background: var(--color-neon-pulse); }
-    .iso-phone .row .block.mint { background: var(--color-mint-whisper); }
-    .iso-phone .row .block.yellow { background: var(--color-signal-yellow); }
-    .iso-phone .row .block.dark { background: var(--color-charcoal); }
-    .iso-phone .row .block.light { background: var(--color-mint-frost); }
-    .iso-phone .row .block.gray { background: var(--color-slate-text); }
-
-    .iso-phone .row.double .block { height: 80px; }
-    .iso-phone .label-row {
-      display: flex;
-      justify-content: space-between;
-      padding: 4px 4px 0;
-      font-size: 7px;
-      text-transform: uppercase;
-      letter-spacing: 0.45px;
-      color: var(--color-slate-text);
+    .hero * {
+      position: relative;
+      z-index: 1;
     }
 
-    @media (max-width: 820px) {
-      .hero .container {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .hero-content .lead { margin-left: auto; margin-right: auto; }
-      .hero-ctas { justify-content: center; }
-      .hero-visual { margin-top: var(--spacing-32); }
-      .iso-phone { max-width: 240px; transform: none; }
+    .hero h1 {
+      font-size: clamp(34px, 7vw, 56px);
+      font-weight: 600;
+      line-height: 1.1;
+      max-width: 700px;
+      margin: 0 auto var(--space-4);
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
     }
 
-    /* ============================================================
-       PROBLEM / SOLUTION
-       ============================================================ */
+    .hero .lead {
+      font-size: 16px;
+      color: var(--text-soft);
+      max-width: 520px;
+      margin: 0 auto var(--space-8);
+      line-height: 1.8;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: var(--space-3);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--text-faint);
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      padding: var(--space-12) var(--space-6);
+    }
+
+    .section-head {
+      margin-bottom: var(--space-8);
+    }
+    .section-head.text-center .section-desc {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== PROBLEM / SOLUTION ===== */
     .ps-grid {
       display: grid;
-      gap: var(--spacing-16);
+      gap: var(--space-3);
     }
     .ps-item {
-      background: var(--color-deep-abyss);
-      border-radius: var(--radius-cards);
-      padding: var(--spacing-24);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-5) var(--space-6);
       display: flex;
-      gap: var(--spacing-16);
+      gap: var(--space-4);
       align-items: flex-start;
     }
     .ps-item .mark {
-      font-family: var(--font-aeonikfono);
+      font-family: var(--font-serif);
       font-style: italic;
-      color: var(--color-neon-pulse);
+      color: var(--gold);
       font-size: 18px;
       flex-shrink: 0;
       line-height: 1.4;
     }
     .ps-item p {
-      font-size: var(--text-body);
-      color: var(--color-slate-text);
-      line-height: var(--leading-body);
-    }
-    .solution-block {
-      background: var(--color-deep-abyss);
-      border-radius: var(--radius-largecards);
-      padding: var(--spacing-48);
-      margin-top: var(--spacing-40);
-    }
-    .solution-block p {
-      font-size: var(--text-body);
-      color: var(--color-slate-text);
-      line-height: var(--leading-body);
-    }
-    .solution-block p + p {
-      margin-top: var(--spacing-16);
-    }
-    .solution-block strong {
-      color: var(--color-pure-white);
-      font-weight: var(--font-weight-regular);
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.7;
     }
 
-    /* ============================================================
-       VALUE / LAYANAN
-       ============================================================ */
+    .solution-block {
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-8) var(--space-6);
+      margin-top: var(--space-6);
+    }
+    .solution-block p {
+      font-size: 15px;
+      color: var(--text-soft);
+      line-height: 1.8;
+    }
+    .solution-block p + p {
+      margin-top: var(--space-3);
+    }
+    .solution-block strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    /* ===== VALUE / LAYANAN ===== */
     .value-grid {
       display: grid;
-      gap: var(--spacing-16);
+      gap: var(--space-3);
     }
     .value-item {
-      background: var(--color-pure-white);
-      border-radius: var(--radius-cards);
-      padding: var(--spacing-24);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-5) var(--space-6);
       display: flex;
-      gap: var(--spacing-16);
+      gap: var(--space-4);
       align-items: flex-start;
     }
     .value-item .ic {
-      color: var(--color-neon-pulse);
+      color: var(--gold);
       font-size: 20px;
-      font-weight: var(--font-weight-regular);
+      font-weight: 700;
       flex-shrink: 0;
       line-height: 1.4;
     }
     .value-item p {
-      font-size: var(--text-body);
-      color: var(--color-obsidian-shell);
-      line-height: var(--leading-body);
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.7;
     }
     .value-item strong {
-      color: var(--color-obsidian-shell);
-      font-weight: var(--font-weight-regular);
+      color: var(--text);
+      font-weight: 700;
     }
 
-    /* ============================================================
-       PROJECTS
-       ============================================================ */
+    /* ===== PROJECTS ===== */
     .project-grid {
       display: grid;
-      gap: var(--spacing-24);
+      gap: var(--space-4);
     }
     .project-card {
-      background: var(--color-deep-abyss);
-      border-radius: var(--radius-largecards);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       overflow: hidden;
-      transition: 0.15s;
+      transition: border-color 0.2s;
     }
     .project-card:hover {
-      transform: translateY(-2px);
+      border-color: rgba(212, 175, 55, 0.25);
     }
+
     .project-visual {
-      height: 180px;
+      height: 160px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -581,290 +461,293 @@
       overflow: hidden;
     }
     .project-visual.fajar {
-      background: radial-gradient(circle at 20% 30%, rgba(61,220,145,0.12), transparent 50%),
-                  linear-gradient(145deg, #0e1a19, #1a2a28);
+      background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.15), transparent 40%),
+        linear-gradient(145deg, #181510, #261f18);
     }
     .project-visual.crypto {
-      background: radial-gradient(circle at 80% 25%, rgba(61,220,145,0.10), transparent 40%),
-                  linear-gradient(145deg, #0e1a19, #1a2a28);
+      background: radial-gradient(circle at 80% 25%, rgba(212, 175, 55, 0.12), transparent 35%),
+        linear-gradient(145deg, #13110e, #221d16);
     }
+
     .project-screen {
-      width: 72%;
-      height: 96px;
-      background: rgba(14,26,25,0.8);
-      border: 1px solid rgba(61,220,145,0.2);
-      border-radius: var(--radius-smallelements);
-      padding: var(--spacing-16) var(--spacing-24);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      width: 76%;
+      height: 92px;
+      background: rgba(14, 12, 10, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
     .project-screen .bar {
-      height: 4px;
+      height: 5px;
       width: 30%;
-      background: var(--color-neon-pulse);
+      background: var(--gold);
       opacity: 0.7;
       border-radius: 3px;
-      margin-bottom: var(--spacing-12);
+      margin-bottom: var(--space-3);
     }
     .project-screen .line {
-      height: 3px;
-      background: #2a3d3a;
+      height: 4px;
+      background: #3d372e;
       border-radius: 3px;
       margin-bottom: 6px;
     }
-    .project-screen .line.short { width: 40%; }
-    .project-screen .line.mid { width: 60%; }
-    .project-screen .line.long { width: 80%; }
+    .project-screen .line.short {
+      width: 50%;
+    }
+    .project-screen .line.mid {
+      width: 70%;
+    }
+    .project-screen .line.long {
+      width: 90%;
+    }
 
     .project-body {
-      padding: var(--spacing-24) var(--spacing-24) var(--spacing-32);
+      padding: var(--space-5) var(--space-6) var(--space-6);
     }
     .project-type {
-      font-size: 9px;
+      font-size: 10.5px;
       text-transform: uppercase;
-      letter-spacing: 0.45px;
-      color: var(--color-neon-pulse);
-      font-weight: var(--font-weight-regular);
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      font-weight: 700;
       margin-bottom: 4px;
     }
     .project-name {
-      font-family: var(--font-aeonikfono);
-      font-size: 24px;
-      font-weight: var(--font-weight-medium);
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 600;
       margin-bottom: 2px;
     }
     .project-status {
-      font-size: var(--text-body-sm);
-      color: var(--color-slate-text);
-      margin-bottom: var(--spacing-16);
+      font-size: 12px;
+      color: var(--text-faint);
+      margin-bottom: var(--space-3);
     }
     .project-desc {
-      font-size: var(--text-body);
-      color: var(--color-slate-text);
-      line-height: var(--leading-body);
-      margin-bottom: var(--spacing-16);
+      font-size: 13.5px;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: var(--space-4);
     }
     .project-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--spacing-8);
-      margin-bottom: var(--spacing-24);
+      gap: var(--space-2);
+      margin-bottom: var(--space-5);
     }
     .project-tags span {
-      font-size: 9px;
-      text-transform: uppercase;
-      letter-spacing: 0.45px;
-      color: var(--color-slate-text);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius-smallelements);
-      padding: 4px 12px;
+      font-size: 10.5px;
+      color: var(--text-faint);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 4px 10px;
     }
     .project-foot {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: var(--spacing-16);
+      gap: var(--space-3);
     }
 
-    /* ============================================================
-       SHOWCASE — demo website cards
-       ============================================================ */
+    /* ===== SHOWCASE ===== */
     .showcase-grid {
       display: grid;
-      gap: var(--spacing-24);
+      gap: var(--space-4);
     }
     .showcase-card {
-      background: var(--color-mint-frost);
-      border-radius: var(--radius-largecards);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       overflow: hidden;
-      color: var(--color-obsidian-shell);
-      box-shadow: var(--shadow-md);
-      transition: 0.15s;
+      transition: border-color 0.2s;
     }
     .showcase-card:hover {
-      transform: translateY(-2px);
+      border-color: rgba(212, 175, 55, 0.2);
     }
+
     .showcase-swatch {
-      height: 60px;
+      height: 88px;
       display: flex;
     }
-    .showcase-swatch span { flex: 1; }
+    .showcase-swatch span {
+      flex: 1;
+    }
     .showcase-body {
-      padding: var(--spacing-24);
+      padding: var(--space-5) var(--space-6) var(--space-6);
     }
     .showcase-pkg {
-      font-size: 9px;
+      font-size: 10.5px;
       text-transform: uppercase;
-      letter-spacing: 0.45px;
-      color: var(--color-neon-pulse);
-      font-weight: var(--font-weight-regular);
-      margin-bottom: 2px;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 4px;
     }
     .showcase-name {
-      font-family: var(--font-aeonikfono);
-      font-size: 24px;
-      font-weight: var(--font-weight-medium);
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
       margin-bottom: 2px;
     }
     .showcase-pos {
-      font-size: var(--text-body-sm);
-      color: var(--color-slate-text);
-      margin-bottom: var(--spacing-16);
+      font-size: 12.5px;
+      color: var(--text-faint);
+      margin-bottom: var(--space-3);
     }
     .showcase-desc {
-      font-size: var(--text-body);
-      line-height: var(--leading-body);
-      margin-bottom: var(--spacing-24);
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.7;
+      margin-bottom: var(--space-5);
     }
     .showcase-foot {
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: var(--spacing-16);
-    }
-    .showcase-foot .btn-ghost {
-      color: var(--color-obsidian-shell);
-      border-color: var(--color-stone-border);
-    }
-    .showcase-foot .btn-ghost:hover {
-      background: rgba(0,0,0,0.03);
+      gap: var(--space-3);
     }
 
-    /* ============================================================
-       PRICING
-       ============================================================ */
+    /* ===== PRICING ===== */
     .price-grid {
       display: grid;
-      gap: var(--spacing-24);
+      gap: var(--space-4);
     }
     .price-card {
-      background: var(--color-deep-abyss);
-      border-radius: var(--radius-largecards);
-      padding: var(--spacing-40) var(--spacing-32);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-8) var(--space-6);
       position: relative;
-      transition: 0.15s;
+      transition: border-color 0.2s;
     }
     .price-card.reco {
-      border: 1px solid var(--color-neon-pulse);
-      background: var(--color-obsidian-shell);
+      border-color: var(--gold);
+      background: var(--bg-surface-2);
     }
     .price-card.reco .price-badge {
       position: absolute;
-      top: -12px;
-      left: var(--spacing-24);
-      background: var(--color-neon-pulse);
-      color: var(--color-obsidian-shell);
-      font-size: 9px;
-      font-weight: var(--font-weight-regular);
+      top: -13px;
+      left: var(--space-6);
+      background: var(--gold);
+      color: #0E0C0A;
+      font-size: 10px;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.45px;
-      padding: 4px 16px;
-      border-radius: var(--radius-buttons);
+      letter-spacing: 0.06em;
+      padding: 4px 14px;
+      border-radius: 20px;
     }
+
     .price-name {
-      font-family: var(--font-aeonikfono);
-      font-size: 24px;
-      font-weight: var(--font-weight-medium);
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
     }
     .price-card.reco .price-name {
-      color: var(--color-neon-pulse);
+      color: var(--gold);
     }
     .price-pos {
-      font-size: var(--text-body-sm);
-      color: var(--color-slate-text);
-      margin: 4px 0 var(--spacing-24);
+      font-size: 12.5px;
+      color: var(--text-faint);
+      margin: 2px 0 var(--space-4);
     }
     .price-amount {
-      font-family: var(--font-aeonikfono);
-      font-size: 40px;
-      font-weight: var(--font-weight-medium);
-      margin-bottom: var(--spacing-32);
+      font-family: var(--font-serif);
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: var(--space-5);
     }
     .price-amount sup {
-      font-size: 18px;
+      font-size: 14px;
+      font-weight: 600;
       opacity: 0.6;
-      margin-right: 2px;
+      margin-right: 1px;
     }
+
     .price-feat {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-8);
-      margin-bottom: var(--spacing-32);
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
     }
     .price-feat span {
-      font-size: var(--text-body);
-      color: var(--color-slate-text);
-      padding-left: var(--spacing-16);
+      font-size: 13px;
+      color: var(--text-soft);
+      padding-left: var(--space-4);
       position: relative;
     }
     .price-feat span::before {
       content: "—";
       position: absolute;
       left: 0;
-      color: var(--color-neon-pulse);
+      color: var(--gold);
+      font-weight: 700;
     }
 
     .custom-card {
-      background: var(--color-deep-abyss);
-      border-radius: var(--radius-largecards);
-      padding: var(--spacing-32) var(--spacing-40);
-      margin-top: var(--spacing-24);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: var(--space-5) var(--space-6);
+      margin-top: var(--space-4);
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: var(--spacing-24);
+      gap: var(--space-4);
     }
     .custom-left .price-name {
-      font-size: 20px;
+      font-size: 18px;
     }
     .custom-left p {
-      font-size: var(--text-body-sm);
-      color: var(--color-slate-text);
+      font-size: 12.5px;
+      color: var(--text-soft);
       margin-top: 2px;
       max-width: 360px;
-      line-height: var(--leading-body-sm);
+      line-height: 1.6;
     }
     .custom-right {
       display: flex;
       align-items: center;
-      gap: var(--spacing-24);
+      gap: var(--space-4);
       flex-wrap: wrap;
     }
     .custom-price {
-      font-family: var(--font-aeonikfono);
-      font-size: 28px;
-      font-weight: var(--font-weight-medium);
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 700;
       white-space: nowrap;
     }
     .custom-price small {
       display: block;
-      font-size: 9px;
-      font-weight: var(--font-weight-regular);
-      color: var(--color-slate-text);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--text-faint);
       text-transform: uppercase;
-      letter-spacing: 0.45px;
+      letter-spacing: 0.08em;
     }
 
     .terms-note {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      margin-top: var(--spacing-40);
-      padding-top: var(--spacing-40);
+      border-top: 1px solid var(--border);
+      margin-top: var(--space-6);
+      padding-top: var(--space-6);
     }
     .terms-note ul {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-8);
+      gap: var(--space-2);
     }
     .terms-note li {
-      font-size: var(--text-body-sm);
-      color: var(--color-slate-text);
-      line-height: var(--leading-body-sm);
-      padding-left: var(--spacing-16);
+      font-size: 12.5px;
+      color: var(--text-faint);
+      line-height: 1.7;
+      padding-left: var(--space-4);
       position: relative;
     }
     .terms-note li::before {
@@ -873,55 +756,48 @@
       left: 0;
     }
 
-    /* ============================================================
-       PROCESS
-       ============================================================ */
+    /* ===== PROCESS ===== */
     .process-list {
       display: flex;
       flex-direction: column;
-      max-width: 680px;
-      margin: 0 auto;
     }
     .process-item {
       display: flex;
-      gap: var(--spacing-24);
-      padding: var(--spacing-24) 0;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      gap: var(--space-5);
+      padding: var(--space-5) 0;
+      border-top: 1px solid var(--border);
     }
     .process-item:last-child {
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid var(--border);
     }
     .process-item .num {
-      font-family: var(--font-aeonikfono);
-      font-size: 28px;
-      font-weight: var(--font-weight-medium);
-      color: var(--color-neon-pulse);
-      min-width: 48px;
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--gold);
+      min-width: 44px;
     }
     .process-item h3 {
-      font-size: 20px;
-      font-weight: var(--font-weight-medium);
+      font-size: 16px;
+      font-weight: 700;
       margin-bottom: 2px;
     }
     .process-item p {
-      font-size: var(--text-body);
-      color: var(--color-slate-text);
-      line-height: var(--leading-body);
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.7;
     }
 
-    /* ============================================================
-       FAQ
-       ============================================================ */
+    /* ===== FAQ ===== */
     .faq-list {
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-16);
-      max-width: 720px;
-      margin: 0 auto;
+      gap: var(--space-3);
     }
     .faq-item {
-      background: var(--color-deep-abyss);
-      border-radius: var(--radius-cards);
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       overflow: hidden;
     }
     .faq-q {
@@ -929,21 +805,20 @@
       text-align: left;
       background: none;
       border: none;
-      color: var(--color-pure-white);
-      padding: var(--spacing-24);
-      font-family: var(--font-aeonik);
-      font-size: var(--text-body);
-      font-weight: var(--font-weight-regular);
+      color: var(--text);
+      padding: var(--space-5) var(--space-6);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: var(--spacing-16);
+      gap: var(--space-4);
       cursor: pointer;
-      letter-spacing: var(--tracking-body);
     }
     .faq-q .plus {
       font-size: 20px;
-      color: var(--color-neon-pulse);
+      color: var(--gold);
       flex-shrink: 0;
       transition: transform 0.25s ease;
     }
@@ -956,129 +831,134 @@
       transition: max-height 0.35s ease;
     }
     .faq-a p {
-      padding: 0 var(--spacing-24) var(--spacing-24);
-      font-size: var(--text-body);
-      color: var(--color-slate-text);
-      line-height: var(--leading-body);
+      padding: 0 var(--space-6) var(--space-5);
+      font-size: 13px;
+      color: var(--text-soft);
+      line-height: 1.7;
     }
 
-    /* ============================================================
-       FINAL CTA
-       ============================================================ */
+    /* ===== FINAL CTA ===== */
     .final-cta {
       text-align: center;
-      padding: var(--spacing-80) 0;
-      background: var(--color-obsidian-shell);
+      padding: var(--space-16) var(--space-6);
     }
     .final-cta h2 {
-      font-size: var(--text-heading-lg);
-      font-weight: var(--font-weight-medium);
-      line-height: var(--leading-heading-lg);
-      margin-bottom: var(--spacing-16);
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: var(--space-4);
     }
     .final-cta h2 em {
       font-style: italic;
-      color: var(--color-neon-pulse);
+      color: var(--gold);
     }
     .final-cta p {
-      font-size: var(--text-body);
-      color: var(--color-slate-text);
+      font-size: 15px;
+      color: var(--text-soft);
       max-width: 420px;
-      margin: 0 auto var(--spacing-40);
-      line-height: var(--leading-body);
+      margin: 0 auto var(--space-8);
+      line-height: 1.8;
     }
 
-    /* ============================================================
-       FOOTER
-       ============================================================ */
+    /* ===== FOOTER ===== */
     footer {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: var(--spacing-64) 0 var(--spacing-48);
+      border-top: 1px solid var(--border);
+      padding: var(--space-10) var(--space-6) var(--space-8);
     }
     .foot-top {
-      margin-bottom: var(--spacing-32);
+      margin-bottom: var(--space-6);
     }
     .foot-logo {
-      font-family: var(--font-aeonikfono);
+      font-family: var(--font-serif);
       font-size: 20px;
-      font-weight: var(--font-weight-medium);
-      letter-spacing: -0.02em;
+      font-weight: 700;
+      margin-bottom: 4px;
     }
-    .foot-logo span { color: var(--color-neon-pulse); }
+    .foot-logo span {
+      color: var(--gold);
+    }
     .foot-tag {
-      font-size: var(--text-body-sm);
-      color: var(--color-slate-text);
+      font-size: 12.5px;
+      color: var(--text-soft);
     }
     .foot-links {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--spacing-24) var(--spacing-40);
-      font-size: var(--text-body);
-      color: var(--color-slate-text);
-      margin-bottom: var(--spacing-32);
+      gap: var(--space-4) var(--space-6);
+      font-size: 13px;
+      color: var(--text-soft);
+      margin-bottom: var(--space-6);
     }
     .foot-links a:hover {
-      color: var(--color-neon-pulse);
+      color: var(--gold);
     }
     .foot-bottom {
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: var(--spacing-8);
-      font-size: var(--text-body-sm);
-      color: var(--color-slate-text);
+      gap: var(--space-2);
+      font-size: 11px;
+      color: var(--text-faint);
     }
 
-    /* ============================================================
-       CHATBOT
-       ============================================================ */
+    /* ===== CHATBOT ===== */
     .chat-fab {
       position: fixed;
-      right: 24px;
-      bottom: 24px;
+      right: 20px;
+      bottom: 20px;
       z-index: 200;
       width: 56px;
       height: 56px;
       border-radius: 50%;
-      background: var(--color-neon-pulse);
-      color: var(--color-obsidian-shell);
+      background: var(--gold);
+      color: #0E0C0A;
       border: none;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
       transition: transform 0.2s;
     }
-    .chat-fab:hover { transform: scale(0.95); }
-    .chat-fab .ic-close { display: none; }
-    .chat-fab.open .ic-chat { display: none; }
-    .chat-fab.open .ic-close { display: block; }
+    .chat-fab:hover {
+      transform: scale(0.95);
+    }
+    .chat-fab .ic-close {
+      display: none;
+    }
+    .chat-fab.open .ic-chat {
+      display: none;
+    }
+    .chat-fab.open .ic-close {
+      display: block;
+    }
 
     .chat-panel {
       position: fixed;
-      right: 24px;
-      bottom: 92px;
+      right: 20px;
+      bottom: 88px;
       z-index: 199;
-      width: 360px;
-      max-width: calc(100vw - 48px);
-      max-height: 520px;
-      background: var(--color-deep-abyss);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius-largecards);
+      width: min(360px, calc(100vw - 40px));
+      max-height: min(520px, calc(100vh - 140px));
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       display: none;
       flex-direction: column;
       overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     }
-    .chat-panel.open { display: flex; }
+    .chat-panel.open {
+      display: flex;
+    }
 
     .chat-head {
-      padding: var(--spacing-16) var(--spacing-20);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: var(--bg-surface-2);
+      border-bottom: 1px solid var(--border);
+      padding: var(--space-4) var(--space-5);
       display: flex;
       align-items: center;
-      gap: var(--spacing-12);
+      gap: var(--space-3);
     }
     .chat-head .dot {
       width: 8px;
@@ -1093,101 +973,104 @@
     }
     .chat-head .ti strong {
       display: block;
-      font-size: var(--text-body);
-      font-weight: var(--font-weight-regular);
+      font-size: 14px;
+      font-weight: 700;
     }
     .chat-head .ti span {
       display: block;
-      font-size: var(--text-body-sm);
-      color: var(--color-slate-text);
+      font-size: 10.5px;
+      color: var(--text-faint);
+      margin-top: 1px;
     }
 
     .chat-body {
       flex: 1;
       overflow-y: auto;
-      padding: var(--spacing-16);
+      padding: var(--space-4) var(--space-4) var(--space-2);
       display: flex;
       flex-direction: column;
-      gap: var(--spacing-12);
+      gap: var(--space-3);
       min-height: 140px;
-      max-height: 280px;
+      max-height: 300px;
     }
     .chat-msg {
       max-width: 88%;
-      font-size: var(--text-body-sm);
-      line-height: var(--leading-body-sm);
-      padding: 10px 16px;
-      border-radius: var(--radius-smallelements);
+      font-size: 12.5px;
+      line-height: 1.6;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
     }
     .chat-msg.bot {
-      background: var(--color-obsidian-shell);
-      color: var(--color-slate-text);
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
       align-self: flex-start;
       border-bottom-left-radius: 2px;
     }
     .chat-msg.user {
-      background: var(--color-neon-pulse);
-      color: var(--color-obsidian-shell);
+      background: var(--gold);
+      color: #0E0C0A;
       align-self: flex-end;
       border-bottom-right-radius: 2px;
-      font-weight: var(--font-weight-regular);
+      font-weight: 600;
     }
     .chat-msg a {
-      color: var(--color-neon-pulse);
+      color: var(--gold);
       text-decoration: underline;
     }
-    .chat-msg.user a { color: var(--color-obsidian-shell); }
+    .chat-msg.user a {
+      color: #0E0C0A;
+    }
 
     .chat-suggest {
       display: flex;
       flex-wrap: wrap;
-      gap: var(--spacing-8);
-      padding: var(--spacing-8) var(--spacing-16) var(--spacing-12);
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-4) var(--space-3);
     }
     .chat-suggest button {
       background: none;
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--color-slate-text);
+      border: 1px solid var(--border);
+      color: var(--text-soft);
       font-size: 11px;
-      padding: 6px 16px;
-      border-radius: var(--radius-buttons);
+      padding: 6px 14px;
+      border-radius: 20px;
       cursor: pointer;
-      font-family: var(--font-aeonik);
+      font-family: var(--font-sans);
       transition: 0.15s;
     }
     .chat-suggest button:hover {
-      border-color: var(--color-neon-pulse);
-      color: var(--color-pure-white);
+      border-color: var(--gold);
+      color: var(--text);
     }
 
     .chat-input-row {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding: var(--spacing-12);
+      border-top: 1px solid var(--border);
+      padding: var(--space-3);
       display: flex;
-      gap: var(--spacing-8);
+      gap: var(--space-2);
       flex-shrink: 0;
     }
     .chat-input-row input {
       flex: 1;
       min-width: 0;
-      background: var(--color-obsidian-shell);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius-buttons);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
       padding: 10px 16px;
-      color: var(--color-pure-white);
-      font-size: var(--text-body-sm);
-      font-family: var(--font-aeonik);
-      letter-spacing: var(--tracking-body);
+      color: var(--text);
+      font-size: 12.5px;
+      font-family: var(--font-sans);
     }
     .chat-input-row input:focus {
       outline: none;
-      border-color: var(--color-neon-pulse);
+      border-color: var(--gold);
     }
     .chat-input-row button {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: var(--color-neon-pulse);
+      background: var(--gold);
       border: none;
       display: flex;
       align-items: center;
@@ -1198,39 +1081,86 @@
     .chat-input-row button svg {
       width: 18px;
       height: 18px;
-      color: var(--color-obsidian-shell);
-    }
-    .chat-disclaimer {
-      font-size: 9px;
-      color: var(--color-slate-text);
-      text-align: center;
-      padding: 0 var(--spacing-16) var(--spacing-12);
+      color: #0E0C0A;
     }
 
-    /* ============================================================
-       RESPONSIVE
-       ============================================================ */
-    @media (min-width: 600px) {
-      .ps-grid { grid-template-columns: repeat(2, 1fr); }
-      .value-grid { grid-template-columns: repeat(2, 1fr); }
-      .project-grid { grid-template-columns: repeat(2, 1fr); }
-      .showcase-grid { grid-template-columns: repeat(3, 1fr); }
-      .price-grid { grid-template-columns: repeat(3, 1fr); }
+    .chat-disclaimer {
+      font-size: 9.5px;
+      color: var(--text-faint);
+      text-align: center;
+      padding: 0 var(--space-4) var(--space-3);
     }
+
+    /* ===== RESPONSIVE ===== */
+    @media (min-width: 600px) {
+      .ps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .value-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .showcase-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .price-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
     @media (max-width: 599px) {
-      .hero { padding: var(--spacing-48) 0; }
-      section { padding: var(--spacing-48) 0; }
-      .container { padding: 0 var(--spacing-16); }
-      .nav-inner { padding: 12px var(--spacing-16); }
-      .nav-mobile { padding: var(--spacing-16); }
-      .card-light, .card-dark { padding: var(--spacing-24); }
-      .project-visual { height: 140px; }
-      .project-screen { height: 72px; padding: var(--spacing-12) var(--spacing-16); }
-      .price-card { padding: var(--spacing-24); }
-      .custom-card { flex-direction: column; align-items: stretch; }
-      .custom-right { justify-content: flex-start; }
-      .chat-panel { right: 12px; bottom: 80px; width: calc(100vw - 24px); max-height: calc(100vh - 140px); }
-      .chat-fab { right: 12px; bottom: 12px; width: 50px; height: 50px; }
+      .hero {
+        padding: var(--space-8) var(--space-4) var(--space-8);
+      }
+      section {
+        padding: var(--space-8) var(--space-4);
+      }
+      .container {
+        padding: 0 var(--space-4);
+      }
+      .nav-inner {
+        padding: 12px var(--space-4);
+      }
+      .nav-mobile {
+        padding: var(--space-3) var(--space-4) var(--space-5);
+      }
+      .project-visual {
+        height: 130px;
+      }
+      .project-screen {
+        height: 78px;
+        padding: var(--space-2) var(--space-3);
+      }
+      .price-card {
+        padding: var(--space-6) var(--space-4);
+      }
+      .custom-card {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .custom-right {
+        justify-content: flex-start;
+      }
+      .chat-panel {
+        right: 12px;
+        bottom: 80px;
+        width: calc(100vw - 24px);
+        max-height: calc(100vh - 130px);
+      }
+      .chat-fab {
+        right: 12px;
+        bottom: 12px;
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    @media (min-width: 820px) {
+      .nav-cta {
+        display: inline-flex;
+      }
     }
   </style>
 </head>
@@ -1247,7 +1177,7 @@
         <a href="#harga">Harga</a>
         <a href="#proses">Proses</a>
         <a href="#faq">FAQ</a>
-        <a href="lead-agent.html" style="color:var(--color-neon-pulse);">Order</a>
+        <a href="lead-agent.html" style="color:var(--gold);">Order</a>
       </div>
       <a class="btn btn-primary btn-sm nav-cta" href="lead-agent.html">Pesan Website</a>
       <button class="nav-toggle" aria-label="Menu">
@@ -1261,7 +1191,7 @@
       <a href="#harga">Harga</a>
       <a href="#proses">Proses</a>
       <a href="#faq">FAQ</a>
-      <a href="lead-agent.html" style="color:var(--color-neon-pulse);">Order</a>
+      <a href="lead-agent.html" style="color:var(--gold);">Order</a>
       <a class="btn btn-primary btn-sm" href="lead-agent.html">Pesan Website</a>
     </div>
   </nav>
@@ -1269,46 +1199,19 @@
   <!-- ===== HERO ===== -->
   <div class="hero" id="top">
     <div class="container">
-      <div class="hero-content">
-        <p class="eyebrow">AI &amp; Technology Lab</p>
-        <h1>Bangun <em>presence digital</em> dengan pendekatan teknologi.</h1>
-        <p class="lead">KaveloLab bantu bisnis dan personal brand punya website yang profesional. Plus eksperimen AI dan project teknologi sebagai bagian dari proses belajar.</p>
-        <div class="hero-ctas">
-          <a class="btn btn-primary" href="lead-agent.html">Pesan Website</a>
-          <a class="btn btn-ghost" href="#projects">Lihat Projects</a>
-        </div>
-        <p class="hero-note">Website · AI Experiments · Technology Projects</p>
+      <p class="eyebrow" style="justify-content:center;">AI &amp; Technology Lab</p>
+      <h1>Bangun <em>presence digital</em> dengan pendekatan teknologi.</h1>
+      <p class="lead">KaveloLab bantu bisnis dan personal brand punya website yang profesional. Plus eksperimen AI dan project teknologi sebagai bagian dari proses belajar.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="lead-agent.html">Pesan Website</a>
+        <a class="btn btn-outline" href="#projects">Lihat Projects</a>
       </div>
-      <div class="hero-visual">
-        <div class="iso-phone">
-          <div class="notch"></div>
-          <div class="row">
-            <div class="block green"></div>
-            <div class="block mint"></div>
-            <div class="block yellow"></div>
-          </div>
-          <div class="row double">
-            <div class="block dark" style="flex:2;"></div>
-            <div class="block light" style="flex:1;"></div>
-          </div>
-          <div class="row">
-            <div class="block gray"></div>
-            <div class="block green"></div>
-            <div class="block dark"></div>
-          </div>
-          <div class="label-row">
-            <span>Test</span>
-            <span>Build</span>
-            <span>Deploy</span>
-            <span>Operate</span>
-          </div>
-        </div>
-      </div>
+      <p class="hero-note">Website · AI Experiments · Technology Projects</p>
     </div>
   </div>
 
   <!-- ===== PROBLEM ===== -->
-  <section class="section-dark">
+  <section>
     <div class="container">
       <div class="section-head text-center">
         <p class="eyebrow">Masalah</p>
@@ -1325,7 +1228,7 @@
   </section>
 
   <!-- ===== SOLUTION ===== -->
-  <section class="section-dark" style="padding-top:0;">
+  <section style="padding-top:0;">
     <div class="container">
       <div class="solution-block">
         <p><strong>KaveloLab bangun website yang jadi rumah digital bisnis kamu</strong> — tempat calon customer lihat siapa kamu, apa yang kamu tawarkan, dan langsung diarahkan untuk chat via WhatsApp.</p>
@@ -1335,11 +1238,11 @@
   </section>
 
   <!-- ===== LAYANAN ===== -->
-  <section class="section-light" id="layanan">
+  <section id="layanan">
     <div class="container">
       <div class="section-head text-center">
-        <p class="eyebrow light">Layanan</p>
-        <h2 class="section-title light">Fokus ke satu hal: <em>bikin website</em> yang mantap.</h2>
+        <p class="eyebrow">Layanan</p>
+        <h2 class="section-title">Fokus ke satu hal: <em>bikin website</em> yang mantap.</h2>
         <p class="section-desc">Dari nol sampai deploy — tanpa nebeng jasa lain.</p>
       </div>
       <div class="value-grid">
@@ -1352,7 +1255,7 @@
   </section>
 
   <!-- ===== PROJECTS ===== -->
-  <section class="section-dark" id="projects">
+  <section id="projects" style="background:var(--bg-surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
     <div class="container">
       <div class="section-head text-center">
         <p class="eyebrow">Projects &amp; Experiments</p>
@@ -1360,6 +1263,7 @@
         <p class="section-desc">Beberapa project yang sedang dan pernah dikerjakan sebagai bagian dari eksperimen KaveloLab di AI dan teknologi.</p>
       </div>
       <div class="project-grid">
+        <!-- Fajar OS -->
         <div class="project-card">
           <div class="project-visual fajar">
             <div class="project-screen">
@@ -1381,6 +1285,7 @@
             </div>
           </div>
         </div>
+        <!-- Crypto Agent -->
         <div class="project-card">
           <div class="project-visual crypto">
             <div class="project-screen">
@@ -1403,21 +1308,22 @@
           </div>
         </div>
       </div>
-      <div class="solution-block" style="margin-top:var(--spacing-40);">
+      <div class="solution-block" style="margin-top:var(--space-6);">
         <p><strong>Status project bisa berubah.</strong> Yang di atas masih eksperimen — bisa berkembang, berubah, atau menjadi produk jadi. Tujuannya bukan sekadar demo, tapi belajar membuat sesuatu yang benar-benar terpakai.</p>
       </div>
     </div>
   </section>
 
   <!-- ===== SHOWCASE ===== -->
-  <section class="section-light" id="showcase">
+  <section id="showcase">
     <div class="container">
       <div class="section-head text-center">
-        <p class="eyebrow light">Demo Website</p>
-        <h2 class="section-title light">Tiga paket, <em>tiga level</em> kematangan.</h2>
+        <p class="eyebrow">Demo Website</p>
+        <h2 class="section-title">Tiga paket, <em>tiga level</em> kematangan.</h2>
         <p class="section-desc">Demo live yang bisa kamu buka langsung — bukan mockup. Masing-masing menunjukkan range KaveloLab.</p>
       </div>
       <div class="showcase-grid">
+        <!-- Starter -->
         <div class="showcase-card">
           <div class="showcase-swatch" style="background:#3A2418;"><span style="background:#F3C77D;"></span><span style="background:#D98C4A;"></span><span style="background:#7A4430;"></span></div>
           <div class="showcase-body">
@@ -1426,10 +1332,11 @@
             <div class="showcase-pos">Kebutuhan simpel</div>
             <p class="showcase-desc">One-page website hangat &amp; minimalis untuk usaha kecil — profil, menu, dan CTA WhatsApp.</p>
             <div class="showcase-foot">
-              <a class="btn btn-ghost btn-sm" href="https://fajarnurkholiq.github.io/Senja-Coffee-demo-started/" target="_blank" rel="noopener">Lihat Demo</a>
+              <a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/Senja-Coffee-demo-started/" target="_blank" rel="noopener">Lihat Demo</a>
             </div>
           </div>
         </div>
+        <!-- Business -->
         <div class="showcase-card">
           <div class="showcase-swatch" style="background:#EDEBE6;"><span style="background:#FAFAF8;"></span><span style="background:#2F4A3E;"></span><span style="background:#14171A;"></span></div>
           <div class="showcase-body">
@@ -1438,10 +1345,11 @@
             <div class="showcase-pos">Tampil lebih profesional</div>
             <p class="showcase-desc">Website multi-halaman dengan navigasi lengkap untuk bisnis yang butuh presentasi matang.</p>
             <div class="showcase-foot">
-              <a class="btn btn-ghost btn-sm" href="https://fajarnurkholiq.github.io/BENTANG-DEMO-BUSINESS/" target="_blank" rel="noopener">Lihat Demo</a>
+              <a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/BENTANG-DEMO-BUSINESS/" target="_blank" rel="noopener">Lihat Demo</a>
             </div>
           </div>
         </div>
+        <!-- Pro -->
         <div class="showcase-card">
           <div class="showcase-swatch" style="background:#0D0C10;"><span style="background:#0D0C10;"></span><span style="background:#6C5CE0;"></span><span style="background:#F4F1EA;"></span></div>
           <div class="showcase-body">
@@ -1450,7 +1358,7 @@
             <div class="showcase-pos">Pengalaman premium</div>
             <p class="showcase-desc">Website editorial dengan art direction kuat, navigasi custom, dan presentasi karya yang ekspresif.</p>
             <div class="showcase-foot">
-              <a class="btn btn-ghost btn-sm" href="https://fajarnurkholiq.github.io/aruna-demo-pro/" target="_blank" rel="noopener">Lihat Demo</a>
+              <a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/aruna-demo-pro/" target="_blank" rel="noopener">Lihat Demo</a>
             </div>
           </div>
         </div>
@@ -1459,7 +1367,7 @@
   </section>
 
   <!-- ===== HARGA ===== -->
-  <section class="section-dark" id="harga">
+  <section id="harga" style="background:var(--bg-surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
     <div class="container">
       <div class="section-head text-center">
         <p class="eyebrow">Investasi</p>
@@ -1467,6 +1375,7 @@
         <p class="section-desc">Makin lengkap kebutuhannya, makin besar paketnya. Belum yakin? Konsultasi dulu, gratis.</p>
       </div>
       <div class="price-grid">
+        <!-- Starter -->
         <div class="price-card">
           <div class="price-name">Starter</div>
           <div class="price-pos">Kebutuhan simpel</div>
@@ -1481,8 +1390,9 @@
             <span>Deploy website</span>
             <span>Estimasi 3 hari</span>
           </div>
-          <a class="btn btn-ghost btn-block" href="lead-agent.html">Pilih Starter</a>
+          <a class="btn btn-outline btn-block" href="lead-agent.html">Pilih Starter</a>
         </div>
+        <!-- Business -->
         <div class="price-card reco">
           <span class="price-badge">Paling rame</span>
           <div class="price-name">Business</div>
@@ -1501,6 +1411,7 @@
           </div>
           <a class="btn btn-primary btn-block" href="lead-agent.html">Pilih Business</a>
         </div>
+        <!-- Pro -->
         <div class="price-card">
           <div class="price-name">Pro</div>
           <div class="price-pos">Pengalaman premium</div>
@@ -1517,7 +1428,7 @@
             <span>Deploy website</span>
             <span>Estimasi 7 hari</span>
           </div>
-          <a class="btn btn-ghost btn-block" href="lead-agent.html">Pilih Pro</a>
+          <a class="btn btn-outline btn-block" href="lead-agent.html">Pilih Pro</a>
         </div>
       </div>
       <div class="custom-card">
@@ -1527,7 +1438,7 @@
         </div>
         <div class="custom-right">
           <div class="custom-price"><small>Mulai</small>Rp2.499K</div>
-          <a class="btn btn-ghost btn-sm" href="lead-agent.html">Tanya Custom</a>
+          <a class="btn btn-outline btn-sm" href="lead-agent.html">Tanya Custom</a>
         </div>
       </div>
       <div class="terms-note">
@@ -1544,33 +1455,33 @@
   </section>
 
   <!-- ===== PROSES ===== -->
-  <section class="section-light" id="proses">
+  <section id="proses">
     <div class="container">
       <div class="section-head text-center">
-        <p class="eyebrow light">Cara Order</p>
-        <h2 class="section-title light">Lima langkah, dari chat <em>sampai website</em> siap.</h2>
+        <p class="eyebrow">Cara Order</p>
+        <h2 class="section-title">Lima langkah, dari chat <em>sampai website</em> siap.</h2>
       </div>
-      <div class="process-list">
+      <div class="process-list" style="max-width:680px;margin:0 auto;">
         <div class="process-item"><span class="num">01</span><div><h3>Konsultasi</h3><p>Ceritakan kebutuhan bisnis kamu lewat WhatsApp.</p></div></div>
         <div class="process-item"><span class="num">02</span><div><h3>Pilih Paket &amp; Kebutuhan</h3><p>Tentukan paket yang cocok dan detail halaman yang dibutuhkan.</p></div></div>
         <div class="process-item"><span class="num">03</span><div><h3>Pengerjaan</h3><p>Website dikerjakan sesuai brief dan estimasi waktu paket.</p></div></div>
         <div class="process-item"><span class="num">04</span><div><h3>Review &amp; Revisi</h3><p>Kamu cek hasilnya, revisi sesuai jatah paket yang dipilih.</p></div></div>
         <div class="process-item"><span class="num">05</span><div><h3>Website Siap</h3><p>Website di-deploy dan siap dipakai untuk bisnis kamu.</p></div></div>
       </div>
-      <div class="solution-block" style="margin-top:var(--spacing-40);max-width:680px;margin-left:auto;margin-right:auto;background:var(--color-pure-white);">
+      <div class="solution-block" style="margin-top:var(--space-6);max-width:680px;margin-left:auto;margin-right:auto;">
         <p><strong>AI digunakan sebagai alat bantu</strong> di proses build untuk mempercepat development. Tapi setiap hasil tetap melalui review &amp; revisi manusia sebelum dinyatakan selesai.</p>
       </div>
     </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section class="section-dark" id="faq">
+  <section id="faq" style="background:var(--bg-surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
     <div class="container">
       <div class="section-head text-center">
         <p class="eyebrow">Pertanyaan Umum</p>
         <h2 class="section-title">Yang sering <em>ditanyakan</em>.</h2>
       </div>
-      <div class="faq-list">
+      <div class="faq-list" style="max-width:720px;margin:0 auto;">
         <div class="faq-item">
           <button class="faq-q">Bisa request desain sendiri? <span class="plus">+</span></button>
           <div class="faq-a"><p>Bisa. Desain disusun berdasarkan brief awal kamu dan bisa disesuaikan dalam batas revisi paket.</p></div>
@@ -1614,7 +1525,7 @@
   <!-- ===== FINAL CTA ===== -->
   <div class="final-cta">
     <div class="container">
-      <p class="eyebrow">Mulai Sekarang</p>
+      <p class="eyebrow" style="justify-content:center;">Mulai Sekarang</p>
       <h2>Siap punya website <em>sendiri?</em></h2>
       <p>Chat dulu, ceritakan kebutuhan bisnis kamu — gratis, tanpa komitmen.</p>
       <a class="btn btn-primary" href="lead-agent.html">Pesan Sekarang</a>
@@ -1635,7 +1546,7 @@
         <a href="#harga">Harga</a>
         <a href="#proses">Proses</a>
         <a href="#faq">FAQ</a>
-        <a href="lead-agent.html" style="color:var(--color-neon-pulse);">Order</a>
+        <a href="lead-agent.html" style="color:var(--gold);">Order</a>
       </div>
       <div class="foot-bottom">
         <span>&copy; KaveloLab</span>
