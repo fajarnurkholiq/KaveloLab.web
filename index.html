@@ -1,1789 +1,1851 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KaveloLab — AI & Technology Lab</title>
-  <meta name="description" content="KaveloLab adalah AI & Technology Lab. Bikin website, eksperimen AI, dan project teknologi untuk bisnis dan personal brand." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0c0e'/%3E%3Ctext x='32' y='44' font-family='sans-serif' font-size='34' font-weight='600' fill='%2385a6e9' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet" />
-  <style>
-    /* ============================================================
-       DESIGN SYSTEM dengan spacing yang jelas
-       ============================================================ */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      /* Warna — Aurora / AgentQL palette */
-      --bg: #0b0c0e;
-      --bg-surface: #0e111b;
-      --bg-surface-2: #0d172b;
-      --bg-surface-3: #12244f;
-      --border: #172540;
-      --border-soft: #151e32;
-      --border-hairline: #24375a;
-      --text: #ffffff;
-      --text-soft: #abaebb;
-      --text-faint: #c7c9d1;
-      --gold: #2862d7;
-      --gold-soft: rgba(40, 98, 215, 0.12);
-      --gold-glow: rgba(98, 95, 255, 0.10);
-      --accent-violet: #305fbd;
-      --accent-purple: #625fff;
-      --accent-pink: #ff7dda;
-      --accent-lilac: #85a6e9;
-      --accent-gradient: linear-gradient(90deg, #305fbd, #625fff);
-
-      /* Typography */
-      --font-serif: 'Figtree', 'DM Sans', sans-serif;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
-
-      /* Spacing (8px system) - PASTI ADA */
-      --space-1: 4px;
-      --space-2: 8px;
-      --space-3: 12px;
-      --space-4: 16px;
-      --space-5: 20px;
-      --space-6: 24px;
-      --space-8: 32px;
-      --space-10: 40px;
-      --space-12: 48px;
-      --space-16: 64px;
-      --space-20: 80px;
-
-      /* Radius */
-      --radius: 12px;
-      --radius-sm: 8px;
-
-      /* Shadow */
-      --shadow-card: rgba(0, 0, 0, 0.5) 0px 4px 30px 0px;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 0 var(--space-6);
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    h1,
-    h2,
-    h3 {
-      font-family: var(--font-serif);
-      font-weight: 500;
-      line-height: 1.13;
-      letter-spacing: -0.02em;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      font-size: 12px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      color: var(--text-soft);
-      margin-bottom: var(--space-3);
-      font-family: var(--font-sans);
-    }
-    .eyebrow::before {
-      content: "";
-      width: 18px;
-      height: 1.5px;
-      background: var(--accent-lilac);
-      flex-shrink: 0;
-    }
-
-    .section-title {
-      font-size: clamp(26px, 4.5vw, 40px);
-      font-weight: 500;
-      line-height: 1.13;
-    }
-    .section-title em {
-      font-style: normal;
-      color: var(--accent-lilac);
-    }
-
-    .section-desc {
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--text-soft);
-      max-width: 540px;
-      line-height: 1.7;
-      margin-top: var(--space-3);
-    }
-
-    .text-center {
-      text-align: center;
-    }
-    .text-center .section-desc {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-2);
-      padding: 10px 20px;
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 1;
-      border-radius: 9999px;
-      border: 1px solid transparent;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: #ffffff;
-      color: #050606;
-    }
-    .btn-primary:hover {
-      background: #e8e8ea;
-      transform: scale(0.97);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border-color: #777a88;
-    }
-    .btn-outline:hover {
-      border-color: var(--text);
-      color: var(--text);
-      background: rgba(255, 255, 255, 0.04);
-    }
-
-    .btn-gradient {
-      background: var(--accent-gradient);
-      color: #ffffff;
-    }
-    .btn-gradient:hover {
-      opacity: 0.9;
-      transform: scale(0.97);
-    }
-
-    .btn-sm {
-      padding: 8px 16px;
-      font-size: 13px;
-    }
-
-    .btn-block {
-      width: 100%;
-      justify-content: center;
-    }
-
-    /* ===== NAV ===== */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(11, 12, 14, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-soft);
-    }
-
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px var(--space-6);
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    .nav-logo {
-      font-family: var(--font-serif);
-      font-size: 20px;
-      font-weight: 600;
-    }
-    .nav-logo span {
-      color: var(--accent-lilac);
-    }
-
-    .nav-links {
-      display: none;
-      gap: var(--space-8);
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--text-soft);
-    }
-    .nav-links a:hover {
-      color: var(--text);
-    }
-
-    .nav-cta {
-      display: none;
-    }
-
-    .nav-toggle {
-      width: 24px;
-      height: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-    }
-    .nav-toggle span {
-      display: block;
-      height: 1.5px;
-      width: 100%;
-      background: var(--text);
-      border-radius: 2px;
-      transition: 0.2s;
-    }
-
-    @media (min-width: 820px) {
-      .nav-links {
-        display: flex;
-      }
-      .nav-cta {
-        display: inline-flex;
-      }
-      .nav-toggle {
-        display: none;
-      }
-    }
-
-    .nav-mobile {
-      display: none;
-      flex-direction: column;
-      padding: var(--space-4) var(--space-6) var(--space-6);
-      border-top: 1px solid var(--border);
-    }
-    .nav-mobile.open {
-      display: flex;
-    }
-    .nav-mobile a {
-      padding: var(--space-3) 0;
-      font-size: 14px;
-      color: var(--text-soft);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-mobile a:last-child {
-      border-bottom: none;
-    }
-    .nav-mobile .btn {
-      margin-top: var(--space-3);
-      justify-content: center;
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      padding: var(--space-12) var(--space-6) var(--space-10);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: -25%;
-      left: 30%;
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, rgba(98, 95, 255, 0.32), transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      bottom: -20%;
-      right: 20%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(255, 125, 218, 0.22), transparent 70%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .hero * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 7vw, 64px);
-      font-weight: 500;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      max-width: 700px;
-      margin: 0 auto var(--space-4);
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--accent-lilac);
-    }
-
-    .hero .lead {
-      font-size: 16px;
-      font-weight: 400;
-      color: var(--text-soft);
-      max-width: 520px;
-      margin: 0 auto var(--space-8);
-      line-height: 1.8;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: var(--space-3);
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: var(--space-4);
-    }
-
-    .hero-note {
-      font-size: 12px;
-      color: var(--text-faint);
-    }
-
-    /* ===== SECTION ===== */
-    section {
-      padding: var(--space-12) var(--space-6);
-    }
-
-    .section-head {
-      margin-bottom: var(--space-8);
-    }
-    .section-head.text-center .section-desc {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ===== PROBLEM / SOLUTION ===== */
-    .ps-grid {
-      display: grid;
-      gap: var(--space-3);
-    }
-    .ps-item {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
-      padding: var(--space-5) var(--space-6);
-      display: flex;
-      gap: var(--space-4);
-      align-items: flex-start;
-    }
-    .ps-item .mark {
-      font-family: var(--font-serif);
-      font-style: normal;
-      color: var(--accent-lilac);
-      font-size: 18px;
-      flex-shrink: 0;
-      line-height: 1.4;
-    }
-    .ps-item p {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--text-soft);
-      line-height: 1.7;
-    }
-
-    .solution-block {
-      background: var(--bg-surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--space-8) var(--space-6);
-      margin-top: var(--space-6);
-    }
-    .solution-block p {
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--text-soft);
-      line-height: 1.8;
-    }
-    .solution-block p + p {
-      margin-top: var(--space-3);
-    }
-    .solution-block strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    /* ===== VALUE / LAYANAN ===== */
-    .value-grid {
-      display: grid;
-      gap: var(--space-3);
-    }
-    .value-item {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
-      padding: var(--space-5) var(--space-6);
-      display: flex;
-      gap: var(--space-4);
-      align-items: flex-start;
-    }
-    .value-item .ic {
-      color: var(--gold);
-      font-size: 20px;
-      font-weight: 600;
-      flex-shrink: 0;
-      line-height: 1.4;
-    }
-    .value-item p {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--text-soft);
-      line-height: 1.7;
-    }
-    .value-item strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    /* ===== PROJECTS ===== */
-    .project-grid {
-      display: grid;
-      gap: var(--space-4);
-    }
-    .project-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .project-card:hover {
-      border-color: var(--border-hairline);
-    }
-
-    .project-visual {
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .project-visual.fajar {
-      background: radial-gradient(circle at 20% 30%, rgba(98, 95, 255, 0.18), transparent 40%),
-        linear-gradient(145deg, #0d172b, #12244f);
-    }
-    .project-visual.crypto {
-      background: radial-gradient(circle at 80% 25%, rgba(255, 125, 218, 0.14), transparent 35%),
-        linear-gradient(145deg, #0d172b, #101a30);
-    }
-
-    .project-screen {
-      width: 76%;
-      height: 92px;
-      background: rgba(11, 12, 14, 0.75);
-      border: 1px solid var(--border-hairline);
-      border-radius: var(--radius-sm);
-      padding: var(--space-3) var(--space-4);
-      box-shadow: rgba(0, 0, 0, 0.34) 0px 20px 35px 0px, rgba(0, 0, 0, 0.25) 0px 4px 13px 0px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .project-screen .bar {
-      height: 5px;
-      width: 30%;
-      background: var(--accent-lilac);
-      opacity: 0.9;
-      border-radius: 3px;
-      margin-bottom: var(--space-3);
-    }
-    .project-screen .line {
-      height: 4px;
-      background: var(--border);
-      border-radius: 3px;
-      margin-bottom: 6px;
-    }
-    .project-screen .line.short {
-      width: 50%;
-    }
-    .project-screen .line.mid {
-      width: 70%;
-    }
-    .project-screen .line.long {
-      width: 90%;
-    }
-
-    .project-body {
-      padding: var(--space-5) var(--space-6) var(--space-6);
-    }
-    .project-type {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      color: var(--accent-lilac);
-      font-weight: 500;
-      margin-bottom: 4px;
-      font-family: var(--font-sans);
-    }
-    .project-name {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-    .project-status {
-      font-size: 12px;
-      color: var(--text-soft);
-      margin-bottom: var(--space-3);
-    }
-    .project-desc {
-      font-size: 13.5px;
-      font-weight: 400;
-      color: var(--text-faint);
-      line-height: 1.7;
-      margin-bottom: var(--space-4);
-    }
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      margin-bottom: var(--space-5);
-    }
-    .project-tags span {
-      font-size: 11px;
-      color: var(--text-soft);
-      border: 1px solid var(--border);
-      border-radius: 9999px;
-      padding: 4px 12px;
-    }
-    .project-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-    }
-
-    /* ===== SHOWCASE ===== */
-    .showcase-grid {
-      display: grid;
-      gap: var(--space-4);
-    }
-    .showcase-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .showcase-card:hover {
-      border-color: var(--border-hairline);
-    }
-
-    .showcase-swatch {
-      height: 88px;
-      display: flex;
-    }
-    .showcase-swatch span {
-      flex: 1;
-    }
-    .showcase-body {
-      padding: var(--space-5) var(--space-6) var(--space-6);
-    }
-    .showcase-pkg {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      color: var(--accent-lilac);
-      font-weight: 500;
-      margin-bottom: 4px;
-      font-family: var(--font-sans);
-    }
-    .showcase-name {
-      font-family: var(--font-serif);
-      font-size: 20px;
-      font-weight: 500;
-      margin-bottom: 2px;
-    }
-    .showcase-pos {
-      font-size: 12.5px;
-      color: var(--text-soft);
-      margin-bottom: var(--space-3);
-    }
-    .showcase-desc {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--text-faint);
-      line-height: 1.7;
-      margin-bottom: var(--space-5);
-    }
-    .showcase-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-    }
-
-    /* ===== PRICING ===== */
-    .price-grid {
-      display: grid;
-      gap: var(--space-4);
-    }
-    .price-card {
-      background: var(--bg-surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--space-8) var(--space-6);
-      position: relative;
-      transition: border-color 0.2s;
-    }
-    .price-card.reco {
-      border-color: #1e2b48;
-      background: var(--bg-surface-3);
-    }
-    .price-card.reco .price-badge {
-      position: absolute;
-      top: -13px;
-      left: var(--space-6);
-      background: var(--accent-gradient);
-      color: #ffffff;
-      font-size: 11px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      padding: 4px 14px;
-      border-radius: 9999px;
-    }
-
-    .price-name {
-      font-family: var(--font-serif);
-      font-size: 20px;
-      font-weight: 500;
-    }
-    .price-card.reco .price-name {
-      color: var(--accent-lilac);
-    }
-    .price-pos {
-      font-size: 12.5px;
-      color: var(--text-soft);
-      margin: 2px 0 var(--space-4);
-    }
-    .price-amount {
-      font-family: var(--font-serif);
-      font-size: 40px;
-      font-weight: 500;
-      margin-bottom: var(--space-5);
-      letter-spacing: -0.02em;
-    }
-    .price-amount sup {
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--text-soft);
-      opacity: 1;
-      margin-right: 1px;
-    }
-
-    .price-feat {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-      margin-bottom: var(--space-6);
-    }
-    .price-feat span {
-      font-size: 14px;
-      font-weight: 400;
-      color: var(--text-faint);
-      padding-left: var(--space-4);
-      position: relative;
-    }
-    .price-feat span::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #8798c1;
-      font-weight: 500;
-    }
-
-    .custom-card {
-      background: var(--bg-surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--space-5) var(--space-6);
-      margin-top: var(--space-4);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: var(--space-4);
-    }
-    .custom-left .price-name {
-      font-size: 18px;
-    }
-    .custom-left p {
-      font-size: 12.5px;
-      font-weight: 400;
-      color: var(--text-soft);
-      margin-top: 2px;
-      max-width: 360px;
-      line-height: 1.6;
-    }
-    .custom-right {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-      flex-wrap: wrap;
-    }
-    .custom-price {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-    .custom-price small {
-      display: block;
-      font-size: 10px;
-      font-weight: 500;
-      color: var(--text-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .terms-note {
-      border-top: 1px solid var(--border-soft);
-      margin-top: var(--space-6);
-      padding-top: var(--space-6);
-    }
-    .terms-note ul {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-    }
-    .terms-note li {
-      font-size: 12.5px;
-      font-weight: 400;
-      color: var(--text-soft);
-      line-height: 1.7;
-      padding-left: var(--space-4);
-      position: relative;
-    }
-    .terms-note li::before {
-      content: "·";
-      position: absolute;
-      left: 0;
-    }
-
-    /* ===== PROCESS ===== */
-    .process-list {
-      display: flex;
-      flex-direction: column;
-    }
-    .process-item {
-      display: flex;
-      gap: var(--space-5);
-      padding: var(--space-5) 0;
-      border-top: 1px solid var(--border-soft);
-    }
-    .process-item:last-child {
-      border-bottom: 1px solid var(--border-soft);
-    }
-    .process-item .num {
-      font-family: var(--font-serif);
-      font-size: 24px;
-      font-weight: 500;
-      color: var(--accent-lilac);
-      min-width: 44px;
-    }
-    .process-item h3 {
-      font-family: var(--font-sans);
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 2px;
-    }
-    .process-item p {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--text-soft);
-      line-height: 1.7;
-    }
-
-    /* ===== FAQ ===== */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-    }
-    .faq-item {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-    .faq-q {
-      width: 100%;
-      text-align: left;
-      background: none;
-      border: none;
-      color: var(--text);
-      padding: var(--space-5) var(--space-6);
-      font-family: var(--font-sans);
-      font-size: 15px;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
-      cursor: pointer;
-    }
-    .faq-q .plus {
-      font-size: 20px;
-      color: var(--accent-lilac);
-      flex-shrink: 0;
-      transition: transform 0.25s ease;
-    }
-    .faq-item.open .faq-q .plus {
-      transform: rotate(45deg);
-    }
-    .faq-a {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease;
-    }
-    .faq-a p {
-      padding: 0 var(--space-6) var(--space-5);
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--text-soft);
-      line-height: 1.7;
-    }
-
-    /* ===== FINAL CTA ===== */
-    .final-cta {
-      text-align: center;
-      padding: var(--space-16) var(--space-6);
-    }
-    .final-cta h2 {
-      font-size: clamp(30px, 5vw, 48px);
-      font-weight: 500;
-      line-height: 1.13;
-      letter-spacing: -0.02em;
-      margin-bottom: var(--space-4);
-    }
-    .final-cta h2 em {
-      font-style: normal;
-      color: var(--accent-lilac);
-    }
-    .final-cta p {
-      font-size: 15px;
-      font-weight: 400;
-      color: var(--text-soft);
-      max-width: 420px;
-      margin: 0 auto var(--space-8);
-      line-height: 1.8;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      border-top: 1px solid var(--border-soft);
-      padding: var(--space-10) var(--space-6) var(--space-8);
-    }
-    .foot-top {
-      margin-bottom: var(--space-6);
-    }
-    .foot-logo {
-      font-family: var(--font-serif);
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-    .foot-logo span {
-      color: var(--accent-lilac);
-    }
-    .foot-tag {
-      font-size: 12.5px;
-      font-weight: 400;
-      color: var(--text-soft);
-    }
-    .foot-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-4) var(--space-6);
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--text-soft);
-      margin-bottom: var(--space-6);
-    }
-    .foot-links a:hover {
-      color: var(--accent-lilac);
-    }
-    .foot-bottom {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--text-soft);
-    }
-
-    /* ===== CHATBOT ===== */
-    .chat-fab {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 200;
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      background: var(--accent-gradient);
-      color: #ffffff;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 30px 0px;
-      transition: transform 0.2s;
-    }
-    .chat-fab:hover {
-      transform: scale(0.95);
-    }
-    .chat-fab .ic-close {
-      display: none;
-    }
-    .chat-fab.open .ic-chat {
-      display: none;
-    }
-    .chat-fab.open .ic-close {
-      display: block;
-    }
-
-    .chat-panel {
-      position: fixed;
-      right: 20px;
-      bottom: 88px;
-      z-index: 199;
-      width: min(360px, calc(100vw - 40px));
-      max-height: min(520px, calc(100vh - 140px));
-      background: var(--bg-surface-2);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      box-shadow: rgba(0, 0, 0, 0.34) 0px 20px 35px 0px, rgba(0, 0, 0, 0.25) 0px 4px 13px 0px;
-    }
-    .chat-panel.open {
-      display: flex;
-    }
-
-    .chat-head {
-      background: var(--bg-surface-3);
-      border-bottom: 1px solid var(--border);
-      padding: var(--space-4) var(--space-5);
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-    }
-    .chat-head .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #4CAF50;
-      flex-shrink: 0;
-    }
-    .chat-head .ti {
-      flex: 1;
-      min-width: 0;
-    }
-    .chat-head .ti strong {
-      display: block;
-      font-size: 14px;
-      font-weight: 600;
-    }
-    .chat-head .ti span {
-      display: block;
-      font-size: 10.5px;
-      font-weight: 400;
-      color: var(--text-soft);
-      margin-top: 1px;
-    }
-
-    .chat-body {
-      flex: 1;
-      overflow-y: auto;
-      padding: var(--space-4) var(--space-4) var(--space-2);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-      min-height: 140px;
-      max-height: 300px;
-    }
-    .chat-msg {
-      max-width: 88%;
-      font-size: 12.5px;
-      font-weight: 400;
-      line-height: 1.6;
-      padding: 10px 14px;
-      border-radius: var(--radius-sm);
-    }
-    .chat-msg.bot {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-soft);
-      color: var(--text-soft);
-      align-self: flex-start;
-      border-bottom-left-radius: 2px;
-    }
-    .chat-msg.user {
-      background: var(--accent-gradient);
-      color: #ffffff;
-      align-self: flex-end;
-      border-bottom-right-radius: 2px;
-      font-weight: 500;
-    }
-    .chat-msg a {
-      color: var(--accent-lilac);
-      text-decoration: underline;
-    }
-    .chat-msg.user a {
-      color: #ffffff;
-    }
-
-    .chat-suggest {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-2);
-      padding: var(--space-2) var(--space-4) var(--space-3);
-    }
-    .chat-suggest button {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text-soft);
-      font-size: 11px;
-      padding: 6px 14px;
-      border-radius: 9999px;
-      cursor: pointer;
-      font-family: var(--font-sans);
-      transition: 0.15s;
-    }
-    .chat-suggest button:hover {
-      border-color: var(--accent-lilac);
-      color: var(--text);
-    }
-
-    .chat-input-row {
-      border-top: 1px solid var(--border);
-      padding: var(--space-3);
-      display: flex;
-      gap: var(--space-2);
-      flex-shrink: 0;
-    }
-    .chat-input-row input {
-      flex: 1;
-      min-width: 0;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 9999px;
-      padding: 10px 16px;
-      color: var(--text);
-      font-size: 12.5px;
-      font-weight: 400;
-      font-family: var(--font-sans);
-    }
-    .chat-input-row input:focus {
-      outline: none;
-      border-color: var(--accent-lilac);
-    }
-    .chat-input-row button {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--accent-gradient);
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-    .chat-input-row button svg {
-      width: 18px;
-      height: 18px;
-      color: #ffffff;
-    }
-
-    .chat-disclaimer {
-      font-size: 9.5px;
-      font-weight: 400;
-      color: var(--text-soft);
-      text-align: center;
-      padding: 0 var(--space-4) var(--space-3);
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media (min-width: 600px) {
-      .ps-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .value-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .project-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .showcase-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-      .price-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    @media (max-width: 599px) {
-      .hero {
-        padding: var(--space-8) var(--space-4) var(--space-8);
-      }
-      section {
-        padding: var(--space-8) var(--space-4);
-      }
-      .container {
-        padding: 0 var(--space-4);
-      }
-      .nav-inner {
-        padding: 12px var(--space-4);
-      }
-      .nav-mobile {
-        padding: var(--space-3) var(--space-4) var(--space-5);
-      }
-      .project-visual {
-        height: 130px;
-      }
-      .project-screen {
-        height: 78px;
-        padding: var(--space-2) var(--space-3);
-      }
-      .price-card {
-        padding: var(--space-6) var(--space-4);
-      }
-      .custom-card {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .custom-right {
-        justify-content: flex-start;
-      }
-      .chat-panel {
-        right: 12px;
-        bottom: 80px;
-        width: calc(100vw - 24px);
-        max-height: calc(100vh - 130px);
-      }
-      .chat-fab {
-        right: 12px;
-        bottom: 12px;
-        width: 50px;
-        height: 50px;
-      }
-    }
-
-    @media (min-width: 820px) {
-      .nav-cta {
-        display: inline-flex;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KaveloLab — Website Profesional untuk UMKM Indonesia</title>
+    <meta name="description" content="KaveloLab membantu UMKM Indonesia punya website profesional yang simpel, cepat, dan langsung terhubung ke pelanggan. Mulai dari Rp299.000." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+    <style>
+        /* ============================================================
+               RESET & BASE
+               ============================================================ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f7f5f2;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: inherit;
+        }
+
+        /* ============================================================
+               UTILITY
+               ============================================================ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        @media (min-width: 768px) {
+            .section-padding {
+                padding: 120px 0;
+            }
+        }
+
+        .label-sm {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #c9a84c;
+        }
+
+        .heading-xl {
+            font-size: clamp(2.2rem, 6vw, 4.2rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .heading-lg {
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .heading-md {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .text-body {
+            font-size: 1.0625rem;
+            line-height: 1.7;
+            color: #4a4a4a;
+        }
+
+        .text-body-sm {
+            font-size: 0.9375rem;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        .text-muted {
+            color: #6b6b6b;
+        }
+
+        .text-gold {
+            color: #c9a84c;
+        }
+
+        .bg-dark {
+            background: #0c0c0c;
+            color: #f7f5f2;
+        }
+
+        .bg-dark .text-body {
+            color: #b0b0b0;
+        }
+
+        .bg-dark .text-muted {
+            color: #888888;
+        }
+
+        .bg-dark .text-body-sm {
+            color: #b0b0b0;
+        }
+
+        /* ============================================================
+               BUTTONS
+               ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            padding: 14px 32px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            text-align: center;
+            line-height: 1.2;
+            min-height: 54px;
+        }
+
+        .btn-primary {
+            background: #c9a84c;
+            color: #0c0c0c;
+        }
+        .btn-primary:hover {
+            background: #dbb95e;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(201, 168, 76, 0.30);
+        }
+        .btn-primary:focus-visible {
+            outline: 3px solid #c9a84c;
+            outline-offset: 3px;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #0c0c0c;
+            border: 1.5px solid #0c0c0c;
+        }
+        .btn-secondary:hover {
+            background: #0c0c0c;
+            color: #f7f5f2;
+        }
+        .btn-secondary:focus-visible {
+            outline: 3px solid #0c0c0c;
+            outline-offset: 3px;
+        }
+
+        .btn-secondary-light {
+            background: transparent;
+            color: #f7f5f2;
+            border: 1.5px solid rgba(247, 245, 242, 0.4);
+        }
+        .btn-secondary-light:hover {
+            background: #f7f5f2;
+            color: #0c0c0c;
+            border-color: #f7f5f2;
+        }
+        .btn-secondary-light:focus-visible {
+            outline: 3px solid #f7f5f2;
+            outline-offset: 3px;
+        }
+
+        .btn-gold-outline {
+            background: transparent;
+            color: #c9a84c;
+            border: 1.5px solid #c9a84c;
+        }
+        .btn-gold-outline:hover {
+            background: #c9a84c;
+            color: #0c0c0c;
+        }
+        .btn-gold-outline:focus-visible {
+            outline: 3px solid #c9a84c;
+            outline-offset: 3px;
+        }
+
+        .btn-block {
+            width: 100%;
+            justify-content: center;
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.875rem;
+                min-height: 48px;
+            }
+        }
+
+        /* ============================================================
+               NAVBAR
+               ============================================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(247, 245, 242, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: background 0.3s ease;
+        }
+
+        .navbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+
+        .navbar-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #0c0c0c;
+        }
+        .navbar-logo span {
+            color: #c9a84c;
+        }
+
+        .navbar-links {
+            display: none;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #4a4a4a;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+        .navbar-links a:hover {
+            color: #0c0c0c;
+        }
+        .navbar-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #c9a84c;
+            transition: width 0.25s ease;
+        }
+        .navbar-links a:hover::after {
+            width: 100%;
+        }
+        .navbar-links a:focus-visible {
+            outline: 2px solid #c9a84c;
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        .navbar-cta {
+            display: none;
+        }
+
+        .navbar-hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px 4px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .navbar-hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #0c0c0c;
+            border-radius: 2px;
+            transition: all 0.25s ease;
+            transform-origin: center;
+        }
+        .navbar-hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        .navbar-hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .navbar-hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            position: fixed;
+            top: 72px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #f7f5f2;
+            padding: 40px 24px;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            overflow-y: auto;
+            z-index: 999;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .mobile-menu a {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .mobile-menu a:hover {
+            color: #c9a84c;
+        }
+        .mobile-menu a:focus-visible {
+            outline: 2px solid #c9a84c;
+            outline-offset: 4px;
+        }
+        .mobile-menu .btn {
+            margin-top: 16px;
+            align-self: flex-start;
+        }
+
+        @media (min-width: 768px) {
+            .navbar-links {
+                display: flex;
+            }
+            .navbar-cta {
+                display: inline-flex;
+            }
+            .navbar-hamburger {
+                display: none;
+            }
+            .mobile-menu {
+                display: none;
+            }
+        }
+
+        /* ============================================================
+               HERO
+               ============================================================ */
+        .hero {
+            padding: 120px 0 80px;
+            background: #f7f5f2;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .hero-content .label-sm {
+            margin-bottom: 4px;
+        }
+
+        .hero-content .heading-xl {
+            max-width: 12ch;
+        }
+
+        .hero-content .text-body {
+            max-width: 50ch;
+            font-size: 1.125rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .hero-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-mockup {
+            width: 100%;
+            max-width: 560px;
+            aspect-ratio: 16 / 10;
+            background: #0c0c0c;
+            border-radius: 12px;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-mockup-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .hero-mockup-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4a4a4a;
+        }
+        .hero-mockup-dot:nth-child(1) {
+            background: #e85a5a;
+        }
+        .hero-mockup-dot:nth-child(2) {
+            background: #e8c45a;
+        }
+        .hero-mockup-dot:nth-child(3) {
+            background: #5ae87a;
+        }
+
+        .hero-mockup-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            padding: 8px 0;
+        }
+        .hero-mockup-body .mockup-line {
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.07);
+            width: 100%;
+        }
+        .hero-mockup-body .mockup-line:nth-child(1) {
+            width: 55%;
+            background: rgba(201, 168, 76, 0.25);
+        }
+        .hero-mockup-body .mockup-line:nth-child(2) {
+            width: 80%;
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .hero-mockup-body .mockup-line:nth-child(3) {
+            width: 65%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .hero-mockup-body .mockup-line:nth-child(4) {
+            width: 90%;
+            background: rgba(255, 255, 255, 0.04);
+            height: 40px;
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+        .hero-mockup-body .mockup-line:nth-child(5) {
+            width: 40%;
+            height: 32px;
+            border-radius: 4px;
+            background: rgba(201, 168, 76, 0.20);
+            margin-top: 4px;
+        }
+
+        .hero-mockup-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 24px;
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 140px 0 100px;
+                min-height: 100vh;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+            }
+            .hero-content .heading-xl {
+                font-size: clamp(2.8rem, 5vw, 4.2rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 0 60px;
+                min-height: auto;
+            }
+            .hero-actions {
+                flex-direction: column;
+            }
+            .hero-actions .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-mockup {
+                padding: 16px 18px;
+                border-radius: 8px;
+            }
+        }
+
+        /* ============================================================
+               PROBLEM
+               ============================================================ */
+        .problem {
+            background: #ffffff;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .problem-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 32px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .problem-items li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.9375rem;
+            color: #4a4a4a;
+            padding: 4px 0;
+        }
+
+        .problem-items li::before {
+            content: '✕';
+            color: #c9a84c;
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .problem-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+            }
+            .problem-items {
+                gap: 20px 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .problem-items {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        /* ============================================================
+               SOLUTION
+               ============================================================ */
+        .solution {
+            background: #f7f5f2;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .solution-benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 32px;
+            margin-top: 8px;
+        }
+
+        .solution-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9375rem;
+            color: #1a1a1a;
+            list-style: none;
+            padding: 4px 0;
+        }
+
+        .solution-benefits li::before {
+            content: '✓';
+            color: #c9a84c;
+            font-weight: 700;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .solution-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .solution-mockup {
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 16 / 11;
+            background: #0c0c0c;
+            border-radius: 12px;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.10);
+        }
+
+        .solution-mockup-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .solution-mockup-header .mockup-brand {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.5);
+            letter-spacing: 0.04em;
+        }
+        .solution-mockup-header .mockup-nav {
+            display: flex;
+            gap: 16px;
+        }
+        .solution-mockup-header .mockup-nav span {
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .solution-mockup-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 4px 0;
+        }
+        .solution-mockup-body .s-line {
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .solution-mockup-body .s-line:nth-child(1) {
+            width: 45%;
+            background: rgba(201, 168, 76, 0.25);
+        }
+        .solution-mockup-body .s-line:nth-child(2) {
+            width: 75%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        .solution-mockup-body .s-line:nth-child(3) {
+            width: 60%;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .solution-mockup-body .s-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .solution-mockup-body .s-grid-item {
+            height: 40px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .solution-mockup-body .s-grid-item:nth-child(1) {
+            background: rgba(201, 168, 76, 0.08);
+            border-color: rgba(201, 168, 76, 0.10);
+        }
+
+        .solution-mockup-badge {
+            font-size: 0.55rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.15);
+            text-align: right;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        @media (min-width: 768px) {
+            .solution-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .solution-benefits {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .solution-mockup {
+                padding: 16px 18px;
+                border-radius: 8px;
+            }
+            .solution-mockup-body .s-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* ============================================================
+               PORTFOLIO
+               ============================================================ */
+        .portfolio {
+            background: #ffffff;
+        }
+
+        .portfolio-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .portfolio-card {
+            background: #f7f5f2;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .portfolio-card-image {
+            aspect-ratio: 16 / 9;
+            background: #e8e4df;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            color: #6b6b6b;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-card-image .placeholder-label {
+            position: absolute;
+            bottom: 16px;
+            right: 20px;
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.6);
+            padding: 4px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+        }
+
+        .portfolio-card-image .mockup-pattern {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 60%;
+            max-width: 200px;
+        }
+        .portfolio-card-image .mockup-pattern span {
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(0, 0, 0, 0.06);
+        }
+        .portfolio-card-image .mockup-pattern span:nth-child(1) {
+            width: 50%;
+            background: rgba(201, 168, 76, 0.25);
+        }
+        .portfolio-card-image .mockup-pattern span:nth-child(2) {
+            width: 80%;
+        }
+        .portfolio-card-image .mockup-pattern span:nth-child(3) {
+            width: 65%;
+        }
+
+        .portfolio-card-body {
+            padding: 24px 28px 28px;
+        }
+        .portfolio-card-body .card-category {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #c9a84c;
+        }
+        .portfolio-card-body h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 4px 0 6px;
+        }
+        .portfolio-card-body p {
+            font-size: 0.9375rem;
+            color: #4a4a4a;
+            margin-bottom: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .portfolio-card-body {
+                padding: 20px;
+            }
+            .portfolio-card-body h3 {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* ============================================================
+               PROCESS
+               ============================================================ */
+        .process {
+            background: #f7f5f2;
+        }
+
+        .process-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            counter-reset: step;
+        }
+
+        .process-step {
+            background: #ffffff;
+            padding: 32px 28px;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            position: relative;
+            counter-increment: step;
+        }
+        .process-step::before {
+            content: counter(step);
+            font-size: 2.6rem;
+            font-weight: 700;
+            color: rgba(201, 168, 76, 0.15);
+            line-height: 1;
+            display: block;
+            margin-bottom: 8px;
+            font-feature-settings: "ss01" on;
+        }
+        .process-step h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .process-step p {
+            font-size: 0.9375rem;
+            color: #4a4a4a;
+            margin: 0;
+        }
+
+        .process-estimate {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px 24px;
+            background: #0c0c0c;
+            color: #f7f5f2;
+            border-radius: 8px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .process-estimate strong {
+            color: #c9a84c;
+        }
+        .process-estimate .text-body-sm {
+            color: #b0b0b0;
+            margin: 0;
+        }
+
+        @media (min-width: 640px) {
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 24px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .process-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+            }
+            .process-step {
+                padding: 28px 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-step {
+                padding: 24px 20px;
+            }
+            .process-step::before {
+                font-size: 2rem;
+            }
+        }
+
+        /* ============================================================
+               PRICING
+               ============================================================ */
+        .pricing {
+            background: #ffffff;
+        }
+
+        .pricing-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            background: #f7f5f2;
+            border-radius: 8px;
+            padding: 32px 28px 36px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .pricing-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.05);
+        }
+
+        .pricing-card.featured {
+            background: #0c0c0c;
+            color: #f7f5f2;
+            border-color: #c9a84c;
+            position: relative;
+        }
+        .pricing-card.featured .text-body {
+            color: #b0b0b0;
+        }
+        .pricing-card.featured .text-muted {
+            color: #888888;
+        }
+        .pricing-card.featured .btn-primary {
+            background: #c9a84c;
+            color: #0c0c0c;
+        }
+        .pricing-card.featured .btn-primary:hover {
+            background: #dbb95e;
+        }
+
+        .pricing-card .badge {
+            display: inline-block;
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #c9a84c;
+            background: rgba(201, 168, 76, 0.10);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+
+        .pricing-card .price {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin: 4px 0 6px;
+        }
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #6b6b6b;
+        }
+        .pricing-card.featured .price span {
+            color: #888888;
+        }
+
+        .pricing-card .pricing-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .pricing-card .pricing-desc {
+            font-size: 0.9375rem;
+            color: #4a4a4a;
+            margin: 4px 0 16px;
+        }
+        .pricing-card.featured .pricing-desc {
+            color: #b0b0b0;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            flex: 1;
+        }
+        .pricing-card ul li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.875rem;
+            color: #4a4a4a;
+            padding: 4px 0;
+        }
+        .pricing-card.featured ul li {
+            color: #d0d0d0;
+        }
+        .pricing-card ul li::before {
+            content: '✓';
+            color: #c9a84c;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-card .btn {
+            margin-top: auto;
+        }
+
+        @media (min-width: 640px) {
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .pricing-card.featured {
+                grid-column: span 1;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .pricing-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 28px;
+            }
+            .pricing-card.featured {
+                transform: scale(1.02);
+                border-color: #c9a84c;
+                box-shadow: 0 16px 48px rgba(201, 168, 76, 0.10);
+            }
+            .pricing-card.featured:hover {
+                transform: scale(1.02) translateY(-3px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pricing-card {
+                padding: 24px 20px 28px;
+            }
+            .pricing-card .price {
+                font-size: 2rem;
+            }
+        }
+
+        /* ============================================================
+               FAQ
+               ============================================================ */
+        .faq {
+            background: #f7f5f2;
+        }
+
+        .faq-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 18px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            background: none;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            color: #1a1a1a;
+            transition: background 0.2s ease;
+            cursor: pointer;
+            font-family: inherit;
+            line-height: 1.3;
+        }
+        .faq-question:hover {
+            background: rgba(0, 0, 0, 0.01);
+        }
+        .faq-question:focus-visible {
+            outline: 2px solid #c9a84c;
+            outline-offset: -2px;
+        }
+        .faq-question .icon {
+            font-size: 1.2rem;
+            color: #c9a84c;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        .faq-item.open .faq-question .icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 24px;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+            padding: 0 24px 20px;
+        }
+        .faq-answer p {
+            font-size: 0.9375rem;
+            color: #4a4a4a;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 480px) {
+            .faq-question {
+                padding: 14px 18px;
+                font-size: 0.9375rem;
+            }
+            .faq-item.open .faq-answer {
+                padding: 0 18px 16px;
+            }
+            .faq-answer p {
+                font-size: 0.875rem;
+            }
+        }
+
+        /* ============================================================
+               FINAL CTA
+               ============================================================ */
+        .final-cta {
+            background: #0c0c0c;
+            color: #f7f5f2;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .final-cta .heading-lg {
+            max-width: 14ch;
+            margin: 0 auto 16px;
+        }
+
+        .final-cta .text-body {
+            max-width: 50ch;
+            margin: 0 auto 32px;
+            color: #b0b0b0;
+        }
+
+        .final-cta .btn-primary {
+            font-size: 1.0625rem;
+            padding: 16px 48px;
+            min-height: 60px;
+        }
+        .final-cta .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(201, 168, 76, 0.30);
+        }
+
+        @media (max-width: 480px) {
+            .final-cta {
+                padding: 60px 0;
+            }
+            .final-cta .btn-primary {
+                width: 100%;
+                font-size: 1rem;
+                padding: 14px 24px;
+                min-height: 54px;
+            }
+        }
+
+        /* ============================================================
+               FOOTER
+               ============================================================ */
+        .footer {
+            background: #0c0c0c;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 32px 0;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.8125rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .footer-brand {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .footer-brand span {
+            color: #c9a84c;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.3);
+            transition: color 0.2s ease;
+        }
+        .footer-links a:hover {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .footer-links a:focus-visible {
+            outline: 2px solid #c9a84c;
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        @media (min-width: 640px) {
+            .footer-inner {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        /* ============================================================
+               FOCUS VISIBLE GLOBAL
+               ============================================================ */
+        :focus-visible {
+            outline: 2px solid #c9a84c;
+            outline-offset: 2px;
+        }
+
+        /* ============================================================
+               SKIP LINK
+               ============================================================ */
+        .skip-link {
+            position: fixed;
+            top: -100%;
+            left: 16px;
+            padding: 12px 24px;
+            background: #0c0c0c;
+            color: #f7f5f2;
+            z-index: 9999;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: top 0.2s ease;
+        }
+        .skip-link:focus {
+            top: 16px;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ===== NAV ===== -->
-  <nav>
-    <div class="nav-inner">
-      <a href="#top" class="nav-logo">Kavelo<span>Lab</span></a>
-      <div class="nav-links">
-        <a href="#layanan">Layanan</a>
-        <a href="#projects">Projects</a>
-        <a href="#showcase">Demo</a>
-        <a href="#harga">Harga</a>
-        <a href="#proses">Proses</a>
-        <a href="#faq">FAQ</a>
-        <a href="lead-agent.html" style="color:var(--gold);">Order</a>
-      </div>
-      <a class="btn btn-primary btn-sm nav-cta" href="lead-agent.html">Pesan Website</a>
-      <button class="nav-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="nav-mobile">
-      <a href="#layanan">Layanan</a>
-      <a href="#projects">Projects</a>
-      <a href="#showcase">Demo</a>
-      <a href="#harga">Harga</a>
-      <a href="#proses">Proses</a>
-      <a href="#faq">FAQ</a>
-      <a href="lead-agent.html" style="color:var(--gold);">Order</a>
-      <a class="btn btn-primary btn-sm" href="lead-agent.html">Pesan Website</a>
-    </div>
-  </nav>
+    <!-- ============================================================
+    SKIP LINK
+    ============================================================ -->
+    <a class="skip-link" href="#main-content">Langsung ke konten utama</a>
 
-  <!-- ===== HERO ===== -->
-  <div class="hero" id="top">
-    <div class="container">
-      <p class="eyebrow" style="justify-content:center;">AI &amp; Technology Lab</p>
-      <h1>Bangun <em>presence digital</em> dengan pendekatan teknologi.</h1>
-      <p class="lead">KaveloLab bantu bisnis dan personal brand punya website yang profesional. Plus eksperimen AI dan project teknologi sebagai bagian dari proses belajar.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="lead-agent.html">Pesan Website</a>
-        <a class="btn btn-outline" href="#projects">Lihat Projects</a>
-      </div>
-      <p class="hero-note">Website · AI Experiments · Technology Projects</p>
-    </div>
-  </div>
+    <!-- ============================================================
+    NAVBAR
+    ============================================================ -->
+    <header class="navbar" role="banner" aria-label="Navigasi utama">
+        <div class="container navbar-inner">
+            <a href="#" class="navbar-logo" aria-label="KaveloLab beranda">
+                Kavelo<span>Lab</span>
+            </a>
 
-  <!-- ===== PROBLEM ===== -->
-  <section>
-    <div class="container">
-      <div class="section-head text-center">
-        <p class="eyebrow">Masalah</p>
-        <h2 class="section-title">Bisnis bagus, tapi <em>nggak punya</em> tempat online sendiri.</h2>
-        <p class="section-desc">Calon customer susah nemuin kamu, dan kelihatan kurang profesional dibanding kompetitor.</p>
-      </div>
-      <div class="ps-grid">
-        <div class="ps-item"><span class="mark">—</span><p>Belum punya website — customer cuma bisa hubungi lewat DM atau chat satu-satu.</p></div>
-        <div class="ps-item"><span class="mark">—</span><p>Cuma andelin IG atau WA yang gampang tenggelam di antara notifikasi lain.</p></div>
-        <div class="ps-item"><span class="mark">—</span><p>Kelihatan kurang profesional dibanding kompetitor yang sudah punya website.</p></div>
-        <div class="ps-item"><span class="mark">—</span><p>Nggak punya ruang digital yang bisa diatur dan dikembangin sendiri.</p></div>
-      </div>
-    </div>
-  </section>
+            <nav aria-label="Navigasi utama" class="navbar-links">
+                <a href="#layanan">Layanan</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#harga">Harga</a>
+                <a href="#faq">FAQ</a>
+            </nav>
 
-  <!-- ===== SOLUTION ===== -->
-  <section style="padding-top:0;">
-    <div class="container">
-      <div class="solution-block">
-        <p><strong>KaveloLab bangun website yang jadi rumah digital bisnis kamu</strong> — tempat calon customer lihat siapa kamu, apa yang kamu tawarkan, dan langsung diarahkan untuk chat via WhatsApp.</p>
-        <p>Bukan sekadar "punya website" — tapi website yang beneran dipakai untuk bantu bisnis tampil lebih profesional dan memudahkan customer mengambil tindakan.</p>
-      </div>
-    </div>
-  </section>
+            <a href="#buat-website" class="btn btn-primary navbar-cta">
+                Buat Website
+            </a>
 
-  <!-- ===== LAYANAN ===== -->
-  <section id="layanan">
-    <div class="container">
-      <div class="section-head text-center">
-        <p class="eyebrow">Layanan</p>
-        <h2 class="section-title">Fokus ke satu hal: <em>bikin website</em> yang mantap.</h2>
-        <p class="section-desc">Dari nol sampai deploy — tanpa nebeng jasa lain.</p>
-      </div>
-      <div class="value-grid">
-        <div class="value-item"><span class="ic">✦</span><p><strong>1 halaman</strong> — landing page simpel buat usaha kecil yang baru mulai online.</p></div>
-        <div class="value-item"><span class="ic">✦</span><p><strong>Multi halaman</strong> — struktur lengkap: beranda, tentang, layanan, portfolio, kontak.</p></div>
-        <div class="value-item"><span class="ic">✦</span><p><strong>Desain sesuai brief</strong> — layout, warna, tipografi disesuaikan dengan karakter bisnis kamu.</p></div>
-        <div class="value-item"><span class="ic">✦</span><p><strong>Deploy &amp; serah terima</strong> — website langsung online, kamu tinggal pakai.</p></div>
-      </div>
-    </div>
-  </section>
+            <button class="navbar-hamburger" aria-label="Buka menu" aria-expanded="false" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
 
-  <!-- ===== PROJECTS ===== -->
-  <section id="projects" style="background:var(--bg-surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-    <div class="container">
-      <div class="section-head text-center">
-        <p class="eyebrow">Projects &amp; Experiments</p>
-        <h2 class="section-title">Eksplorasi teknologi di luar <em>website biasa</em>.</h2>
-        <p class="section-desc">Beberapa project yang sedang dan pernah dikerjakan sebagai bagian dari eksperimen KaveloLab di AI dan teknologi.</p>
-      </div>
-      <div class="project-grid">
-        <!-- Fajar OS -->
-        <div class="project-card">
-          <div class="project-visual fajar">
-            <div class="project-screen">
-              <div class="bar"></div>
-              <div class="line long"></div>
-              <div class="line mid"></div>
-              <div class="line short"></div>
-              <div class="line long"></div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Navigasi mobile">
+            <a href="#layanan" class="mobile-link">Layanan</a>
+            <a href="#portfolio" class="mobile-link">Portfolio</a>
+            <a href="#harga" class="mobile-link">Harga</a>
+            <a href="#faq" class="mobile-link">FAQ</a>
+            <a href="#buat-website" class="btn btn-primary">Buat Website</a>
+        </div>
+    </header>
+
+    <!-- ============================================================
+    MAIN
+    ============================================================ -->
+    <main id="main-content">
+
+        <!-- ===== HERO ===== -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <span class="label-sm">KaveloLab — Digital Studio</span>
+                    <h1 id="hero-title" class="heading-xl">
+                        Punya usaha, tapi belum punya website?
+                    </h1>
+                    <p class="text-body">
+                        Kami bantu UMKM punya website profesional yang simpel, cepat,
+                        dan langsung terhubung ke pelanggan.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#buat-website" class="btn btn-primary">Buat Website</a>
+                        <a href="#portfolio" class="btn btn-secondary">Lihat Portfolio</a>
+                    </div>
+                </div>
+                <div class="hero-visual" aria-hidden="true">
+                    <div class="hero-mockup">
+                        <div class="hero-mockup-header">
+                            <span class="hero-mockup-dot"></span>
+                            <span class="hero-mockup-dot"></span>
+                            <span class="hero-mockup-dot"></span>
+                        </div>
+                        <div class="hero-mockup-body">
+                            <div class="mockup-line"></div>
+                            <div class="mockup-line"></div>
+                            <div class="mockup-line"></div>
+                            <div class="mockup-line"></div>
+                            <div class="mockup-line"></div>
+                        </div>
+                        <span class="hero-mockup-badge">Website UMKM</span>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-type">AI Workspace</div>
-            <div class="project-name">Fajar OS</div>
-            <div class="project-status">Prototype · In Development</div>
-            <p class="project-desc">Eksperimen AI Workspace pribadi yang menggabungkan percakapan, memory, dan berbagai kemampuan AI dalam satu ruang kerja.</p>
-            <div class="project-tags"><span>AI</span><span>Workspace</span><span>Prototype</span></div>
-            <div class="project-foot">
-              <a class="btn btn-primary btn-sm" href="https://fajar-os.vercel.app" target="_blank" rel="noopener">Buka Fajar OS →</a>
+        </section>
+
+        <!-- ===== PROBLEM ===== -->
+        <section class="problem section-padding" aria-labelledby="problem-title">
+            <div class="container problem-grid">
+                <div>
+                    <span class="label-sm">Masalah</span>
+                    <h2 id="problem-title" class="heading-lg">
+                        Pelanggan mencari bisnis Anda. Apa yang mereka temukan?
+                    </h2>
+                </div>
+                <ul class="problem-items">
+                    <li>Informasi bisnis tersebar</li>
+                    <li>Katalog tidak rapi</li>
+                    <li>Pelanggan sulit menemukan lokasi</li>
+                    <li>Hanya mengandalkan media sosial</li>
+                    <li>Bisnis terlihat kurang profesional</li>
+                </ul>
             </div>
-          </div>
-        </div>
-        <!-- Crypto Agent -->
-        <div class="project-card">
-          <div class="project-visual crypto">
-            <div class="project-screen">
-              <div class="bar"></div>
-              <div class="line short"></div>
-              <div class="line long"></div>
-              <div class="line mid"></div>
-              <div class="line long"></div>
+        </section>
+
+        <!-- ===== SOLUTION ===== -->
+        <section id="layanan" class="solution section-padding" aria-labelledby="solution-title">
+            <div class="container solution-grid">
+                <div>
+                    <span class="label-sm">Solusi</span>
+                    <h2 id="solution-title" class="heading-lg">
+                        Satu website untuk merapikan semuanya.
+                    </h2>
+                    <ul class="solution-benefits">
+                        <li>Profil bisnis</li>
+                        <li>Produk / layanan</li>
+                        <li>Galeri</li>
+                        <li>Lokasi</li>
+                        <li>WhatsApp</li>
+                        <li>Informasi penting lainnya</li>
+                    </ul>
+                </div>
+                <div class="solution-visual" aria-hidden="true">
+                    <div class="solution-mockup">
+                        <div class="solution-mockup-header">
+                            <span class="mockup-brand">Bisnis Anda</span>
+                            <div class="mockup-nav">
+                                <span>Beranda</span>
+                                <span>Produk</span>
+                                <span>Kontak</span>
+                            </div>
+                        </div>
+                        <div class="solution-mockup-body">
+                            <div class="s-line"></div>
+                            <div class="s-line"></div>
+                            <div class="s-line"></div>
+                            <div class="s-grid">
+                                <div class="s-grid-item"></div>
+                                <div class="s-grid-item"></div>
+                                <div class="s-grid-item"></div>
+                            </div>
+                        </div>
+                        <div class="solution-mockup-badge">— semua dalam satu halaman</div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="project-body">
-            <div class="project-type">AI Agent</div>
-            <div class="project-name">Crypto Agent</div>
-            <div class="project-status">Experimental Project</div>
-            <p class="project-desc">Eksperimen AI agent untuk membantu olah dan analisis informasi crypto dalam antarmuka khusus.</p>
-            <div class="project-tags"><span>AI</span><span>Crypto</span><span>Experiment</span></div>
-            <div class="project-foot">
-              <a class="btn btn-primary btn-sm" href="https://kavelo-crypto-agent.vercel.app" target="_blank" rel="noopener">Buka Crypto Agent →</a>
+        </section>
+
+        <!-- ===== PORTFOLIO ===== -->
+        <section id="portfolio" class="portfolio section-padding" aria-labelledby="portfolio-title">
+            <div class="container">
+                <div class="portfolio-header">
+                    <span class="label-sm">Portfolio</span>
+                    <h2 id="portfolio-title" class="heading-lg">
+                        Beberapa website yang sudah kami buat
+                    </h2>
+                </div>
+                <div class="portfolio-grid">
+                    <!-- Card 1 -->
+                    <article class="portfolio-card">
+                        <div class="portfolio-card-image">
+                            <div class="mockup-pattern" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="placeholder-label">PORTFOLIO_URL_1</span>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <span class="card-category">Kuliner</span>
+                            <h3>Warung Nasi Bude</h3>
+                            <p>Website profil dan menu untuk warung makan tradisional.</p>
+                            <a href="#" class="btn btn-secondary" style="padding:10px 24px; min-height:44px; font-size:0.875rem;">
+                                Lihat Website →
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="portfolio-card">
+                        <div class="portfolio-card-image">
+                            <div class="mockup-pattern" aria-hidden="true">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="placeholder-label">PORTFOLIO_URL_2</span>
+                        </div>
+                        <div class="portfolio-card-body">
+                            <span class="card-category">Jasa</span>
+                            <h3>Barbershop Maju Jaya</h3>
+                            <p>Website dengan galeri, layanan, dan tombol booking WhatsApp.</p>
+                            <a href="#" class="btn btn-secondary" style="padding:10px 24px; min-height:44px; font-size:0.875rem;">
+                                Lihat Website →
+                            </a>
+                        </div>
+                    </article>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="solution-block" style="margin-top:var(--space-6);">
-        <p><strong>Status project bisa berubah.</strong> Yang di atas masih eksperimen — bisa berkembang, berubah, atau menjadi produk jadi. Tujuannya bukan sekadar demo, tapi belajar membuat sesuatu yang benar-benar terpakai.</p>
-      </div>
-    </div>
-  </section>
+        </section>
 
-  <!-- ===== SHOWCASE ===== -->
-  <section id="showcase">
-    <div class="container">
-      <div class="section-head text-center">
-        <p class="eyebrow">Demo Website</p>
-        <h2 class="section-title">Tiga paket, <em>tiga level</em> kematangan.</h2>
-        <p class="section-desc">Demo live yang bisa kamu buka langsung — bukan mockup. Masing-masing menunjukkan range KaveloLab.</p>
-      </div>
-      <div class="showcase-grid">
-        <!-- Starter -->
-        <div class="showcase-card">
-          <div class="showcase-swatch" style="background:#3A2418;"><span style="background:#F3C77D;"></span><span style="background:#D98C4A;"></span><span style="background:#7A4430;"></span></div>
-          <div class="showcase-body">
-            <div class="showcase-pkg">Starter</div>
-            <div class="showcase-name">Senja Coffee</div>
-            <div class="showcase-pos">Kebutuhan simpel</div>
-            <p class="showcase-desc">One-page website hangat &amp; minimalis untuk usaha kecil — profil, menu, dan CTA WhatsApp.</p>
-            <div class="showcase-foot">
-              <a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/Senja-Coffee-demo-started/" target="_blank" rel="noopener">Lihat Demo</a>
+        <!-- ===== PROCESS ===== -->
+        <section id="proses" class="process section-padding" aria-labelledby="process-title">
+            <div class="container">
+                <div class="process-header">
+                    <span class="label-sm">Cara Kerja</span>
+                    <h2 id="process-title" class="heading-lg">
+                        Dari ide sampai online, tanpa ribet.
+                    </h2>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <h3>Kirim informasi bisnis</h3>
+                        <p>Isi data usaha, produk, dan kebutuhan Anda.</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Kami buat website</h3>
+                        <p>Tim kami merancang dan mengembangkan website Anda.</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Revisi</h3>
+                        <p>Kami sesuaikan hingga Anda puas dengan hasilnya.</p>
+                    </div>
+                    <div class="process-step">
+                        <h3>Website online</h3>
+                        <p>Website siap diakses pelanggan Anda.</p>
+                    </div>
+                </div>
+                <div class="process-estimate">
+                    <p class="text-body-sm">
+                        ⏱️ Estimasi pengerjaan <strong>2–3 hari kerja</strong> setelah data lengkap.
+                    </p>
+                </div>
             </div>
-          </div>
-        </div>
-        <!-- Business -->
-        <div class="showcase-card">
-          <div class="showcase-swatch" style="background:#EDEBE6;"><span style="background:#FAFAF8;"></span><span style="background:#2F4A3E;"></span><span style="background:#14171A;"></span></div>
-          <div class="showcase-body">
-            <div class="showcase-pkg">Business</div>
-            <div class="showcase-name">BENTANG</div>
-            <div class="showcase-pos">Tampil lebih profesional</div>
-            <p class="showcase-desc">Website multi-halaman dengan navigasi lengkap untuk bisnis yang butuh presentasi matang.</p>
-            <div class="showcase-foot">
-              <a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/BENTANG-DEMO-BUSINESS/" target="_blank" rel="noopener">Lihat Demo</a>
+        </section>
+
+        <!-- ===== PRICING ===== -->
+        <section id="harga" class="pricing section-padding" aria-labelledby="pricing-title">
+            <div class="container">
+                <div class="pricing-header">
+                    <span class="label-sm">Harga</span>
+                    <h2 id="pricing-title" class="heading-lg">
+                        Pilih paket yang sesuai
+                    </h2>
+                    <p class="text-body" style="max-width:48ch; margin:0 auto;">
+                        Transparan, tanpa biaya tersembunyi. Semua paket sudah termasuk deployment.
+                    </p>
+                </div>
+                <div class="pricing-grid">
+                    <!-- Starter -->
+                    <div class="pricing-card">
+                        <span class="badge">Starter</span>
+                        <div class="price">Rp299.000 <span>/ sekali</span></div>
+                        <p class="pricing-desc">Cocok untuk bisnis yang baru mulai online.</p>
+                        <ul>
+                            <li>1-page website</li>
+                            <li>Profil bisnis</li>
+                            <li>Produk / jasa</li>
+                            <li>Tombol WhatsApp</li>
+                            <li>Responsive mobile</li>
+                            <li>Deployment</li>
+                        </ul>
+                        <a href="#buat-website" class="btn btn-gold-outline">Pesan Website</a>
+                    </div>
+
+                    <!-- Business — Recommended -->
+                    <div class="pricing-card featured">
+                        <span class="badge">⭐ Recommended</span>
+                        <div class="price">Rp499.000 <span>/ sekali</span></div>
+                        <p class="pricing-desc">Paling populer untuk UMKM yang ingin lebih profesional.</p>
+                        <ul>
+                            <li>Semua Starter</li>
+                            <li>Katalog produk</li>
+                            <li>Galeri</li>
+                            <li>Google Maps</li>
+                            <li>CTA lebih lengkap</li>
+                            <li>Struktur website lebih profesional</li>
+                        </ul>
+                        <a href="#buat-website" class="btn btn-primary">Pesan Website</a>
+                    </div>
+
+                    <!-- Custom -->
+                    <div class="pricing-card">
+                        <span class="badge">Custom</span>
+                        <div class="price">Mulai Rp799.000 <span>/ sekali</span></div>
+                        <p class="pricing-desc">Untuk kebutuhan khusus yang tidak standar.</p>
+                        <ul>
+                            <li>Kebutuhan khusus</li>
+                            <li>Halaman tambahan</li>
+                            <li>Fitur custom</li>
+                            <li>Konsultasi personal</li>
+                        </ul>
+                        <a href="#buat-website" class="btn btn-gold-outline">Pesan Website</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <!-- Pro -->
-        <div class="showcase-card">
-          <div class="showcase-swatch" style="background:#0D0C10;"><span style="background:#0D0C10;"></span><span style="background:#6C5CE0;"></span><span style="background:#F4F1EA;"></span></div>
-          <div class="showcase-body">
-            <div class="showcase-pkg">Pro</div>
-            <div class="showcase-name">ARUNA</div>
-            <div class="showcase-pos">Pengalaman premium</div>
-            <p class="showcase-desc">Website editorial dengan art direction kuat, navigasi custom, dan presentasi karya yang ekspresif.</p>
-            <div class="showcase-foot">
-              <a class="btn btn-outline btn-sm" href="https://fajarnurkholiq.github.io/aruna-demo-pro/" target="_blank" rel="noopener">Lihat Demo</a>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section id="faq" class="faq section-padding" aria-labelledby="faq-title">
+            <div class="container">
+                <div class="faq-header">
+                    <span class="label-sm">Pertanyaan</span>
+                    <h2 id="faq-title" class="heading-lg">
+                        Yang sering ditanyakan
+                    </h2>
+                </div>
+                <div class="faq-list" role="list">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item" role="listitem">
+                        <button class="faq-question" aria-expanded="false">
+                            Apakah harus punya domain?
+                            <span class="icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Tidak harus. Kami siapkan domain sementara gratis. Kalau sudah punya domain, kami bantu pasangkan.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div class="faq-item" role="listitem">
+                        <button class="faq-question" aria-expanded="false">
+                            Berapa lama pengerjaannya?
+                            <span class="icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Estimasi 2–3 hari kerja setelah data lengkap. Untuk paket Custom bisa lebih, tergantung kompleksitas.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div class="faq-item" role="listitem">
+                        <button class="faq-question" aria-expanded="false">
+                            Apakah bisa revisi?
+                            <span class="icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Bisa. Kami berikan 2 kali revisi untuk paket Starter dan Business, serta fleksibel untuk Custom.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 4 -->
+                    <div class="faq-item" role="listitem">
+                        <button class="faq-question" aria-expanded="false">
+                            Apakah website bisa dibuka di HP?
+                            <span class="icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Pasti. Semua website kami dibuat responsive, jadi tampil baik di HP, tablet, dan komputer.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 5 -->
+                    <div class="faq-item" role="listitem">
+                        <button class="faq-question" aria-expanded="false">
+                            Apakah bisa update produk sendiri?
+                            <span class="icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Untuk paket Business dan Custom, kami sediakan panduan sederhana agar Anda bisa update konten sendiri.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ 6 -->
+                    <div class="faq-item" role="listitem">
+                        <button class="faq-question" aria-expanded="false">
+                            Bagaimana cara memesan?
+                            <span class="icon" aria-hidden="true">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Klik tombol "Buat Website" di bawah ini, kami akan terhubung via WhatsApp untuk diskusi kebutuhan Anda.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+        </section>
 
-  <!-- ===== HARGA ===== -->
-  <section id="harga" style="background:var(--bg-surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-    <div class="container">
-      <div class="section-head text-center">
-        <p class="eyebrow">Investasi</p>
-        <h2 class="section-title">Pilih paket yang <em>cocok</em>.</h2>
-        <p class="section-desc">Makin lengkap kebutuhannya, makin besar paketnya. Belum yakin? Konsultasi dulu, gratis.</p>
-      </div>
-      <div class="price-grid">
-        <!-- Starter -->
-        <div class="price-card">
-          <div class="price-name">Starter</div>
-          <div class="price-pos">Kebutuhan simpel</div>
-          <div class="price-amount"><sup>Rp</sup>499K</div>
-          <div class="price-feat">
-            <span>1 halaman</span>
-            <span>Responsive mobile</span>
-            <span>WhatsApp CTA</span>
-            <span>Gallery / Portfolio</span>
-            <span>Basic on-page SEO</span>
-            <span>1× revisi</span>
-            <span>Deploy website</span>
-            <span>Estimasi 3 hari</span>
-          </div>
-          <a class="btn btn-outline btn-block" href="lead-agent.html">Pilih Starter</a>
+        <!-- ===== FINAL CTA ===== -->
+        <section id="buat-website" class="final-cta" aria-labelledby="final-title">
+            <div class="container">
+                <h2 id="final-title" class="heading-lg">
+                    Sudah punya usaha. Sekarang waktunya punya rumah online.
+                </h2>
+                <p class="text-body">
+                    KaveloLab siap bantu Anda tampil lebih profesional dan mudah ditemukan pelanggan.
+                </p>
+                <a href="https://wa.me/WHATSAPP_NUMBER?text=Halo%20KaveloLab%2C%20saya%20tertarik%20membuat%20website%20untuk%20bisnis%20saya.%20Saya%20ingin%20konsultasi%20mengenai%20paket%20website."
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener noreferrer">
+                Buat Website Saya
+            </a>
         </div>
-        <!-- Business -->
-        <div class="price-card reco">
-          <span class="price-badge">Paling rame</span>
-          <div class="price-name">Business</div>
-          <div class="price-pos">Tampil lebih profesional</div>
-          <div class="price-amount"><sup>Rp</sup>999K</div>
-          <div class="price-feat">
-            <span>Maks. 5 halaman</span>
-            <span>Responsive mobile</span>
-            <span>WhatsApp CTA</span>
-            <span>Form kontak</span>
-            <span>Gallery / Portfolio</span>
-            <span>Basic on-page SEO</span>
-            <span>2× revisi</span>
-            <span>Deploy website</span>
-            <span>Estimasi 5 hari</span>
-          </div>
-          <a class="btn btn-primary btn-block" href="lead-agent.html">Pilih Business</a>
-        </div>
-        <!-- Pro -->
-        <div class="price-card">
-          <div class="price-name">Pro</div>
-          <div class="price-pos">Pengalaman premium</div>
-          <div class="price-amount"><sup>Rp</sup>1.499K</div>
-          <div class="price-feat">
-            <span>Maks. 8 halaman</span>
-            <span>Responsive mobile</span>
-            <span>WhatsApp CTA</span>
-            <span>Form kontak</span>
-            <span>Gallery / Portfolio</span>
-            <span>Basic on-page SEO</span>
-            <span>Layout lebih custom</span>
-            <span>3× revisi</span>
-            <span>Deploy website</span>
-            <span>Estimasi 7 hari</span>
-          </div>
-          <a class="btn btn-outline btn-block" href="lead-agent.html">Pilih Pro</a>
-        </div>
-      </div>
-      <div class="custom-card">
-        <div class="custom-left">
-          <div class="price-name">Custom</div>
-          <p>Kebutuhan di luar paket — halaman, fitur, scope &amp; harga disesuaikan berdasarkan kompleksitas.</p>
-        </div>
-        <div class="custom-right">
-          <div class="custom-price"><small>Mulai</small>Rp2.499K</div>
-          <a class="btn btn-outline btn-sm" href="lead-agent.html">Tanya Custom</a>
-        </div>
-      </div>
-      <div class="terms-note">
-        <p class="eyebrow">Ketentuan</p>
-        <ul>
-          <li>Revisi = perubahan minor teks, warna, gambar, atau layout — tidak termasuk redesign total atau halaman baru.</li>
-          <li>Konten teks, foto &amp; logo disiapkan klien; halaman tambahan di luar paket kena biaya.</li>
-          <li>Deploy default ke subdomain gratis (GitHub Pages / Cloudflare Pages). Custom domain &amp; hosting tersedia sebagai add-on.</li>
-          <li>Basic on-page SEO = setup title, meta description, heading structure, alt text — tidak menjamin ranking atau traffic tertentu.</li>
-          <li>Estimasi pengerjaan: Starter 3 hari, Business 5 hari, Pro 7 hari — tergantung kelengkapan konten klien.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== PROSES ===== -->
-  <section id="proses">
-    <div class="container">
-      <div class="section-head text-center">
-        <p class="eyebrow">Cara Order</p>
-        <h2 class="section-title">Lima langkah, dari chat <em>sampai website</em> siap.</h2>
-      </div>
-      <div class="process-list" style="max-width:680px;margin:0 auto;">
-        <div class="process-item"><span class="num">01</span><div><h3>Konsultasi</h3><p>Ceritakan kebutuhan bisnis kamu lewat WhatsApp.</p></div></div>
-        <div class="process-item"><span class="num">02</span><div><h3>Pilih Paket &amp; Kebutuhan</h3><p>Tentukan paket yang cocok dan detail halaman yang dibutuhkan.</p></div></div>
-        <div class="process-item"><span class="num">03</span><div><h3>Pengerjaan</h3><p>Website dikerjakan sesuai brief dan estimasi waktu paket.</p></div></div>
-        <div class="process-item"><span class="num">04</span><div><h3>Review &amp; Revisi</h3><p>Kamu cek hasilnya, revisi sesuai jatah paket yang dipilih.</p></div></div>
-        <div class="process-item"><span class="num">05</span><div><h3>Website Siap</h3><p>Website di-deploy dan siap dipakai untuk bisnis kamu.</p></div></div>
-      </div>
-      <div class="solution-block" style="margin-top:var(--space-6);max-width:680px;margin-left:auto;margin-right:auto;">
-        <p><strong>AI digunakan sebagai alat bantu</strong> di proses build untuk mempercepat development. Tapi setiap hasil tetap melalui review &amp; revisi manusia sebelum dinyatakan selesai.</p>
-      </div>
-    </div>
-  </section>
+</main>
 
-  <!-- ===== FAQ ===== -->
-  <section id="faq" style="background:var(--bg-surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-    <div class="container">
-      <div class="section-head text-center">
-        <p class="eyebrow">Pertanyaan Umum</p>
-        <h2 class="section-title">Yang sering <em>ditanyakan</em>.</h2>
-      </div>
-      <div class="faq-list" style="max-width:720px;margin:0 auto;">
-        <div class="faq-item">
-          <button class="faq-q">Bisa request desain sendiri? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Bisa. Desain disusun berdasarkan brief awal kamu dan bisa disesuaikan dalam batas revisi paket.</p></div>
+<!-- ============================================================
+FOOTER
+============================================================ -->
+<footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            Kavelo<span>Lab</span> &mdash; digital studio untuk UMKM
         </div>
-        <div class="faq-item">
-          <button class="faq-q">Website-nya responsif? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Ya, semua paket dibuat responsive — rapi di HP, tablet, dan desktop.</p></div>
+        <div class="footer-links">
+            <a href="#layanan">Layanan</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#harga">Harga</a>
+            <a href="#faq">FAQ</a>
         </div>
-        <div class="faq-item">
-          <button class="faq-q">Berapa lama pengerjaan? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Starter 3 hari, Business 5 hari, Pro 7 hari — tergantung kelengkapan konten kamu.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Bisa revisi? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Bisa, sesuai jatah: Starter 1×, Business 2×, Pro 3×.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Domain &amp; hosting termasuk? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Deploy default ke subdomain gratis. Custom domain &amp; hosting tersedia sebagai add-on.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Gimana cara order? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Langsung chat WhatsApp, ceritakan kebutuhan bisnis kamu, nanti diarahkan ke paket yang cocok.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Website dibuat pakai AI? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Sebagian proses build menggunakan bantuan AI untuk percepatan, tapi setiap hasil tetap melalui review manusia.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Fajar OS sudah selesai? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Belum — Fajar OS masih prototype yang terus dikembangkan sebagai eksperimen AI Workspace.</p></div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q">Crypto Agent jadi produk final? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Belum tentu — ini experimental project untuk menunjukkan eksplorasi KaveloLab di AI agent.</p></div>
-        </div>
-      </div>
+        <div>&copy; 2026 KaveloLab</div>
     </div>
-  </section>
+</footer>
 
-  <!-- ===== FINAL CTA ===== -->
-  <div class="final-cta">
-    <div class="container">
-      <p class="eyebrow" style="justify-content:center;">Mulai Sekarang</p>
-      <h2>Siap punya website <em>sendiri?</em></h2>
-      <p>Chat dulu, ceritakan kebutuhan bisnis kamu — gratis, tanpa komitmen.</p>
-      <a class="btn btn-primary" href="lead-agent.html">Pesan Sekarang</a>
-    </div>
-  </div>
-
-  <!-- ===== FOOTER ===== -->
-  <footer>
-    <div class="container">
-      <div class="foot-top">
-        <div class="foot-logo">Kavelo<span>Lab</span></div>
-        <div class="foot-tag">AI &amp; Technology Lab — Website · AI · Technology Projects</div>
-      </div>
-      <div class="foot-links">
-        <a href="#layanan">Layanan</a>
-        <a href="#projects">Projects</a>
-        <a href="#showcase">Demo</a>
-        <a href="#harga">Harga</a>
-        <a href="#proses">Proses</a>
-        <a href="#faq">FAQ</a>
-        <a href="lead-agent.html" style="color:var(--gold);">Order</a>
-      </div>
-      <div class="foot-bottom">
-        <span>&copy; KaveloLab</span>
-        <span>WhatsApp: +62 821-2175-9018</span>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===== CHATBOT ===== -->
-  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="KaveloLab Assistant" aria-hidden="true">
-    <div class="chat-head">
-      <span class="dot"></span>
-      <div class="ti">
-        <strong>KaveloLab Assistant</strong>
-        <span>Otomatis · balas cepat</span>
-      </div>
-    </div>
-    <div class="chat-body" id="chatBody"></div>
-    <div class="chat-suggest" id="chatSuggest">
-      <button type="button" data-q="harga">Harga paket?</button>
-      <button type="button" data-q="proses">Berapa lama?</button>
-      <button type="button" data-q="revisi">Bisa revisi?</button>
-      <button type="button" data-q="domain">Domain &amp; hosting?</button>
-      <button type="button" data-q="project">Ada project AI?</button>
-    </div>
-    <div class="chat-input-row">
-      <input type="text" id="chatInput" placeholder="Tulis pertanyaan..." autocomplete="off" />
-      <button type="button" id="chatSend" aria-label="Kirim">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 20l18-8L3 4v6l12 2-12 2z"/></svg>
-      </button>
-    </div>
-    <p class="chat-disclaimer">Asisten otomatis dengan aturan sederhana — untuk pertanyaan detail, lanjut ke WhatsApp.</p>
-  </div>
-  <button class="chat-fab" id="chatFab" aria-label="Buka chat asisten" aria-expanded="false">
-    <svg class="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-    <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M18 6L6 18M6 6l12 12"/></svg>
-  </button>
-
-  <script>
+<!-- ============================================================
+SCRIPTS
+============================================================ -->
+<script>
     (function() {
-      // ---- Mobile nav ----
-      var toggle = document.querySelector('.nav-toggle');
-      var mobile = document.querySelector('.nav-mobile');
-      if (toggle && mobile) {
-        toggle.addEventListener('click', function() {
-          var open = mobile.classList.toggle('open');
-          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        mobile.querySelectorAll('a').forEach(function(a) {
-          a.addEventListener('click', function() {
-            mobile.classList.remove('open');
-            toggle.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
+        'use strict';
 
-      // ---- FAQ ----
-      document.querySelectorAll('.faq-q').forEach(function(btn, i) {
-        var item = btn.closest('.faq-item');
-        var answer = item.querySelector('.faq-a');
-        var id = 'faq-a-' + i;
-        answer.id = id;
-        btn.setAttribute('aria-controls', id);
-        btn.setAttribute('aria-expanded', 'false');
+        // ---- Hamburger ----
+        const hamburger = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
 
-        btn.addEventListener('click', function() {
-          var isOpen = item.classList.contains('open');
-          document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
-            if (openItem !== item) {
-              openItem.classList.remove('open');
-              openItem.querySelector('.faq-a').style.maxHeight = null;
-              openItem.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-            }
-          });
-          if (!isOpen) {
-            item.classList.add('open');
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-            btn.setAttribute('aria-expanded', 'true');
-          } else {
-            item.classList.remove('open');
-            answer.style.maxHeight = null;
-            btn.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-
-      // ---- Chatbot ----
-      const WHATSAPP = "6282121759018";
-      function waLink(msg) {
-        return 'https://wa.me/' + WHATSAPP + (msg ? '?text=' + encodeURIComponent(msg) : '');
-      }
-
-      var RULES = [
-        { keys: ['harga', 'paket', 'price', 'biaya', 'mahal', 'murah'], answer: 'Ada 4 paket: <strong>Starter Rp499K</strong> (1 halaman), <strong>Business Rp999K</strong> (maks 5 halaman), <strong>Pro Rp1.499K</strong> (maks 8 halaman), dan <strong>Custom mulai Rp2.499K</strong>. Detail lengkap di <a href="#harga">Harga</a>.' },
-        { keys: ['proses', 'lama', 'berapa hari', 'estimasi', 'waktu'], answer: 'Estimasi: Starter 3 hari, Business 5 hari, Pro 7 hari — tergantung kelengkapan konten kamu.' },
-        { keys: ['revisi', 'ubah', 'ganti'], answer: 'Jatah revisi: Starter 1×, Business 2×, Pro 3×. Revisi = perubahan minor teks, warna, gambar, atau layout.' },
-        { keys: ['domain', 'hosting', 'subdomain'], answer: 'Deploy default ke subdomain gratis (GitHub Pages / Cloudflare Pages). Custom domain & hosting tersedia sebagai add-on.' },
-        { keys: ['seo'], answer: 'Semua paket sudah termasuk basic on-page SEO: title, meta description, heading structure, alt text. Tidak menjamin ranking tertentu.' },
-        { keys: ['demo', 'contoh', 'portfolio', 'lihat'], answer: 'Ada 3 demo: Senja Coffee (Starter), BENTANG (Business), dan ARUNA (Pro). Cek di <a href="#showcase">Demo</a>.' },
-        { keys: ['project', 'projects', 'fajar os', 'fajar', 'crypto agent', 'ai agent'], answer: 'KaveloLab juga punya technology projects. <a href="#projects">Fajar OS</a> (prototype AI Workspace) dan <a href="#projects">Crypto Agent</a> (experimental AI project).' },
-        { keys: ['fajar os', 'fajaros'], answer: 'Fajar OS adalah prototype AI Workspace yang sedang dikembangkan. <a href="https://fajar-os.vercel.app" target="_blank">Buka Fajar OS →</a>' },
-        { keys: ['crypto agent', 'crypto'], answer: 'Crypto Agent adalah experimental project KaveloLab di bidang AI agent & crypto. <a href="https://kavelo-crypto-agent.vercel.app" target="_blank">Buka Crypto Agent →</a>' },
-        { keys: ['ai', 'claude', 'pakai ai'], answer: 'Sebagian proses development menggunakan bantuan AI untuk mempercepat build. Hasil tetap direview & direvisi manusia.' },
-        { keys: ['mulai', 'order', 'pesan', 'cara'], answer: 'Gampang — langsung chat WhatsApp, ceritakan kebutuhan bisnis kamu, nanti diarahkan ke paket yang cocok.' },
-        { keys: ['responsive', 'hp', 'mobile'], answer: 'Ya, semua paket dibuat responsive — rapi di HP, tablet, dan desktop.' },
-        { keys: ['cafe', 'kopi', 'coffee', 'umkm', 'bisnis', 'toko', 'jasa', 'personal brand'], answer: 'KaveloLab cocok untuk UMKM, bisnis kecil, cafe, toko, personal brand, dan jasa lokal. Konsultasi gratis via WhatsApp.' },
-        { keys: ['halo', 'hai', 'hi', 'hello', 'pagi', 'siang', 'malam'], answer: 'Halo! 👋 Mau tanya soal harga, proses, revisi, demo website, atau project AI? Ketik pertanyaan kamu.' }
-      ];
-
-      function findAnswer(text) {
-        var t = text.toLowerCase();
-        for (var i = 0; i < RULES.length; i++) {
-          var rule = RULES[i];
-          for (var j = 0; j < rule.keys.length; j++) {
-            if (t.indexOf(rule.keys[j]) !== -1) return rule.answer;
-          }
+        function toggleMenu(open) {
+            const isOpen = open !== undefined ? open : !mobileMenu.classList.contains('open');
+            mobileMenu.classList.toggle('open', isOpen);
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         }
-        return null;
-      }
 
-      var FALLBACK = 'Untuk pertanyaan ini aku belum punya jawaban pastinya — biar nggak salah info, langsung tanya via WhatsApp ya.';
-
-      var fab = document.getElementById('chatFab');
-      var panel = document.getElementById('chatPanel');
-      var body = document.getElementById('chatBody');
-      var input = document.getElementById('chatInput');
-      var sendBtn = document.getElementById('chatSend');
-      var suggest = document.getElementById('chatSuggest');
-      var opened = false;
-
-      function addMsg(text, who) {
-        var el = document.createElement('div');
-        el.className = 'chat-msg ' + who;
-        el.innerHTML = text;
-        body.appendChild(el);
-        body.scrollTop = body.scrollHeight;
-      }
-
-      function botReply(userText) {
-        var found = findAnswer(userText);
-        setTimeout(function() {
-          if (found) {
-            addMsg(found, 'bot');
-          } else {
-            addMsg(FALLBACK + ' <a href="' + waLink('Halo KaveloLab, saya mau tanya: ' + userText) + '" target="_blank" rel="noopener">Chat WhatsApp →</a>', 'bot');
-          }
-        }, 350);
-      }
-
-      function handleSend(text) {
-        text = (text || '').trim();
-        if (!text) return;
-        addMsg(text, 'user');
-        input.value = '';
-        botReply(text);
-      }
-
-      if (fab && panel) {
-        fab.addEventListener('click', function() {
-          var isOpen = panel.classList.toggle('open');
-          fab.classList.toggle('open', isOpen);
-          fab.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-          panel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
-          if (isOpen && !opened) {
-            opened = true;
-            addMsg('Halo! 👋 Aku asisten KaveloLab. Bisa bantu soal harga, proses, revisi, demo, dan project AI.', 'bot');
-          }
-          if (isOpen) input.focus();
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleMenu();
         });
-      }
 
-      if (sendBtn) sendBtn.addEventListener('click', function() { handleSend(input.value); });
-      if (input) input.addEventListener('keydown', function(e) { if (e.key === 'Enter') handleSend(input.value); });
-      if (suggest) suggest.addEventListener('click', function(e) {
-        var btn = e.target.closest('button[data-q]');
-        if (btn) handleSend(btn.getAttribute('data-q'));
-      });
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                toggleMenu(false);
+            });
+        });
+
+        // Close on escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                toggleMenu(false);
+                hamburger.focus();
+            }
+        });
+
+        // ---- FAQ Accordion ----
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(function(item) {
+            const btn = item.querySelector('.faq-question');
+            btn.addEventListener('click', function() {
+                const isOpen = item.classList.contains('open');
+
+                // Close all
+                faqItems.forEach(function(other) {
+                    other.classList.remove('open');
+                    other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                });
+
+                // Toggle this one
+                if (!isOpen) {
+                    item.classList.add('open');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
+            });
+
+            // Keyboard support: Enter/Space already handled by button
+        });
+
+        // ---- Smooth scroll for anchor links ----
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const navHeight = 72;
+                    const top = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 16;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                }
+            });
+        });
+
     })();
-  </script>
+</script>
+
 </body>
 </html>
