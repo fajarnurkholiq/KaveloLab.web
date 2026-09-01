@@ -789,6 +789,39 @@
             margin-top: auto;
         }
 
+        /* ===== CTA bawah pricing (ajakan konsultasi) ===== */
+        .pricing-consult {
+            text-align: center;
+            margin-top: 48px;
+            padding: 32px 24px;
+            background: #f7f5f2;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .pricing-consult h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .pricing-consult p {
+            font-size: 0.9375rem;
+            color: #4a4a4a;
+            margin-bottom: 18px;
+        }
+
+        .pricing-consult .btn {
+            width: auto;
+        }
+
+        @media (max-width: 480px) {
+            .pricing-consult .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
         @media (min-width: 640px) {
             .pricing-grid {
                 grid-template-columns: 1fr 1fr;
@@ -1072,7 +1105,8 @@
                     <h1 class="heading-xl">Punya usaha, tapi belum punya website?</h1>
                     <p class="text-body">Kami bantu UMKM punya website profesional yang simpel, cepat, dan langsung terhubung ke pelanggan.</p>
                     <div class="hero-actions">
-                        <a href="#buat-website" class="btn btn-primary">Buat Website</a>
+                        <!-- CTA hero pakai default message -->
+                        <a href="https://wa.me/6282121759018?text=Halo%20KaveloLab%2C%20saya%20tertarik%20membuat%20website%20untuk%20bisnis%20saya.%20Saya%20ingin%20konsultasi%20mengenai%20paket%20yang%20cocok." target="_blank" rel="noopener noreferrer" class="btn btn-primary">Buat Website</a>
                         <a href="#portfolio" class="btn btn-secondary">Lihat Portfolio</a>
                     </div>
                 </div>
@@ -1218,14 +1252,17 @@
                         <div class="price">Rp299.000 <span>/ sekali</span></div>
                         <p class="pricing-desc">Cocok untuk bisnis yang baru mulai online.</p>
                         <ul>
-                            <li>1-page website</li>
+                            <li>1 halaman</li>
                             <li>Profil bisnis</li>
                             <li>Produk / jasa</li>
                             <li>Tombol WhatsApp</li>
                             <li>Responsive mobile</li>
-                            <li>Deployment</li>
+                            <li>Publish website</li>
+                            <li>2× revisi</li>
                         </ul>
-                        <a href="#buat-website" class="btn btn-gold-outline">Pesan Website</a>
+                        <a href="https://wa.me/6282121759018?text=Halo%20KaveloLab%2C%20saya%20tertarik%20dengan%20paket%20Starter%20Rp299.000%20untuk%20website%20bisnis%20saya.%20Saya%20ingin%20konsultasi%20lebih%20lanjut." target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline">
+                            Pesan Website
+                        </a>
                     </div>
 
                     <!-- Business -->
@@ -1236,12 +1273,15 @@
                         <ul>
                             <li>Semua Starter</li>
                             <li>Katalog produk</li>
-                            <li>Galeri</li>
+                            <li>Galeri foto</li>
                             <li>Google Maps</li>
+                            <li>Section tambahan</li>
                             <li>CTA lebih lengkap</li>
-                            <li>Struktur website lebih profesional</li>
+                            <li>2× revisi</li>
                         </ul>
-                        <a href="#buat-website" class="btn btn-primary">Pesan Website</a>
+                        <a href="https://wa.me/6282121759018?text=Halo%20KaveloLab%2C%20saya%20tertarik%20dengan%20paket%20Business%20Rp499.000%20untuk%20website%20bisnis%20saya.%20Saya%20ingin%20konsultasi%20lebih%20lanjut." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                            Pesan Website
+                        </a>
                     </div>
 
                     <!-- Custom -->
@@ -1250,13 +1290,24 @@
                         <div class="price">Mulai Rp799.000 <span>/ sekali</span></div>
                         <p class="pricing-desc">Untuk kebutuhan khusus yang tidak standar.</p>
                         <ul>
-                            <li>Kebutuhan khusus</li>
                             <li>Halaman tambahan</li>
-                            <li>Fitur custom</li>
-                            <li>Konsultasi personal</li>
+                            <li>Fitur khusus</li>
+                            <li>Struktur custom</li>
+                            <li>Harga menyesuaikan kebutuhan</li>
                         </ul>
-                        <a href="#buat-website" class="btn btn-gold-outline">Pesan Website</a>
+                        <a href="https://wa.me/6282121759018?text=Halo%20KaveloLab%2C%20saya%20tertarik%20dengan%20paket%20Custom%20untuk%20website%20bisnis%20saya.%20Saya%20ingin%20konsultasi%20mengenai%20kebutuhan%20saya." target="_blank" rel="noopener noreferrer" class="btn btn-gold-outline">
+                            Pesan Website
+                        </a>
                     </div>
+                </div>
+
+                <!-- ===== AJAKAN KONSULTASI DI BAWAH PRICING ===== -->
+                <div class="pricing-consult">
+                    <h3>Belum yakin pilih paket yang mana?</h3>
+                    <p>Ceritakan kebutuhan bisnis Anda. Kami bantu rekomendasikan paket yang paling sesuai.</p>
+                    <a href="https://wa.me/6282121759018?text=Halo%20KaveloLab%2C%20saya%20tertarik%20membuat%20website%20untuk%20bisnis%20saya.%20Saya%20ingin%20konsultasi%20mengenai%20paket%20yang%20cocok." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        Konsultasi via WhatsApp
+                    </a>
                 </div>
             </div>
         </section>
@@ -1271,7 +1322,7 @@
                 <div class="faq-list">
                     <div class="faq-item">
                         <button class="faq-question">Apakah harus punya domain? <span class="icon">+</span></button>
-                        <div class="faq-answer"><p>Tidak harus. Kami siapkan domain sementara gratis. Kalau sudah punya domain, kami bantu pasangkan.</p></div>
+                        <div class="faq-answer"><p>Tidak punya domain? Kami bantu siapkan website agar bisa langsung online.</p></div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Berapa lama pengerjaannya? <span class="icon">+</span></button>
@@ -1279,7 +1330,7 @@
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Apakah bisa revisi? <span class="icon">+</span></button>
-                        <div class="faq-answer"><p>Bisa. Kami berikan 2 kali revisi untuk paket Starter dan Business, serta fleksibel untuk Custom.</p></div>
+                        <div class="faq-answer"><p>Bisa. Paket Starter dan Business mendapatkan 2× revisi. Untuk Custom, revisi fleksibel sesuai kesepakatan.</p></div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-question">Apakah website bisa dibuka di HP? <span class="icon">+</span></button>
@@ -1302,7 +1353,7 @@
             <div class="container">
                 <h2 class="heading-lg">Sudah punya usaha. Sekarang waktunya punya rumah online.</h2>
                 <p class="text-body">KaveloLab siap bantu Anda tampil lebih profesional dan mudah ditemukan pelanggan.</p>
-                <a href="https://wa.me/WHATSAPP_NUMBER?text=Halo%20KaveloLab%2C%20saya%20tertarik%20membuat%20website%20untuk%20bisnis%20saya.%20Saya%20ingin%20konsultasi%20mengenai%20paket%20website." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <a href="https://wa.me/6282121759018?text=Halo%20KaveloLab%2C%20saya%20tertarik%20membuat%20website%20untuk%20bisnis%20saya.%20Saya%20ingin%20konsultasi%20mengenai%20paket%20yang%20cocok." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                     Buat Website Saya
                 </a>
             </div>
